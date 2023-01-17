@@ -71,10 +71,10 @@ public:
 	UTileView* MyItemTileViewCenter;
 
 	UPROPERTY(meta = (BindWidget))
-	UUMG_InventorySlot* LeftInventory;
+	class UUMG_InventorySlot* LeftInventory;
 
 	UPROPERTY(meta = (BindWidget))
-	UUMG_InventorySlot* CenterInventory;
+	class UUMG_InventorySlot* CenterInventory;
 
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -82,6 +82,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<UInventoryItemData*> ItemDataArraySecond;
+
+
 
 	bool bIsNotFounded = true;
 	//struct ItemSlot

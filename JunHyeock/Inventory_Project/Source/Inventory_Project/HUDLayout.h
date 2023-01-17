@@ -6,6 +6,7 @@
 #include "Blueprint/UserWidget.h" 
 #include "DragWidget.h"
 #include "UMG_Inventory.h"
+#include "UMG_InventoryItem.h"
 #include "HUDLayout.generated.h"
 
 /**

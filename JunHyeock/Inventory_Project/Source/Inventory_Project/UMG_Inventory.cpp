@@ -117,11 +117,11 @@ void UUMG_Inventory::NativeOnInitialized()
 
 void UUMG_Inventory::OnButtonClickExample()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("Button Clicked"));
 }
 
 void UUMG_Inventory::AddItemtoInventory(UObject* Item)
 {
+	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("AddItem"));
 	if (MyItemTileView == nullptr)
 		return;
 
@@ -146,7 +146,7 @@ void UUMG_Inventory::AddItemtoInventory(UObject* Item)
 	{
 		if (MyItem->ItemID == DataItr->ItemID)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("Found"));
+			//GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("Found"));
 			//found same itemid
 			DataItr->ItemCount += MyItem->ItemCount;
 			bIsNotFounded = false;
@@ -158,7 +158,7 @@ void UUMG_Inventory::AddItemtoInventory(UObject* Item)
 	if (bIsNotFounded)
 	{
 		//'다른것만있을때'
-		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("NotFound"));
+		//GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("NotFound"));
 
 		//MyItem->ItemCount++;
 		ItemDataArray.Add(MyItem);
@@ -202,7 +202,7 @@ void UUMG_Inventory::AddItemToCenter(UObject* Item)
 	{
 		if (MyItem->ItemID == DataItr->ItemID)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("Found Second"));
+			//GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("Found Second"));
 			//found same itemid 
 			DataItr->ItemCount += MyItem->ItemCount;
 			bIsNotFounded = false;
@@ -214,7 +214,7 @@ void UUMG_Inventory::AddItemToCenter(UObject* Item)
 	if (bIsNotFounded)
 	{
 		//'다른것만있을때'
-		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("NotFound Second"));
+		//GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("NotFound Second"));
 
 		//MyItem->ItemCount++;
 		ItemDataArraySecond.Add(MyItem);

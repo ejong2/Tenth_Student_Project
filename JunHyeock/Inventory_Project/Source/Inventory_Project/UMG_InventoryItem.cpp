@@ -78,7 +78,6 @@ void UUMG_InventoryItem::NativeOnDragLeave(const FDragDropEvent& InDragDropEvent
 void UUMG_InventoryItem::NativeOnListItemObjectSet(UObject* ListItemObject)
 {
 
-
 	SetData(ListItemObject);
 
 }

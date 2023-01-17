@@ -54,11 +54,12 @@ void EmptyLinkFunctionForGeneratedCodeUMG_InventorySlot() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UUMG_InventorySlot_Statics::NewProp_InvenTileView_MetaData[] = {
 		{ "BindWidget", "" },
+		{ "Category", "UMG_InventorySlot" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "UMG_InventorySlot.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_InventorySlot_Statics::NewProp_InvenTileView = { "InvenTileView", nullptr, (EPropertyFlags)0x0010000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_InventorySlot, InvenTileView), Z_Construct_UClass_UTileView_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_InventorySlot_Statics::NewProp_InvenTileView_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_InventorySlot_Statics::NewProp_InvenTileView_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_InventorySlot_Statics::NewProp_InvenTileView = { "InvenTileView", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_InventorySlot, InvenTileView), Z_Construct_UClass_UTileView_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_InventorySlot_Statics::NewProp_InvenTileView_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_InventorySlot_Statics::NewProp_InvenTileView_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UUMG_InventorySlot_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UUMG_InventorySlot_Statics::NewProp_InvenTileView,
 	};
@@ -89,7 +90,7 @@ void EmptyLinkFunctionForGeneratedCodeUMG_InventorySlot() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UUMG_InventorySlot, 1920493132);
+	IMPLEMENT_CLASS(UUMG_InventorySlot, 3011278632);
 	template<> INVENTORY_PROJECT_API UClass* StaticClass<UUMG_InventorySlot>()
 	{
 		return UUMG_InventorySlot::StaticClass();

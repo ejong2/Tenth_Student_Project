@@ -13,6 +13,9 @@ bool UHUDLayout::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent&
 	if (DragWidgetResult == nullptr)
 	return false;
 
+	if (Cast<UUMG_InventoryItem>(DragWidgetResult->WidgetReference))
+	return false;
+
 	const FVector2D DragWindowOffset = InGeometry.AbsoluteToLocal(InDragDropEvent.GetScreenSpacePosition());
 	const FVector2D DragWindowOffsetResult = DragWindowOffset - DragWidgetResult->DragOffset;
 

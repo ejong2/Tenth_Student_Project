@@ -100,8 +100,11 @@ void AMainGamePlayerController::InventoryToggle()
 
 void AMainGamePlayerController::AddItemToInventory(UObject* Obj)
 {
-	if (InvenWidget == nullptr)
+	if (InvenWidget == nullptr || Obj == nullptr)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("Something is null"));
 		return;
+	}
 
 	InvenWidget->AddItemtoInventory(Obj);
 
@@ -137,20 +140,26 @@ void AMainGamePlayerController::OneItemCenterToLeft()
 	InvenWidget->OneItemCenterToLeft();
 }
 
-void AMainGamePlayerController::FindInventoryItem(UObject* Object)
+void AMainGamePlayerController::FindInventoryItem(UObject* Object) 
 {
 	if (InvenWidget == nullptr || Object == nullptr)
 		return;
 
 	//InvenWidget->MyItemTileView->GetIndexForItem(Object);
-	DragItemIndex = InvenWidget->MyItemTileView->GetIndexForItem(Object);
-	if (DragItemIndex >= 0)
+	UUMG_InventoryItem* tempitem = Cast<UUMG_InventoryItem>(Object);
+
+	
+	for (UObject* Dataitr : InvenWidget->MyItemTileView->GetListItems())
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, FString::Printf(TEXT("Founn %d"), DragItemIndex));
+		if (tempitem == InvenWidget->MyItemTileView->GetEntryWidgetFromItem(Dataitr))
+		{
+			
+			DragItemIndex = InvenWidget->ItemDataArray.IndexOfByKey(Dataitr);
+			GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, FString::Printf(TEXT("Success %d"), DragItemIndex));
+			DraggingItemData = InvenWidget->ItemDataArray[DragItemIndex];
+			break;
+		}
 	}
-	else
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("Not Found"));
-	}
+
 }
 

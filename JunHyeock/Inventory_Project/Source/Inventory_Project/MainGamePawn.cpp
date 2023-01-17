@@ -63,7 +63,7 @@ void AMainGamePawn::InitComponents()
 
 	//Camera
 	class USpringArmComponent* CameraArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
-	CameraArm->AttachTo(Mesh);
+	CameraArm->AttachToComponent(Mesh, FAttachmentTransformRules::KeepWorldTransform);
 	CameraArm->SetRelativeLocationAndRotation(FVector(0, 0, 50.f), FRotator(-60.f, 0, 0));
 	CameraArm->TargetArmLength = 400.f;
 	CameraArm->bEnableCameraLag = true;
@@ -72,7 +72,7 @@ void AMainGamePawn::InitComponents()
 
 	class UCameraComponent* FollowCamera =
 		CreateDefaultSubobject<UCameraComponent>(TEXT("GameCamera"));
-	FollowCamera->AttachTo(CameraArm);
+	FollowCamera->AttachToComponent(CameraArm, FAttachmentTransformRules::KeepWorldTransform);
 
 	//======================================================
 

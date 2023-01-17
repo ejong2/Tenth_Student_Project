@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "Components/TileView.h"
+#include "MainGamePlayerController.h"
 #include "UMG_InventorySlot.generated.h"
 
 /**
@@ -19,6 +20,6 @@ public:
 	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
 
 
-	UPROPERTY(meta = (BindWidget))
+	UPROPERTY(meta = (BindWidget), BlueprintReadWrite, EditAnywhere)
 	class UTileView* InvenTileView;
 };

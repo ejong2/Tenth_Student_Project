@@ -5,6 +5,7 @@
 #include "HUDLayout.h"
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "Kismet/KismetSystemLibrary.h"
 #include "MainGamePlayerController.generated.h"
 
 /**
@@ -47,6 +48,7 @@ public:
 
 
 
+
 public:
 
 	UPROPERTY(EditAnywhere, Category = "Widget")
@@ -60,6 +62,8 @@ public:
 	FString ItemTagText = TEXT("TEXT Sample");
 
 	int32 DragItemIndex;
+
+	class UInventoryItemData* DraggingItemData;
 
 };
 
