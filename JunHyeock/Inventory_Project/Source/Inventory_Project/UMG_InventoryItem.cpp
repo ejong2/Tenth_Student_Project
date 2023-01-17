@@ -11,6 +11,70 @@ void UUMG_InventoryItem::NativeConstruct()
 
 }
 
+FReply UUMG_InventoryItem::CustomDetectDrag(const FPointerEvent& InMouseEvent, UWidget* WidgetDetectingDrag, FKey DragKey)
+{
+	if (InMouseEvent.GetEffectingButton() == DragKey /*|| PointerEvent.IsTouchEvent()*/)
+	{
+		FEventReply Reply;
+
+		Reply.NativeReply = FReply::Handled();
+
+		if (WidgetDetectingDrag)
+		{
+			TSharedPtr<SWidget> SlateWidgetDetectingDrag = WidgetDetectingDrag->GetCachedWidget();
+
+			if (SlateWidgetDetectingDrag.IsValid())
+			{
+				Reply.NativeReply = Reply.NativeReply.DetectDrag(SlateWidgetDetectingDrag.ToSharedRef(), DragKey);
+
+				return Reply.NativeReply;
+			}
+		}
+	}
+
+	return FReply::Unhandled();
+}
+
+FReply UUMG_InventoryItem::NativeOnMouseButtonDown(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent)
+{
+	Super::NativeOnMouseButtonDown(InGeometry, InMouseEvent);
+
+	//FEventReply ReplyResult =
+	//	UWidgetBlueprintLibrary::DetectDragIfPressed(InMouseEvent, this, EKeys::LeftMouseButton);
+	//return ReplyResult.NativeReply;
+
+	AMainGamePlayerController* MYPC = Cast<AMainGamePlayerController>(GetWorld()->GetFirstPlayerController());
+	if (MYPC)
+	{
+		MYPC->FindInventoryItem(this);
+	}
+
+	return CustomDetectDrag(InMouseEvent, this, EKeys::LeftMouseButton);
+}
+
+void UUMG_InventoryItem::NativeOnDragDetected(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent, UDragDropOperation*& OutOperation)
+{
+	Super::NativeOnDragDetected(InGeometry, InMouseEvent, OutOperation);
+
+	UDragWidget* DragDropOperation = NewObject<UDragWidget>();
+	this->SetVisibility(ESlateVisibility::HitTestInvisible);
+
+	DragDropOperation->WidgetReference = this;
+	DragDropOperation->DragOffset = InGeometry.AbsoluteToLocal(InMouseEvent.GetScreenSpacePosition());
+
+	DragDropOperation->DefaultDragVisual = this;
+	DragDropOperation->Pivot = EDragPivot::MouseDown;
+
+	OutOperation = DragDropOperation;
+
+	//GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("DragDetect"));
+}
+
+void UUMG_InventoryItem::NativeOnDragLeave(const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation)
+{
+	//RemoveFromParent();
+}
+
 void UUMG_InventoryItem::NativeOnListItemObjectSet(UObject* ListItemObject)
 {
 

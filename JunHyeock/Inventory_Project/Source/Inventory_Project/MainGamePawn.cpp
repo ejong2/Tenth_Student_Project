@@ -50,7 +50,7 @@ void AMainGamePawn::InitComponents()
 
 	//Mesh
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> M_Mesh(TEXT("StaticMesh'/Engine/VREditor/BasicMeshes/SM_Cube_01.SM_Cube_01'"));
-	UStaticMeshComponent* Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Box"));
+	class UStaticMeshComponent* Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Box"));
 	RootComponent = Mesh;
 
 	if (M_Mesh.Succeeded())
@@ -62,7 +62,7 @@ void AMainGamePawn::InitComponents()
 	//======================================================
 
 	//Camera
-	USpringArmComponent* CameraArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
+	class USpringArmComponent* CameraArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
 	CameraArm->AttachTo(Mesh);
 	CameraArm->SetRelativeLocationAndRotation(FVector(0, 0, 50.f), FRotator(-60.f, 0, 0));
 	CameraArm->TargetArmLength = 400.f;
@@ -70,7 +70,7 @@ void AMainGamePawn::InitComponents()
 	CameraArm->CameraLagSpeed = 3.f;
 	CameraArm->bDoCollisionTest = false;
 
-	UCameraComponent* FollowCamera =
+	class UCameraComponent* FollowCamera =
 		CreateDefaultSubobject<UCameraComponent>(TEXT("GameCamera"));
 	FollowCamera->AttachTo(CameraArm);
 

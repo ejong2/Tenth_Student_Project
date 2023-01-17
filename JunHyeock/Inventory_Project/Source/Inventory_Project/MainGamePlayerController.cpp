@@ -73,7 +73,7 @@ void AMainGamePlayerController::CreateMaingameWidget()
 			Hudlayout->AddToViewport();
 			bShowMouseCursor = true;
 			InvenWidget = Hudlayout->Inventory;
-		}
+			InvenWidget->SetVisibility(ESlateVisibility::Collapsed);		}
 
 
 	}
@@ -135,5 +135,22 @@ void AMainGamePlayerController::OneItemLeftToCenter()
 void AMainGamePlayerController::OneItemCenterToLeft()
 {
 	InvenWidget->OneItemCenterToLeft();
+}
+
+void AMainGamePlayerController::FindInventoryItem(UObject* Object)
+{
+	if (InvenWidget == nullptr || Object == nullptr)
+		return;
+
+	//InvenWidget->MyItemTileView->GetIndexForItem(Object);
+	DragItemIndex = InvenWidget->MyItemTileView->GetIndexForItem(Object);
+	if (DragItemIndex >= 0)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, FString::Printf(TEXT("Founn %d"), DragItemIndex));
+	}
+	else
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("Not Found"));
+	}
 }
 

@@ -43,6 +43,8 @@ public:
 	void OneItemLeftToCenter();
 	void OneItemCenterToLeft();
 
+	void FindInventoryItem(UObject* Object);
+
 
 
 public:
@@ -51,12 +53,13 @@ public:
 	TSubclassOf<UUserWidget> WidgetClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	UUMG_Inventory* InvenWidget = nullptr;
+	class UUMG_Inventory* InvenWidget = nullptr;
 
-	UHUDLayout* Hudlayout = nullptr;
+	class UHUDLayout* Hudlayout = nullptr;
 
 	FString ItemTagText = TEXT("TEXT Sample");
 
+	int32 DragItemIndex;
 
 };
 

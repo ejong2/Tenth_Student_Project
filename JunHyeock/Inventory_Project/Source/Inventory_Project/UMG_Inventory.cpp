@@ -9,6 +9,9 @@
 UUMG_Inventory::UUMG_Inventory(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
 	Visibility = ESlateVisibility::Collapsed;
+
+
+
 }
 
 UUMG_Inventory::~UUMG_Inventory()
@@ -18,6 +21,9 @@ UUMG_Inventory::~UUMG_Inventory()
 void UUMG_Inventory::NativeConstruct()
 {
 	Super::NativeConstruct();
+
+	MyItemTileView = LeftInventory->InvenTileView;
+	MyItemTileViewCenter = CenterInventory->InvenTileView;
 	// Bind delegates here.
 
 	//TArray<UInventoryItemData*> Inventory;
@@ -69,6 +75,9 @@ FReply UUMG_Inventory::NativeOnMouseButtonDown(const FGeometry& InGeometry, cons
 	//	UWidgetBlueprintLibrary::DetectDragIfPressed(InMouseEvent, this, EKeys::LeftMouseButton);
 	//return ReplyResult.NativeReply;
 
+
+
+
 	return CustomDetectDrag(InMouseEvent, this, EKeys::LeftMouseButton);
 }
 
@@ -87,11 +96,17 @@ void UUMG_Inventory::NativeOnDragDetected(const FGeometry& InGeometry, const FPo
 
 	OutOperation = DragDropOperation;
 
+
 }
 
 void UUMG_Inventory::NativeOnDragLeave(const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation)
 {
 	RemoveFromParent();
+}
+
+bool UUMG_Inventory::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation)
+{
+	return false;
 }
 
 
@@ -115,8 +130,6 @@ void UUMG_Inventory::AddItemtoInventory(UObject* Item)
 
 	UInventoryItemData* MyItem = Cast<UInventoryItemData>(Item);
 	//MyItemTileView->AddItem(MyItem);
-
-
 
 
 	//==============================================
@@ -260,6 +273,7 @@ void UUMG_Inventory::OneItemLeftToCenter()
 
 
 		ItemDataArray.Last()->ItemCount -= 1;
+
 
 
 	}

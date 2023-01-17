@@ -21,6 +21,6 @@ public:
 
 
 	UPROPERTY(meta = (BindWidget))
-	UUMG_Inventory* Inventory = nullptr;
+	class UUMG_Inventory* Inventory = nullptr;
 	
 };

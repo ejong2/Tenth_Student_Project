@@ -12,6 +12,7 @@
 #include "Components/TileView.h"
 #include "InventoryItemData.h"
 #include "DragWidget.h"
+#include "UMG_InventorySlot.h"
 #include "UMG_Inventory.generated.h"
 
 /**
@@ -36,7 +37,7 @@ public:
 	virtual void NativeOnDragDetected(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent, UDragDropOperation*& OutOperation) override;
 	virtual void NativeOnDragLeave(const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
 
-
+	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
 
 
 	virtual void NativeOnInitialized() override;
@@ -57,17 +58,23 @@ public:
 	void OneItemCenterToLeft();
 	
 
-	UPROPERTY(meta = (BindWidget))
-	UButton* ExampleButton;
+	//UPROPERTY(meta = (BindWidget))
+	//UButton* ExampleButton;
 
-	UPROPERTY(meta = (BindWidget))
-	UTextBlock* MYTEXT;
+	//UPROPERTY(meta = (BindWidget))
+	//UTextBlock* MYTEXT;
 
-	UPROPERTY(meta = (BindWidget), EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(/*meta = (BindWidget), */EditAnywhere, BlueprintReadWrite)
 	UTileView* MyItemTileView;
 
-	UPROPERTY(meta = (BindWidget), EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(/*meta = (BindWidget), */EditAnywhere, BlueprintReadWrite)
 	UTileView* MyItemTileViewCenter;
+
+	UPROPERTY(meta = (BindWidget))
+	UUMG_InventorySlot* LeftInventory;
+
+	UPROPERTY(meta = (BindWidget))
+	UUMG_InventorySlot* CenterInventory;
 
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

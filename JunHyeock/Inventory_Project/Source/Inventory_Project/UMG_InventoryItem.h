@@ -8,6 +8,9 @@
 #include "Components/TextBlock.h"
 #include "Blueprint/UserWidget.h"
 #include "Blueprint/IUserObjectListEntry.h"
+#include "DragWidget.h"
+#include "UMG_Inventory.h"
+#include "MainGamePlayerController.h"
 #include "UMG_InventoryItem.generated.h"
 
 /**
@@ -20,6 +23,13 @@ class INVENTORY_PROJECT_API UUMG_InventoryItem : public UUserWidget, public IUse
 
 protected:
 	virtual void NativeConstruct() override;
+
+	FReply CustomDetectDrag(const FPointerEvent& InMouseEvent, UWidget* WidgetDetectingDrag, FKey DragKey);
+
+	virtual FReply NativeOnMouseButtonDown(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent) override;
+	virtual void NativeOnDragDetected(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent, UDragDropOperation*& OutOperation) override;
+	virtual void NativeOnDragLeave(const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
+
 
 public:
 	// view에 add시 호출
@@ -38,6 +48,7 @@ private:
 	UTextBlock* ItemName;
 	UPROPERTY(meta = (BindWidget))
 	UTextBlock* ItemCount;
+
 
 	UObject* CurrentData;
 
