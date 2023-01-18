@@ -9,6 +9,9 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class UObject;
+struct FGeometry;
+struct FPointerEvent;
+struct FEventReply;
 #ifdef INVENTORY_PROJECT_UMG_Inventory_generated_h
 #error "UMG_Inventory.generated.h already included, missing '#pragma once' in UMG_Inventory.h"
 #endif
@@ -18,13 +21,15 @@ class UObject;
 #define Inventory_Project_Source_Inventory_Project_UMG_Inventory_h_24_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execAddItemToCenter); \
-	DECLARE_FUNCTION(execAddItemtoInventory);
+	DECLARE_FUNCTION(execAddItemtoInventory); \
+	DECLARE_FUNCTION(execRedirectMouseDownToWidget);
 
 
 #define Inventory_Project_Source_Inventory_Project_UMG_Inventory_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execAddItemToCenter); \
-	DECLARE_FUNCTION(execAddItemtoInventory);
+	DECLARE_FUNCTION(execAddItemtoInventory); \
+	DECLARE_FUNCTION(execRedirectMouseDownToWidget);
 
 
 #define Inventory_Project_Source_Inventory_Project_UMG_Inventory_h_24_INCLASS_NO_PURE_DECLS \

@@ -9,23 +9,28 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class UObject;
+class UInventoryItemData;
 #ifdef INVENTORY_PROJECT_MainGamePlayerController_generated_h
 #error "MainGamePlayerController.generated.h already included, missing '#pragma once' in MainGamePlayerController.h"
 #endif
 #define INVENTORY_PROJECT_MainGamePlayerController_generated_h
 
-#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_SPARSE_DATA
-#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_RPC_WRAPPERS \
+#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_SPARSE_DATA
+#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execAddItemToInventory);
+	DECLARE_FUNCTION(execAddItemToInventory); \
+	DECLARE_FUNCTION(execGainItem); \
+	DECLARE_FUNCTION(execAddItemToDataArray);
 
 
-#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execAddItemToInventory);
+	DECLARE_FUNCTION(execAddItemToInventory); \
+	DECLARE_FUNCTION(execGainItem); \
+	DECLARE_FUNCTION(execAddItemToDataArray);
 
 
-#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_INCLASS_NO_PURE_DECLS \
+#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMainGamePlayerController(); \
 	friend struct Z_Construct_UClass_AMainGamePlayerController_Statics; \
@@ -34,7 +39,7 @@ public: \
 	DECLARE_SERIALIZER(AMainGamePlayerController)
 
 
-#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_INCLASS \
+#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_INCLASS \
 private: \
 	static void StaticRegisterNativesAMainGamePlayerController(); \
 	friend struct Z_Construct_UClass_AMainGamePlayerController_Statics; \
@@ -43,7 +48,7 @@ public: \
 	DECLARE_SERIALIZER(AMainGamePlayerController)
 
 
-#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_STANDARD_CONSTRUCTORS \
+#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AMainGamePlayerController(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMainGamePlayerController) \
@@ -56,7 +61,7 @@ private: \
 public:
 
 
-#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_ENHANCED_CONSTRUCTORS \
+#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AMainGamePlayerController(AMainGamePlayerController&&); \
@@ -67,28 +72,28 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AMainGamePlayerController)
 
 
-#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_PRIVATE_PROPERTY_OFFSET
-#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_14_PROLOG
-#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_GENERATED_BODY_LEGACY \
+#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_PRIVATE_PROPERTY_OFFSET
+#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_15_PROLOG
+#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_PRIVATE_PROPERTY_OFFSET \
-	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_SPARSE_DATA \
-	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_RPC_WRAPPERS \
-	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_INCLASS \
-	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_STANDARD_CONSTRUCTORS \
+	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_PRIVATE_PROPERTY_OFFSET \
+	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_SPARSE_DATA \
+	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_RPC_WRAPPERS \
+	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_INCLASS \
+	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_GENERATED_BODY \
+#define Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_PRIVATE_PROPERTY_OFFSET \
-	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_SPARSE_DATA \
-	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
-	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_INCLASS_NO_PURE_DECLS \
-	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_17_ENHANCED_CONSTRUCTORS \
+	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_PRIVATE_PROPERTY_OFFSET \
+	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_SPARSE_DATA \
+	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_INCLASS_NO_PURE_DECLS \
+	Inventory_Project_Source_Inventory_Project_MainGamePlayerController_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

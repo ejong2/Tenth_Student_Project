@@ -6,6 +6,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "Kismet/KismetSystemLibrary.h"
+#include "UMG_InventorySlot.h"
 #include "MainGamePlayerController.generated.h"
 
 /**
@@ -36,6 +37,15 @@ public:
 	void InventoryToggle();
 
 	UFUNCTION(BlueprintCallable)
+	void AddItemToDataArray(TArray<UInventoryItemData*>& TargetDataArray, UInventoryItemData* ItemData);
+
+	UFUNCTION(BlueprintCallable)
+	void GainItem(UInventoryItemData* ItemData);
+
+
+
+	//====================================================
+	UFUNCTION(BlueprintCallable)
 	void AddItemToInventory(UObject* Obj);
 
 	void ItemLeftToCenter();
@@ -45,11 +55,16 @@ public:
 	void OneItemCenterToLeft();
 
 	void FindInventoryItem(UObject* Object);
-
+	//====================================================
 
 
 
 public:
+
+	UPROPERTY(BlueprintReadOnly)
+	TArray<UInventoryItemData*> FirstItemDataArray;
+	UPROPERTY(BlueprintReadOnly)
+	TArray<UInventoryItemData*> SecondItemDataArray;
 
 	UPROPERTY(EditAnywhere, Category = "Widget")
 	TSubclassOf<UUserWidget> WidgetClass;
@@ -59,11 +74,11 @@ public:
 
 	class UHUDLayout* Hudlayout = nullptr;
 
-	FString ItemTagText = TEXT("TEXT Sample");
-
 	int32 DragItemIndex;
 
 	class UInventoryItemData* DraggingItemData;
+
+	class UUMG_InventoryItem* DraggingItemWidget;
 
 };
 

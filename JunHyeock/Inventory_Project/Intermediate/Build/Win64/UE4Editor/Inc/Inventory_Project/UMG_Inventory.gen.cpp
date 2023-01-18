@@ -18,6 +18,9 @@ void EmptyLinkFunctionForGeneratedCodeUMG_Inventory() {}
 	UMG_API UClass* Z_Construct_UClass_UUserWidget();
 	UPackage* Z_Construct_UPackage__Script_Inventory_Project();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject_NoRegister();
+	SLATECORE_API UScriptStruct* Z_Construct_UScriptStruct_FGeometry();
+	SLATECORE_API UScriptStruct* Z_Construct_UScriptStruct_FPointerEvent();
+	UMG_API UScriptStruct* Z_Construct_UScriptStruct_FEventReply();
 	UMG_API UClass* Z_Construct_UClass_UTileView_NoRegister();
 	INVENTORY_PROJECT_API UClass* Z_Construct_UClass_UUMG_InventorySlot_NoRegister();
 	INVENTORY_PROJECT_API UClass* Z_Construct_UClass_UInventoryItemData_NoRegister();
@@ -38,12 +41,22 @@ void EmptyLinkFunctionForGeneratedCodeUMG_Inventory() {}
 		P_THIS->AddItemtoInventory(Z_Param_Item);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UUMG_Inventory::execRedirectMouseDownToWidget)
+	{
+		P_GET_STRUCT_REF(FGeometry,Z_Param_Out_InGeometry);
+		P_GET_STRUCT_REF(FPointerEvent,Z_Param_Out_InMouseEvent);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FEventReply*)Z_Param__Result=P_THIS->RedirectMouseDownToWidget(Z_Param_Out_InGeometry,Z_Param_Out_InMouseEvent);
+		P_NATIVE_END;
+	}
 	void UUMG_Inventory::StaticRegisterNativesUUMG_Inventory()
 	{
 		UClass* Class = UUMG_Inventory::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "AddItemToCenter", &UUMG_Inventory::execAddItemToCenter },
 			{ "AddItemtoInventory", &UUMG_Inventory::execAddItemtoInventory },
+			{ "RedirectMouseDownToWidget", &UUMG_Inventory::execRedirectMouseDownToWidget },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -98,6 +111,7 @@ void EmptyLinkFunctionForGeneratedCodeUMG_Inventory() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UUMG_Inventory_AddItemtoInventory_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "//=======================================================\n" },
 		{ "ModuleRelativePath", "UMG_Inventory.h" },
 	};
 #endif
@@ -108,6 +122,62 @@ void EmptyLinkFunctionForGeneratedCodeUMG_Inventory() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UUMG_Inventory_AddItemtoInventory_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics
+	{
+		struct UMG_Inventory_eventRedirectMouseDownToWidget_Parms
+		{
+			FGeometry InGeometry;
+			FPointerEvent InMouseEvent;
+			FEventReply ReturnValue;
+		};
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_InGeometry_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_InGeometry;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_InMouseEvent_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_InMouseEvent;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::NewProp_InGeometry_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::NewProp_InGeometry = { "InGeometry", nullptr, (EPropertyFlags)0x0010000008000182, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMG_Inventory_eventRedirectMouseDownToWidget_Parms, InGeometry), Z_Construct_UScriptStruct_FGeometry, METADATA_PARAMS(Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::NewProp_InGeometry_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::NewProp_InGeometry_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::NewProp_InMouseEvent_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::NewProp_InMouseEvent = { "InMouseEvent", nullptr, (EPropertyFlags)0x0010000008000182, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMG_Inventory_eventRedirectMouseDownToWidget_Parms, InMouseEvent), Z_Construct_UScriptStruct_FPointerEvent, METADATA_PARAMS(Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::NewProp_InMouseEvent_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::NewProp_InMouseEvent_MetaData)) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMG_Inventory_eventRedirectMouseDownToWidget_Parms, ReturnValue), Z_Construct_UScriptStruct_FEventReply, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::NewProp_InGeometry,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::NewProp_InMouseEvent,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UMG_Inventory.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UUMG_Inventory, nullptr, "RedirectMouseDownToWidget", nullptr, nullptr, sizeof(UMG_Inventory_eventRedirectMouseDownToWidget_Parms), Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04420401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -158,7 +228,8 @@ void EmptyLinkFunctionForGeneratedCodeUMG_Inventory() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UUMG_Inventory_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UUMG_Inventory_AddItemToCenter, "AddItemToCenter" }, // 3339212694
-		{ &Z_Construct_UFunction_UUMG_Inventory_AddItemtoInventory, "AddItemtoInventory" }, // 3846897029
+		{ &Z_Construct_UFunction_UUMG_Inventory_AddItemtoInventory, "AddItemtoInventory" }, // 3615291273
+		{ &Z_Construct_UFunction_UUMG_Inventory_RedirectMouseDownToWidget, "RedirectMouseDownToWidget" }, // 1493860393
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UUMG_Inventory_Statics::Class_MetaDataParams[] = {
@@ -208,7 +279,9 @@ void EmptyLinkFunctionForGeneratedCodeUMG_Inventory() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UUMG_Inventory_Statics::NewProp_ItemDataArray_MetaData[] = {
 		{ "Category", "UMG_Inventory" },
+		{ "Comment", "//it will be contain component or player controller\n" },
 		{ "ModuleRelativePath", "UMG_Inventory.h" },
+		{ "ToolTip", "it will be contain component or player controller" },
 	};
 #endif
 	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UUMG_Inventory_Statics::NewProp_ItemDataArray = { "ItemDataArray", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_Inventory, ItemDataArray), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UUMG_Inventory_Statics::NewProp_ItemDataArray_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_Inventory_Statics::NewProp_ItemDataArray_MetaData)) };
@@ -257,7 +330,7 @@ void EmptyLinkFunctionForGeneratedCodeUMG_Inventory() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UUMG_Inventory, 4061616160);
+	IMPLEMENT_CLASS(UUMG_Inventory, 1491392155);
 	template<> INVENTORY_PROJECT_API UClass* StaticClass<UUMG_Inventory>()
 	{
 		return UUMG_Inventory::StaticClass();

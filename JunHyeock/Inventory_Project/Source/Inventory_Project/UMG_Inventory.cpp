@@ -8,7 +8,7 @@
 
 UUMG_Inventory::UUMG_Inventory(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
-	Visibility = ESlateVisibility::Collapsed;
+	//Visibility = ESlateVisibility::Collapsed;
 
 
 
@@ -26,18 +26,6 @@ void UUMG_Inventory::NativeConstruct()
 	MyItemTileViewCenter = CenterInventory->InvenTileView;
 	// Bind delegates here.
 
-	//TArray<UInventoryItemData*> Inventory;
-	//MyItems->SetListItems(Inventory);
-
-	//UInventoryItemData* MyItem = CreateDefaultSubobject<UInventoryItemData>(TEXT("Item"));
-
-	//Construct
-	//ExampleButton = WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(),TEXT("MyButtonName"));
-	
-	//Bind
-	//ExampleButton->OnClicked.AddDynamic(this, &UUMG_Inventory::OnButtonClickExample);
-
-	//RootWidget->AddChild(ExampleButton);
 
 
 
@@ -101,12 +89,19 @@ void UUMG_Inventory::NativeOnDragDetected(const FGeometry& InGeometry, const FPo
 
 void UUMG_Inventory::NativeOnDragLeave(const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation)
 {
-	RemoveFromParent();
+	//RemoveFromParent();
 }
 
 bool UUMG_Inventory::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation)
 {
 	return false;
+}
+
+FEventReply UUMG_Inventory::RedirectMouseDownToWidget(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent)
+{
+	FEventReply Reply;
+	Reply.NativeReply = NativeOnMouseButtonDown(InGeometry, InMouseEvent);
+	return Reply;
 }
 
 
@@ -115,13 +110,9 @@ void UUMG_Inventory::NativeOnInitialized()
 {
 }
 
-void UUMG_Inventory::OnButtonClickExample()
-{
-}
 
 void UUMG_Inventory::AddItemtoInventory(UObject* Item)
 {
-	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("AddItem"));
 	if (MyItemTileView == nullptr)
 		return;
 

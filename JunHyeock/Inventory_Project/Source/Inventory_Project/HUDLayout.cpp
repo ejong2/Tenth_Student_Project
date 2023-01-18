@@ -23,9 +23,7 @@ bool UHUDLayout::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent&
 	DragWidgetResult->WidgetReference->SetVisibility(ESlateVisibility::Visible);
 	DragWidgetResult->WidgetReference->SetPositionInViewport(DragWindowOffsetResult, false);
 
-
 	return true;
-
 
 
 }

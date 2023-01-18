@@ -146,6 +146,8 @@ C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\Inventory_Project
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet/KismetSystemLibrary.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/PropertyAccessUtil.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetSystemLibrary.generated.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\Inventory_Project\Source\Inventory_Project\UMG_InventorySlot.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\Inventory_Project\Intermediate\Build\Win64\UE4Editor\Inc\Inventory_Project\UMG_InventorySlot.generated.h
 C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\Inventory_Project\Intermediate\Build\Win64\UE4Editor\Inc\Inventory_Project\MainGamePlayerController.generated.h
 C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\Inventory_Project\Intermediate\Build\Win64\UE4Editor\Inc\Inventory_Project\UMG_InventoryItem.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\UMG\Public\Components/Button.h
@@ -157,7 +159,5 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Core\Public\Math/UnitC
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Core\Public\Internationalization/PolyglotTextData.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\AssetRegistry/ARFilter.h
 C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\Inventory_Project\Intermediate\Build\Win64\UE4Editor\Inc\Inventory_Project\InventoryItemData.generated.h
-C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\Inventory_Project\Source\Inventory_Project\UMG_InventorySlot.h
-C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\Inventory_Project\Intermediate\Build\Win64\UE4Editor\Inc\Inventory_Project\UMG_InventorySlot.generated.h
 C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\Inventory_Project\Intermediate\Build\Win64\UE4Editor\Inc\Inventory_Project\UMG_Inventory.generated.h
 C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\Inventory_Project\Intermediate\Build\Win64\UE4Editor\Inc\Inventory_Project\MainGamePawn.generated.h

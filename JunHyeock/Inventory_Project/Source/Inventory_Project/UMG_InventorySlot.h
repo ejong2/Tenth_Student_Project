@@ -6,6 +6,7 @@
 #include "Blueprint/UserWidget.h"
 #include "Components/TileView.h"
 #include "MainGamePlayerController.h"
+#include "DragWidget.h"
 #include "UMG_InventorySlot.generated.h"
 
 /**
@@ -19,7 +20,12 @@ class INVENTORY_PROJECT_API UUMG_InventorySlot : public UUserWidget
 public:
 	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
 
-
 	UPROPERTY(meta = (BindWidget), BlueprintReadWrite, EditAnywhere)
 	class UTileView* InvenTileView;
+
+	class UInventoryItemData* CurrentDraggingItemData;
+
+	UObject* CurrentDraggingObejct;
+
+	bool bIsNotFounded;
 };

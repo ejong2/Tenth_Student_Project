@@ -53,31 +53,16 @@ void AMainGamePlayerController::CreateMaingameWidget()
 {
 	if (IsValid(WidgetClass))
 	{
-		//InvenWidget = Cast<UUMG_Inventory>(CreateWidget(GetWorld(), WidgetClass));
-		//InvenWidget->MYTEXT->SetText(FText::FromString(ItemTagText));
-
 		Hudlayout = Cast<UHUDLayout>(CreateWidget(GetWorld(), WidgetClass));
-		
-
-
-		//if (InvenWidget != nullptr)
-		//{
-		//	InvenWidget->AddToViewport(); 
-
-		//	//Widget contstructor Set
-		//	InvenWidget->SetVisibility(ESlateVisibility::Collapsed);
-		//}
 
 		if (Hudlayout != nullptr)
 		{
 			Hudlayout->AddToViewport();
 			bShowMouseCursor = true;
 			InvenWidget = Hudlayout->Inventory;
-			InvenWidget->SetVisibility(ESlateVisibility::Collapsed);		}
-
-
+			InvenWidget->SetVisibility(ESlateVisibility::Collapsed);
+		}	
 	}
-
 }
 
 void AMainGamePlayerController::InventoryToggle()
@@ -98,68 +83,119 @@ void AMainGamePlayerController::InventoryToggle()
 	}
 }
 
-void AMainGamePlayerController::AddItemToInventory(UObject* Obj)
+void AMainGamePlayerController::AddItemToDataArray(TArray<UInventoryItemData*>& TargetDataArray, UInventoryItemData* ItemData)
 {
-	if (InvenWidget == nullptr || Obj == nullptr)
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("Something is null"));
+	bool bIsNotFounded = true;
+	if (TargetDataArray.Num() <= 0 )
+	{	//no item containing
+		TargetDataArray.Add(ItemData);
 		return;
 	}
 
-	InvenWidget->AddItemtoInventory(Obj);
+	for (UInventoryItemData* DataItr : FirstItemDataArray)
+	{
+		if (ItemData->ItemID == DataItr->ItemID)
+		{	//Founded SameItem
+			DataItr->ItemCount += ItemData->ItemCount;
+			bIsNotFounded = false;
+			return;
+		}
+	}
+
+	if (bIsNotFounded)
+	{
+		//not found but other item containing
+		TargetDataArray.Add(ItemData);
+		return;
+	}
+}
+
+
+void AMainGamePlayerController::GainItem(UInventoryItemData* ItemData)
+{
+	//will use FirstItemDataArray, LeftInvenSlot
+
+	AddItemToDataArray(FirstItemDataArray, ItemData);
+
+	InvenWidget->LeftInventory->InvenTileView->SetListItems(FirstItemDataArray);
+	InvenWidget->LeftInventory->InvenTileView->RegenerateAllEntries();
+}
+
+
+void AMainGamePlayerController::AddItemToInventory(UObject* Obj)
+{
+	//if (InvenWidget == nullptr || Obj == nullptr)
+	//{
+	//	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("Something is null"));
+	//	return;
+	//}
+
+	//InvenWidget->AddItemtoInventory(Obj);
 
 
 }
-
 void AMainGamePlayerController::ItemLeftToCenter()
 {
-	if (InvenWidget == nullptr)
-		return;
+	//if (InvenWidget == nullptr)
+	//	return;
 
-	InvenWidget->PopItemLeftToCenter();
-	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("Z"));
+	//InvenWidget->PopItemLeftToCenter();
 }
-
-
 void AMainGamePlayerController::ItemCenterToLeft()
 {
-	if (InvenWidget == nullptr)
-		return;
+	//if (InvenWidget == nullptr)
+	//	return;
 
-	InvenWidget->PopItemCenterToLeft();
-	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("X"));
+	//InvenWidget->PopItemCenterToLeft();
 }
-
 void AMainGamePlayerController::OneItemLeftToCenter()
 {
-	InvenWidget->OneItemLeftToCenter();
+	//InvenWidget->OneItemLeftToCenter();
 }
-
 void AMainGamePlayerController::OneItemCenterToLeft()
 {
-	InvenWidget->OneItemCenterToLeft();
+	//InvenWidget->OneItemCenterToLeft();
 }
-
 void AMainGamePlayerController::FindInventoryItem(UObject* Object) 
 {
 	if (InvenWidget == nullptr || Object == nullptr)
 		return;
 
-	//InvenWidget->MyItemTileView->GetIndexForItem(Object);
 	UUMG_InventoryItem* tempitem = Cast<UUMG_InventoryItem>(Object);
 
-	
-	for (UObject* Dataitr : InvenWidget->MyItemTileView->GetListItems())
-	{
-		if (tempitem == InvenWidget->MyItemTileView->GetEntryWidgetFromItem(Dataitr))
-		{
-			
-			DragItemIndex = InvenWidget->ItemDataArray.IndexOfByKey(Dataitr);
-			GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, FString::Printf(TEXT("Success %d"), DragItemIndex));
-			DraggingItemData = InvenWidget->ItemDataArray[DragItemIndex];
-			break;
-		}
-	}
+	DragItemIndex = InvenWidget->MyItemTileView->GetDisplayedEntryWidgets().IndexOfByKey(tempitem);
+	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, FString::Printf(TEXT("Find %d"), DragItemIndex));
+
+	//InvenWidget->MyItemTileView->GetIndexForItem(Object);
+
+	//TArray<UUserWidget*> temparray = InvenWidget->MyItemTileView->GetDisplayedEntryWidgets();
+
+	//auto tempObject = InvenWidget->MyItemTileView->ItemFromEntryWidget(*tempitem);
+	//const UInventoryItemData* consttempData = Cast<UInventoryItemData>(tempObject);
+	//UInventoryItemData* tempData = const_cast<UInventoryItemData*>(consttempData);
+	//DragItemIndex = InvenWidget->ItemDataArray.Find(tempData);
+
+	//for (UUserWidget* arrayitr : temparray )
+	//{
+	//	if (arrayitr == tempitem)
+	//	{
+	//		//DragItemIndex = 
+	//		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("Find"));
+	//		break;
+	//	}
+	//}
+
+	//for (UObject* Dataitr : InvenWidget->MyItemTileView->GetListItems())
+	//{
+	//	if (tempitem == InvenWidget->MyItemTileView->GetEntryWidgetFromItem(Dataitr))
+	//	{
+	//		
+	//		DragItemIndex = InvenWidget->ItemDataArray.IndexOfByKey(Dataitr);
+	//		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, FString::Printf(TEXT("Success %d"), DragItemIndex));
+	//		DraggingItemData = InvenWidget->ItemDataArray[DragItemIndex];
+	//		break;
+	//	}
+	//}
 
 }
 

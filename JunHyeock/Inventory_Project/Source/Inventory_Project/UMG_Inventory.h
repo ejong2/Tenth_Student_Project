@@ -39,12 +39,14 @@ public:
 
 	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
 
+	UFUNCTION(BlueprintCallable)
+	FEventReply RedirectMouseDownToWidget(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent);
+
 
 	virtual void NativeOnInitialized() override;
 
 
-	void OnButtonClickExample();
-
+	//=======================================================
 	UFUNCTION(BlueprintCallable)
 	void AddItemtoInventory(UObject* Item);
 
@@ -56,13 +58,7 @@ public:
 
 	void OneItemLeftToCenter();
 	void OneItemCenterToLeft();
-	
-
-	//UPROPERTY(meta = (BindWidget))
-	//UButton* ExampleButton;
-
-	//UPROPERTY(meta = (BindWidget))
-	//UTextBlock* MYTEXT;
+	//=======================================================
 
 	UPROPERTY(/*meta = (BindWidget), */EditAnywhere, BlueprintReadWrite)
 	UTileView* MyItemTileView;
@@ -76,22 +72,18 @@ public:
 	UPROPERTY(meta = (BindWidget))
 	class UUMG_InventorySlot* CenterInventory;
 
-
+	//it will be contain component or player controller
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<UInventoryItemData*> ItemDataArray;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<UInventoryItemData*> ItemDataArraySecond;
 
+	//=======================================================
 
 
 	bool bIsNotFounded = true;
-	//struct ItemSlot
-	//{
-	//	int ItemId;
-	//	int ItemCount;
-	//	UInventoryItemData* ItemDataptr;
-	//};
+
 
 	
 	

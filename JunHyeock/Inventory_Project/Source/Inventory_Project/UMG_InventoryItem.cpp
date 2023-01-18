@@ -6,13 +6,12 @@
 void UUMG_InventoryItem::NativeConstruct()
 {
 	Super::NativeConstruct();
-	//Background = Cast<UBorder>(GetWidgetFromName(TEXT("ItemBackground")));
-	//NameText = Cast<UTextBlock>(GetWidgetFromName(TEXT("ItemName")));
 
 }
 
 FReply UUMG_InventoryItem::CustomDetectDrag(const FPointerEvent& InMouseEvent, UWidget* WidgetDetectingDrag, FKey DragKey)
 {
+	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Red, TEXT("Drag"));
 	if (InMouseEvent.GetEffectingButton() == DragKey /*|| PointerEvent.IsTouchEvent()*/)
 	{
 		FEventReply Reply;
@@ -39,14 +38,10 @@ FReply UUMG_InventoryItem::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 {
 	Super::NativeOnMouseButtonDown(InGeometry, InMouseEvent);
 
-	//FEventReply ReplyResult =
-	//	UWidgetBlueprintLibrary::DetectDragIfPressed(InMouseEvent, this, EKeys::LeftMouseButton);
-	//return ReplyResult.NativeReply;
-
 	AMainGamePlayerController* MYPC = Cast<AMainGamePlayerController>(GetWorld()->GetFirstPlayerController());
 	if (MYPC)
-	{
-		MYPC->FindInventoryItem(this);
+	{	//Send this to Dragging Player Controller
+		MYPC->DraggingItemWidget = this;
 	}
 
 	return CustomDetectDrag(InMouseEvent, this, EKeys::LeftMouseButton);
@@ -67,7 +62,6 @@ void UUMG_InventoryItem::NativeOnDragDetected(const FGeometry& InGeometry, const
 
 	OutOperation = DragDropOperation;
 
-	//GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("DragDetect"));
 }
 
 void UUMG_InventoryItem::NativeOnDragLeave(const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation)
@@ -77,9 +71,7 @@ void UUMG_InventoryItem::NativeOnDragLeave(const FDragDropEvent& InDragDropEvent
 
 void UUMG_InventoryItem::NativeOnListItemObjectSet(UObject* ListItemObject)
 {
-
 	SetData(ListItemObject);
-
 }
 
 void UUMG_InventoryItem::NativeOnItemSelectionChanged(bool bIsSelected)
@@ -97,7 +89,7 @@ void UUMG_InventoryItem::SetData(UObject* ListItemObject)
 		return;
 		
 	UInventoryItemData* Item = Cast<UInventoryItemData>(ListItemObject);
-
+	
 	ItemName->SetText(FText::FromString(Item->DataString));
 	ItemBackground->SetBrushColor(Item->DataColor);
 	ItemCount->SetText(FText::AsNumber(Item->ItemCount));
