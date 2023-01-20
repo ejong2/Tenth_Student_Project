@@ -17,8 +17,8 @@ class INVENPROJECT_API UUMG_Layout : public UUserWidget
 	GENERATED_BODY()
 	
 public:
-	UPROPERTY(meta = (BindWidget))
+	UPROPERTY(meta = (BindWidget), BlueprintReadOnly, VisibleAnywhere)
 	class UUMG_Inventory* Inventory;
-	UPROPERTY(meta = (BindWidget))
+	UPROPERTY(meta = (BindWidget), BlueprintReadOnly, VisibleAnywhere)
 	UUMG_LandItems* LandItems;
 };

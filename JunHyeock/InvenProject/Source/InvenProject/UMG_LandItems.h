@@ -20,7 +20,7 @@ class INVENPROJECT_API UUMG_LandItems : public UUserWidget
 	
 public:
 	
-	UPROPERTY(meta = (BindWidget))
+	UPROPERTY(meta = (BindWidget), BlueprintReadOnly, VisibleAnywhere)
 	UListView* LandItemListView;
 
 	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;

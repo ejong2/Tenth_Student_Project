@@ -17,7 +17,8 @@ bool UUMG_LandItems::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEv
 
 
 
-	AItemBase* NewItem = GetWorld()->SpawnActor<AItemBase>(DragDropOperation->ItemClass, FVector(0,0,600), FRotator(0));
+	AItemBase* NewItem = GetWorld()->SpawnActor<AItemBase>(DragDropOperation->ItemClass, 
+		(GetWorld()->GetFirstPlayerController()->GetPawn())->GetActorLocation(), FRotator(0));
 
 	
 	if (DragDropOperation->ItemClass != nullptr)

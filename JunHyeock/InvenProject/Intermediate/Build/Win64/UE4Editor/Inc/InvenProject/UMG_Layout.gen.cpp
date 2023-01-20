@@ -59,19 +59,21 @@ void EmptyLinkFunctionForGeneratedCodeUMG_Layout() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UUMG_Layout_Statics::NewProp_Inventory_MetaData[] = {
 		{ "BindWidget", "" },
+		{ "Category", "UMG_Layout" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "UMG_Layout.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_Layout_Statics::NewProp_Inventory = { "Inventory", nullptr, (EPropertyFlags)0x0010000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_Layout, Inventory), Z_Construct_UClass_UUMG_Inventory_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_Layout_Statics::NewProp_Inventory_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_Layout_Statics::NewProp_Inventory_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_Layout_Statics::NewProp_Inventory = { "Inventory", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_Layout, Inventory), Z_Construct_UClass_UUMG_Inventory_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_Layout_Statics::NewProp_Inventory_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_Layout_Statics::NewProp_Inventory_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UUMG_Layout_Statics::NewProp_LandItems_MetaData[] = {
 		{ "BindWidget", "" },
+		{ "Category", "UMG_Layout" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "UMG_Layout.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_Layout_Statics::NewProp_LandItems = { "LandItems", nullptr, (EPropertyFlags)0x0010000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_Layout, LandItems), Z_Construct_UClass_UUMG_LandItems_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_Layout_Statics::NewProp_LandItems_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_Layout_Statics::NewProp_LandItems_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_Layout_Statics::NewProp_LandItems = { "LandItems", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_Layout, LandItems), Z_Construct_UClass_UUMG_LandItems_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_Layout_Statics::NewProp_LandItems_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_Layout_Statics::NewProp_LandItems_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UUMG_Layout_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UUMG_Layout_Statics::NewProp_Inventory,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UUMG_Layout_Statics::NewProp_LandItems,
@@ -103,7 +105,7 @@ void EmptyLinkFunctionForGeneratedCodeUMG_Layout() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UUMG_Layout, 1276950660);
+	IMPLEMENT_CLASS(UUMG_Layout, 1963054109);
 	template<> INVENPROJECT_API UClass* StaticClass<UUMG_Layout>()
 	{
 		return UUMG_Layout::StaticClass();

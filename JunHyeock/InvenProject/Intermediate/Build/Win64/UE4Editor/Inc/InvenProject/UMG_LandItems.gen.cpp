@@ -54,11 +54,12 @@ void EmptyLinkFunctionForGeneratedCodeUMG_LandItems() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UUMG_LandItems_Statics::NewProp_LandItemListView_MetaData[] = {
 		{ "BindWidget", "" },
+		{ "Category", "UMG_LandItems" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "UMG_LandItems.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_LandItems_Statics::NewProp_LandItemListView = { "LandItemListView", nullptr, (EPropertyFlags)0x0010000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_LandItems, LandItemListView), Z_Construct_UClass_UListView_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_LandItems_Statics::NewProp_LandItemListView_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_LandItems_Statics::NewProp_LandItemListView_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_LandItems_Statics::NewProp_LandItemListView = { "LandItemListView", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_LandItems, LandItemListView), Z_Construct_UClass_UListView_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_LandItems_Statics::NewProp_LandItemListView_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_LandItems_Statics::NewProp_LandItemListView_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UUMG_LandItems_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UUMG_LandItems_Statics::NewProp_LandItemListView,
 	};
@@ -89,7 +90,7 @@ void EmptyLinkFunctionForGeneratedCodeUMG_LandItems() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UUMG_LandItems, 1820187628);
+	IMPLEMENT_CLASS(UUMG_LandItems, 2211934963);
 	template<> INVENPROJECT_API UClass* StaticClass<UUMG_LandItems>()
 	{
 		return UUMG_LandItems::StaticClass();

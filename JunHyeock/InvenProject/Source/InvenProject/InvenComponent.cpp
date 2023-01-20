@@ -51,8 +51,10 @@ void UInvenComponent::AddItem(TSubclassOf<AItemBase> ItemClass, int32 AddCount)
 
 		ItemObjectArray.Add(NewItemObject);
 		
+		
 		AInvenPlayerController* InvenController = Cast<AInvenPlayerController>(GetWorld()->GetFirstPlayerController());
 		InvenController->RefreshInventory(ItemObjectArray);
+		
 
 		return;
 	}

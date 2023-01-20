@@ -10,19 +10,19 @@ AItemBase::AItemBase()
 	PrimaryActorTick.bCanEverTick = true;
 
 	Sphere = CreateDefaultSubobject<USphereComponent>(TEXT("Sphere"));
+	RootComponent = Sphere;
 
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> M_Mesh(TEXT("StaticMesh'/Engine/BasicShapes/Sphere.Sphere'"));
 
 	if (M_Mesh.Succeeded())
 	{
 		StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
+		StaticMesh->SetupAttachment(RootComponent);
 		StaticMesh->SetStaticMesh(M_Mesh.Object);
 		StaticMesh->SetCollisionProfileName(TEXT("NoCollision"), false);
 		StaticMesh->SetGenerateOverlapEvents(false);
+
 	}
-
-
-
 }
 
 AItemBase::~AItemBase()
