@@ -8,14 +8,25 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AItemBase;
 #ifdef INVENPROJECT_InvenComponent_generated_h
 #error "InvenComponent.generated.h already included, missing '#pragma once' in InvenComponent.h"
 #endif
 #define INVENPROJECT_InvenComponent_generated_h
 
 #define InvenProject_Source_InvenProject_InvenComponent_h_18_SPARSE_DATA
-#define InvenProject_Source_InvenProject_InvenComponent_h_18_RPC_WRAPPERS
-#define InvenProject_Source_InvenProject_InvenComponent_h_18_RPC_WRAPPERS_NO_PURE_DECLS
+#define InvenProject_Source_InvenProject_InvenComponent_h_18_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execRemoveItem); \
+	DECLARE_FUNCTION(execAddItem);
+
+
+#define InvenProject_Source_InvenProject_InvenComponent_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execRemoveItem); \
+	DECLARE_FUNCTION(execAddItem);
+
+
 #define InvenProject_Source_InvenProject_InvenComponent_h_18_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUInvenComponent(); \

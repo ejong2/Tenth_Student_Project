@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define INVENPROJECT_UMG_LandItems_generated_h
 
-#define InvenProject_Source_InvenProject_UMG_LandItems_h_16_SPARSE_DATA
-#define InvenProject_Source_InvenProject_UMG_LandItems_h_16_RPC_WRAPPERS
-#define InvenProject_Source_InvenProject_UMG_LandItems_h_16_RPC_WRAPPERS_NO_PURE_DECLS
-#define InvenProject_Source_InvenProject_UMG_LandItems_h_16_INCLASS_NO_PURE_DECLS \
+#define InvenProject_Source_InvenProject_UMG_LandItems_h_19_SPARSE_DATA
+#define InvenProject_Source_InvenProject_UMG_LandItems_h_19_RPC_WRAPPERS
+#define InvenProject_Source_InvenProject_UMG_LandItems_h_19_RPC_WRAPPERS_NO_PURE_DECLS
+#define InvenProject_Source_InvenProject_UMG_LandItems_h_19_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUUMG_LandItems(); \
 	friend struct Z_Construct_UClass_UUMG_LandItems_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(UUMG_LandItems)
 
 
-#define InvenProject_Source_InvenProject_UMG_LandItems_h_16_INCLASS \
+#define InvenProject_Source_InvenProject_UMG_LandItems_h_19_INCLASS \
 private: \
 	static void StaticRegisterNativesUUMG_LandItems(); \
 	friend struct Z_Construct_UClass_UUMG_LandItems_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(UUMG_LandItems)
 
 
-#define InvenProject_Source_InvenProject_UMG_LandItems_h_16_STANDARD_CONSTRUCTORS \
+#define InvenProject_Source_InvenProject_UMG_LandItems_h_19_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UUMG_LandItems(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UUMG_LandItems) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define InvenProject_Source_InvenProject_UMG_LandItems_h_16_ENHANCED_CONSTRUCTORS \
+#define InvenProject_Source_InvenProject_UMG_LandItems_h_19_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UUMG_LandItems(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -60,28 +60,28 @@ public: \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UUMG_LandItems)
 
 
-#define InvenProject_Source_InvenProject_UMG_LandItems_h_16_PRIVATE_PROPERTY_OFFSET
-#define InvenProject_Source_InvenProject_UMG_LandItems_h_13_PROLOG
-#define InvenProject_Source_InvenProject_UMG_LandItems_h_16_GENERATED_BODY_LEGACY \
+#define InvenProject_Source_InvenProject_UMG_LandItems_h_19_PRIVATE_PROPERTY_OFFSET
+#define InvenProject_Source_InvenProject_UMG_LandItems_h_16_PROLOG
+#define InvenProject_Source_InvenProject_UMG_LandItems_h_19_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	InvenProject_Source_InvenProject_UMG_LandItems_h_16_PRIVATE_PROPERTY_OFFSET \
-	InvenProject_Source_InvenProject_UMG_LandItems_h_16_SPARSE_DATA \
-	InvenProject_Source_InvenProject_UMG_LandItems_h_16_RPC_WRAPPERS \
-	InvenProject_Source_InvenProject_UMG_LandItems_h_16_INCLASS \
-	InvenProject_Source_InvenProject_UMG_LandItems_h_16_STANDARD_CONSTRUCTORS \
+	InvenProject_Source_InvenProject_UMG_LandItems_h_19_PRIVATE_PROPERTY_OFFSET \
+	InvenProject_Source_InvenProject_UMG_LandItems_h_19_SPARSE_DATA \
+	InvenProject_Source_InvenProject_UMG_LandItems_h_19_RPC_WRAPPERS \
+	InvenProject_Source_InvenProject_UMG_LandItems_h_19_INCLASS \
+	InvenProject_Source_InvenProject_UMG_LandItems_h_19_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define InvenProject_Source_InvenProject_UMG_LandItems_h_16_GENERATED_BODY \
+#define InvenProject_Source_InvenProject_UMG_LandItems_h_19_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	InvenProject_Source_InvenProject_UMG_LandItems_h_16_PRIVATE_PROPERTY_OFFSET \
-	InvenProject_Source_InvenProject_UMG_LandItems_h_16_SPARSE_DATA \
-	InvenProject_Source_InvenProject_UMG_LandItems_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
-	InvenProject_Source_InvenProject_UMG_LandItems_h_16_INCLASS_NO_PURE_DECLS \
-	InvenProject_Source_InvenProject_UMG_LandItems_h_16_ENHANCED_CONSTRUCTORS \
+	InvenProject_Source_InvenProject_UMG_LandItems_h_19_PRIVATE_PROPERTY_OFFSET \
+	InvenProject_Source_InvenProject_UMG_LandItems_h_19_SPARSE_DATA \
+	InvenProject_Source_InvenProject_UMG_LandItems_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
+	InvenProject_Source_InvenProject_UMG_LandItems_h_19_INCLASS_NO_PURE_DECLS \
+	InvenProject_Source_InvenProject_UMG_LandItems_h_19_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

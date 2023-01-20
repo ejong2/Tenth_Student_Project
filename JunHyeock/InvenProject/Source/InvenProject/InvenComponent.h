@@ -33,7 +33,11 @@ public:
 		
 public:
 
+	UFUNCTION(BlueprintCallable)
 	void AddItem(TSubclassOf<AItemBase> ItemClass, int32 AddCount);
+
+	UFUNCTION(BlueprintCallable)
+	void RemoveItem(int32 index);
 
 	TArray<UItemObject*> ItemObjectArray;
 

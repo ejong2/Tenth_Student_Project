@@ -87,8 +87,11 @@ void AInvenProjectCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComp,
 	AInvenPlayerController* MyController = Cast<AInvenPlayerController>(GetController());
 	if (MyController)
 	{
-
+		
 	}
+	AItemBase* Item = Cast<AItemBase>(OtherActor);
+	TSubclassOf<AItemBase> ItemClass = Item->GetClass();
+	InvenCompo->AddItem(ItemClass, Item->ItemCount);
 }
 
 

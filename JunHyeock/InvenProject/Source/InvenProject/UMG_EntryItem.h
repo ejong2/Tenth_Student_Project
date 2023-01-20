@@ -8,6 +8,11 @@
 #include "Components/Image.h"
 #include "Blueprint/IUserObjectListEntry.h"
 #include "ItemObject.h"
+#include "InvenPlayerController.h"
+#include "InvenProjectCharacter.h"
+#include "DragWidget.h"
+#include "ItemObject.h"
+#include "Blueprint/WidgetBlueprintLibrary.h"
 #include "UMG_EntryItem.generated.h"
 
 /**
@@ -22,6 +27,17 @@ public:
 	
 	virtual void NativeOnListItemObjectSet(UObject* ListItemEntry) override;
 
+
+	virtual FReply NativeOnMouseButtonDown(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent) override;
+
+	FReply CustomDetectDrag(const FPointerEvent& InMouseEvent, UWidget* WidgetDetectingDrag, FKey DragKey);
+
+	virtual void NativeOnDragDetected(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent, UDragDropOperation*& OutOperation) override;
+	virtual void NativeOnDragLeave(const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
+	virtual void NativeOnDragCancelled(const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
+
+
+
 public:
 	UPROPERTY(meta = (BindWidget))
 	UTextBlock* ItemName;
@@ -29,5 +45,9 @@ public:
 	UTextBlock* ItemCount;
 	UPROPERTY(meta = (BindWidget))
 	UImage* ItemIcon;
+
+	UItemObject* EntryObject;
+
+	UDragWidget* DragDropOperation;
 	
 };

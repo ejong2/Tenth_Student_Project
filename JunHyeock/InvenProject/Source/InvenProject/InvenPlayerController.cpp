@@ -61,9 +61,29 @@ void AInvenPlayerController::ToggleInven()
 	}
 }
 
+int32 AInvenPlayerController::FindIndexFromClickedWidget(UUserWidget* ClickWidget)
+{
+	UUMG_Layout* MyLayout = Cast<UUMG_Layout>(MyWidget);
+	UUMG_EntryItem* ClickedEntryItem = Cast<UUMG_EntryItem>(ClickWidget);
+	MatchedIndex = MyLayout->Inventory->InvenItemListView->GetDisplayedEntryWidgets().IndexOfByKey(ClickWidget);
+
+	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, FString::Printf(TEXT("%d"), MatchedIndex));
+	return MatchedIndex;
+}
+
 void AInvenPlayerController::RefreshInventory(TArray<UItemObject*>& ItemObjectArray)
 {
 	UUMG_Layout* MyLayout = Cast<UUMG_Layout>(MyWidget);
 	MyLayout->Inventory->InvenItemListView->SetListItems(ItemObjectArray);
+	MyLayout->Inventory->InvenItemListView->RegenerateAllEntries();
 	
+}
+
+UItemObject* AInvenPlayerController::GetItemObjectofTileview(int32 index)
+{
+	UUMG_Layout* MyLayout = Cast<UUMG_Layout>(MyWidget);
+	UObject* TempObj = MyLayout->Inventory->InvenItemListView->GetItemAt(index);
+	UItemObject* rere = Cast<UItemObject>(TempObj);
+
+	return rere;
 }

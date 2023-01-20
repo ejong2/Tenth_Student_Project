@@ -18,7 +18,7 @@ class INVENPROJECT_API UUMG_Layout : public UUserWidget
 	
 public:
 	UPROPERTY(meta = (BindWidget))
-	UUMG_Inventory* Inventory;
+	class UUMG_Inventory* Inventory;
 	UPROPERTY(meta = (BindWidget))
 	UUMG_LandItems* LandItems;
 };

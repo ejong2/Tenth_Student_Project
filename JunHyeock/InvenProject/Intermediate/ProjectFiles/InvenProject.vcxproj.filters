@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\InvenProject.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{BD5900AF-8C3F-4945-8DDE-C17237F5856C}</UniqueIdentifier>
+      <UniqueIdentifier>{E5D5B57B-B04E-4E55-98B5-B77575DAEBCD}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\InvenProject.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{B7C07D35-0B20-485C-8A4B-03A7B1874E0B}</UniqueIdentifier>
+      <UniqueIdentifier>{1FFE4D19-B9BA-4D18-93FE-6F2666D83232}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,8 +30,14 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\InvenProject">
-      <UniqueIdentifier>{CD45AF00-5E17-4BF4-B0D3-9AF3105D018D}</UniqueIdentifier>
+      <UniqueIdentifier>{BD5C90F2-58FD-440D-B3C4-C828125A0B92}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\InvenProject\DragWidget.cpp">
+      <Filter>Source\InvenProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InvenProject\DragWidget.h">
+      <Filter>Source\InvenProject</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\InvenProject\InvenComponent.cpp">
       <Filter>Source\InvenProject</Filter>
     </ClCompile>

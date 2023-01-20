@@ -9,6 +9,24 @@ AItemBase::AItemBase()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	Sphere = CreateDefaultSubobject<USphereComponent>(TEXT("Sphere"));
+
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> M_Mesh(TEXT("StaticMesh'/Engine/BasicShapes/Sphere.Sphere'"));
+
+	if (M_Mesh.Succeeded())
+	{
+		StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
+		StaticMesh->SetStaticMesh(M_Mesh.Object);
+		StaticMesh->SetCollisionProfileName(TEXT("NoCollision"), false);
+		StaticMesh->SetGenerateOverlapEvents(false);
+	}
+
+
+
+}
+
+AItemBase::~AItemBase()
+{
 }
 
 // Called when the game starts or when spawned

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/SphereComponent.h"
 #include "ItemBase.generated.h"
 
 UCLASS()
@@ -14,6 +15,7 @@ class INVENPROJECT_API AItemBase : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AItemBase();
+	virtual ~AItemBase();
 
 protected:
 	// Called when the game starts or when spawned
@@ -25,15 +27,29 @@ public:
 	
 
 public:
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	USphereComponent* Sphere;
+
+	UPROPERTY(EditAnywhere, BlueprintReadwrite)
+	UStaticMeshComponent* StaticMesh;
+
+
 	int32 GetItemID();
 
 	UPROPERTY(BlueprintReadwrite, EditAnywhere)
 	FString ItemName = TEXT("");
 	UPROPERTY(BlueprintReadwrite, EditAnywhere)
 	UTexture2D* ItemIcon;
+
+	UPROPERTY(BlueprintReadwrite, EditAnywhere)
+	int32 ItemCount = 0;
+	UPROPERTY(BlueprintReadwrite, EditAnywhere)
+	int32 ItemID = 0;
 private:
 
 	//some data...
-	int32 ItemID = 0;
+
+
 
 };

@@ -43,13 +43,17 @@ void UInvenComponent::AddItem(TSubclassOf<AItemBase> ItemClass, int32 AddCount)
 
 	UItemObject* NewItemObject = NewObject<UItemObject>(this, UItemObject::StaticClass());
 	NewItemObject->ItemObjectCount += AddCount;
+	NewItemObject->ItemClass = ItemClass;
 
 	if (ItemObjectArray.Num() <= 0)
 	{	// 1. Not containing any item
-		NewItemObject->ItemClass = ItemClass;
+
 
 		ItemObjectArray.Add(NewItemObject);
 		
+		AInvenPlayerController* InvenController = Cast<AInvenPlayerController>(GetWorld()->GetFirstPlayerController());
+		InvenController->RefreshInventory(ItemObjectArray);
+
 		return;
 	}
 
@@ -61,6 +65,9 @@ void UInvenComponent::AddItem(TSubclassOf<AItemBase> ItemClass, int32 AddCount)
 		if (ObjectItrCDO->GetItemID() == NewItemCDO->GetItemID())
 		{
 			ObjectItr->ItemObjectCount += AddCount;
+
+			AInvenPlayerController* InvenController = Cast<AInvenPlayerController>(GetWorld()->GetFirstPlayerController());
+			InvenController->RefreshInventory(ItemObjectArray);
 			return;
 		}
 	}
@@ -71,5 +78,17 @@ void UInvenComponent::AddItem(TSubclassOf<AItemBase> ItemClass, int32 AddCount)
 	InvenController->RefreshInventory(ItemObjectArray);
 
 	//refresh ui
+}
+
+void UInvenComponent::RemoveItem(int32 index)
+{
+	ItemObjectArray.RemoveAt(index);
+	AInvenPlayerController* InvenController = Cast<AInvenPlayerController>(GetWorld()->GetFirstPlayerController());
+	UUMG_Layout* MyLayout = Cast<UUMG_Layout>(InvenController->MyWidget);
+	//MyLayout->Inventory->InvenItemListView->ClearListItems();
+	//MyLayout->Inventory->InvenItemListView->SetListItems(ItemObjectArray);
+	
+	InvenController->RefreshInventory(ItemObjectArray);
+	
 }
 

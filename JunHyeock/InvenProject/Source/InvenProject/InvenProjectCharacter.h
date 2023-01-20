@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "InvenComponent.h"
 #include "InvenPlayerController.h"
+#include "ItemObject.h"
 #include "InvenProjectCharacter.generated.h"
 
 UCLASS(config=Game)
@@ -21,7 +22,7 @@ class AInvenProjectCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
 
-	class UInvenComponent* InvenCompo;
+
 public:
 	AInvenProjectCharacter();
 
@@ -73,11 +74,14 @@ public:
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
+	class UInvenComponent* InvenCompo;
+
 public:
 	UFUNCTION()
 	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, 
 		class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, 
 		const FHitResult& SweepResult);
+
 
 };
 

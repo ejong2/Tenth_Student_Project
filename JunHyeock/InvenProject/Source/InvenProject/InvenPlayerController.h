@@ -7,6 +7,8 @@
 #include "Blueprint/UserWidget.h"
 #include "UMG_Layout.h"
 #include "ItemObject.h"
+#include "UMG_EntryItem.h"
+#include "Kismet/KismetSystemLibrary.h"
 #include "InvenPlayerController.generated.h"
 
 /**
@@ -33,7 +35,11 @@ public:
 	void CreateMyWidget();
 	void ToggleInven();
 
+	int32 FindIndexFromClickedWidget(UUserWidget* ClickWidget);
+
 	void RefreshInventory(TArray<UItemObject*>& ItemObjectArray);
+
+	UItemObject* GetItemObjectofTileview(int32 index);
 
 public:
 
@@ -43,6 +49,8 @@ public:
 	UPROPERTY(BlueprintReadwrite, EditAnywhere)
 	UUserWidget* MyWidget;
 
+	class UUMG_EntryItem* ClickItem;
 
+	int32 MatchedIndex;
 
 };

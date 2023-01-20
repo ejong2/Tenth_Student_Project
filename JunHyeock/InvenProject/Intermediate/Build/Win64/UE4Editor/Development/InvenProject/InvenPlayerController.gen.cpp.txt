@@ -124,18 +124,53 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Slate\Public\Widgets/V
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Slate\Public\Widgets/Views/STreeView.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\ListViewBase.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\ListView.generated.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Source\InvenProject\DragWidget.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\UMG\Public\Blueprint/DragDropOperation.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\DragDropOperation.generated.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\DragWidget.generated.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Source\InvenProject\ItemBase.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/SphereComponent.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SphereComponent.generated.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\ItemBase.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet/KismetSystemLibrary.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/PropertyAccessUtil.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetSystemLibrary.generated.h
 C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\UMG_LandItems.generated.h
 C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Source\InvenProject\UMG_Inventory.h
-C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\UMG_Inventory.generated.h
-C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\UMG_Layout.generated.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Source\InvenProject\InvenProjectCharacter.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Source\InvenProject\InvenComponent.h
 C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Source\InvenProject\ItemObject.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/NoExportTypes.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/PropertyAccessUtil.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Core\Public\Math/UnitConversion.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Core\Public\Math/UnitConversion.inl
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Core\Public\Internationalization/PolyglotTextData.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\AssetRegistry/ARFilter.h
-C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Source\InvenProject\ItemBase.h
-C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\ItemBase.generated.h
 C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\ItemObject.generated.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\InvenComponent.generated.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\InvenProjectCharacter.generated.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\UMG_Inventory.generated.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\UMG_Layout.generated.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Source\InvenProject\UMG_EntryItem.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\UMG\Public\Components/TextBlock.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\UMG\Public\Components/TextWidgetTypes.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\TextWidgetTypes.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\TextBlock.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\UMG\Public\Components/Image.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Public\Slate/SlateTextureAtlasInterface.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SlateTextureAtlasInterface.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/StreamableManager.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\Image.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\UMG\Public\Blueprint/WidgetBlueprintLibrary.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Public\Slate/SGameLayerManager.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Slate\Public\Widgets/SCanvas.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\WidgetBlueprintLibrary.generated.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\UMG_EntryItem.generated.h
 C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\InvenPlayerController.generated.h
