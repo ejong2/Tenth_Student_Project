@@ -37,6 +37,10 @@ void EmptyLinkFunctionForGeneratedCodeItemObject() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ItemClass_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FClassPropertyParams NewProp_ItemClass;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ItemObjectCount_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_ItemObjectCount;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -47,8 +51,10 @@ void EmptyLinkFunctionForGeneratedCodeItemObject() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UItemObject_Statics::Class_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
 		{ "Comment", "/**\n * \n */" },
 		{ "IncludePath", "ItemObject.h" },
+		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "ItemObject.h" },
 	};
 #endif
@@ -59,8 +65,16 @@ void EmptyLinkFunctionForGeneratedCodeItemObject() {}
 	};
 #endif
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_UItemObject_Statics::NewProp_ItemClass = { "ItemClass", nullptr, (EPropertyFlags)0x0014000000000005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UItemObject, ItemClass), Z_Construct_UClass_AItemBase_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_UItemObject_Statics::NewProp_ItemClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UItemObject_Statics::NewProp_ItemClass_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UItemObject_Statics::NewProp_ItemObjectCount_MetaData[] = {
+		{ "Category", "ItemObject" },
+		{ "ModuleRelativePath", "ItemObject.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UItemObject_Statics::NewProp_ItemObjectCount = { "ItemObjectCount", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UItemObject, ItemObjectCount), METADATA_PARAMS(Z_Construct_UClass_UItemObject_Statics::NewProp_ItemObjectCount_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UItemObject_Statics::NewProp_ItemObjectCount_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UItemObject_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UItemObject_Statics::NewProp_ItemClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UItemObject_Statics::NewProp_ItemObjectCount,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UItemObject_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UItemObject>::IsAbstract,
@@ -89,7 +103,7 @@ void EmptyLinkFunctionForGeneratedCodeItemObject() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UItemObject, 3178233851);
+	IMPLEMENT_CLASS(UItemObject, 628609675);
 	template<> INVENPROJECT_API UClass* StaticClass<UItemObject>()
 	{
 		return UItemObject::StaticClass();

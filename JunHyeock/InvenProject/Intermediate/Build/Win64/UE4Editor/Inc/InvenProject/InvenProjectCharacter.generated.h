@@ -19,11 +19,13 @@ struct FHitResult;
 #define InvenProject_Source_InvenProject_InvenProjectCharacter_h_15_SPARSE_DATA
 #define InvenProject_Source_InvenProject_InvenProjectCharacter_h_15_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execOnOverlapEnd); \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
 #define InvenProject_Source_InvenProject_InvenProjectCharacter_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execOnOverlapEnd); \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 

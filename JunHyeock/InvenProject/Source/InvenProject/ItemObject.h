@@ -10,7 +10,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class INVENPROJECT_API UItemObject : public UObject
 {
 	GENERATED_BODY()
@@ -20,5 +20,6 @@ public:
 	UPROPERTY(BlueprintReadwrite, EditAnywhere)
 	TSubclassOf<AItemBase> ItemClass;
 
+	UPROPERTY(BlueprintReadwrite, EditAnywhere)
 	int32 ItemObjectCount = 0; 
 };

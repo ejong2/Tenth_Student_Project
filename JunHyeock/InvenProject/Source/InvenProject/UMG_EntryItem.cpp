@@ -108,7 +108,7 @@ void UUMG_EntryItem::NativeOnDragCancelled(const FDragDropEvent& InDragDropEvent
 {
 	if (DragDropOperation)
 	{
-		//add gc
+		//add to gc
 		DragDropOperation->ConditionalBeginDestroy();
 	}
 	//GetWorld()->ForceGarbageCollection(true);

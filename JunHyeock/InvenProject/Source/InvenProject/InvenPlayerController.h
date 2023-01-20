@@ -41,6 +41,10 @@ public:
 
 	UItemObject* GetItemObjectofTileview(int32 index);
 
+
+
+	void AddItemToLandItems(AItemBase* Item);
+
 public:
 
 	UPROPERTY(EditAnywhere, Category = "Widget")
@@ -49,8 +53,11 @@ public:
 	UPROPERTY(BlueprintReadwrite, EditAnywhere)
 	UUserWidget* MyWidget;
 
+	class UUMG_Layout* MyLayout;
 	class UUMG_EntryItem* ClickItem;
 
 	int32 MatchedIndex;
+
+	bool bIsClickingInventory = false;
 
 };

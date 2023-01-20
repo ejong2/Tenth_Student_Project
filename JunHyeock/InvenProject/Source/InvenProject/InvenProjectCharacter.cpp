@@ -18,7 +18,7 @@ AInvenProjectCharacter::AInvenProjectCharacter()
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
 	GetCapsuleComponent()->OnComponentBeginOverlap.AddDynamic(this, &AInvenProjectCharacter::OnOverlapBegin);
-
+	GetCapsuleComponent()->OnComponentEndOverlap.AddDynamic(this, &AInvenProjectCharacter::OnOverlapEnd);
 	// set our turn rates for input
 	BaseTurnRate = 45.f;
 	BaseLookUpRate = 45.f;
@@ -92,6 +92,20 @@ void AInvenProjectCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComp,
 	AItemBase* Item = Cast<AItemBase>(OtherActor);
 	TSubclassOf<AItemBase> ItemClass = Item->GetClass();
 	InvenCompo->AddItem(ItemClass, Item->ItemCount);
+
+	//MyController->AddItemToLandItems(Item);
+
+
+}
+
+void AInvenProjectCharacter::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	AItemBase* Item = Cast<AItemBase>(OtherActor);
+	if (Item == nullptr)
+		return;
+
+
+
 }
 
 

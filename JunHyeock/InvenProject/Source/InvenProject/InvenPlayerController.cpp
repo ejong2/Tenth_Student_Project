@@ -15,6 +15,7 @@ void AInvenPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 	CreateMyWidget();
+	MyLayout = Cast<UUMG_Layout>(MyWidget);
 }
 
 void AInvenPlayerController::Tick(float DeltaSecond)
@@ -63,17 +64,29 @@ void AInvenPlayerController::ToggleInven()
 
 int32 AInvenPlayerController::FindIndexFromClickedWidget(UUserWidget* ClickWidget)
 {
-	UUMG_Layout* MyLayout = Cast<UUMG_Layout>(MyWidget);
+	bIsClickingInventory = true;
+    //UUMG_Layout* MyLayout = Cast<UUMG_Layout>(MyWidget);
 	UUMG_EntryItem* ClickedEntryItem = Cast<UUMG_EntryItem>(ClickWidget);
 	MatchedIndex = MyLayout->Inventory->InvenItemListView->GetDisplayedEntryWidgets().IndexOfByKey(ClickWidget);
+	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, FString::Printf(TEXT("%d"), MatchedIndex));
+
+	
+	//not in Inventory
+	if (MatchedIndex < 0)
+	{
+		MatchedIndex = MyLayout->LandItems->LandItemListView->GetDisplayedEntryWidgets().IndexOfByKey(ClickWidget);
+		bIsClickingInventory = false;
+	}
 
 	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, FString::Printf(TEXT("%d"), MatchedIndex));
+
+
 	return MatchedIndex;
 }
 
 void AInvenPlayerController::RefreshInventory(TArray<UItemObject*>& ItemObjectArray)
 {
-	UUMG_Layout* MyLayout = Cast<UUMG_Layout>(MyWidget);
+	//UUMG_Layout* MyLayout = Cast<UUMG_Layout>(MyWidget);
 	MyLayout->Inventory->InvenItemListView->SetListItems(ItemObjectArray);
 	MyLayout->Inventory->InvenItemListView->RegenerateAllEntries();
 	
@@ -81,9 +94,18 @@ void AInvenPlayerController::RefreshInventory(TArray<UItemObject*>& ItemObjectAr
 
 UItemObject* AInvenPlayerController::GetItemObjectofTileview(int32 index)
 {
-	UUMG_Layout* MyLayout = Cast<UUMG_Layout>(MyWidget);
+	//UUMG_Layout* MyLayout = Cast<UUMG_Layout>(MyWidget);
 	UObject* TempObj = MyLayout->Inventory->InvenItemListView->GetItemAt(index);
-	UItemObject* rere = Cast<UItemObject>(TempObj);
+	UItemObject* ReturnItemObject = Cast<UItemObject>(TempObj);
 
-	return rere;
+	return ReturnItemObject;
+}
+ 
+void AInvenPlayerController::AddItemToLandItems(AItemBase* Item)
+{
+	UItemObject* NewItemObject = NewObject<UItemObject>(this, UItemObject::StaticClass());
+	NewItemObject->ItemClass = Item->GetClass();
+	NewItemObject->ItemObjectCount = Item->ItemCount;
+
+	MyLayout->LandItems->LandItemListView->AddItem(NewItemObject);
 }
