@@ -1,0 +1,11 @@
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Development\InvenProject\Definitions.InvenProject.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Source\InvenProject\ItemObject.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/NoExportTypes.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/PropertyAccessUtil.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Core\Public\Math/UnitConversion.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Core\Public\Math/UnitConversion.inl
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Core\Public\Internationalization/PolyglotTextData.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\AssetRegistry/ARFilter.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Source\InvenProject\ItemBase.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\ItemBase.generated.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\ItemObject.generated.h

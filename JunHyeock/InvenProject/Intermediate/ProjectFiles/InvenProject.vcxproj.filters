@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\InvenProject.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{BD5900AF-8C3F-4945-8DDE-C17237F5856C}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\InvenProject.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\InvenProjectEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{B7C07D35-0B20-485C-8A4B-03A7B1874E0B}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\InvenProject">
+      <UniqueIdentifier>{CD45AF00-5E17-4BF4-B0D3-9AF3105D018D}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\InvenProject\InvenComponent.cpp">
+      <Filter>Source\InvenProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InvenProject\InvenComponent.h">
+      <Filter>Source\InvenProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\InvenProject\InvenPlayerController.cpp">
+      <Filter>Source\InvenProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InvenProject\InvenPlayerController.h">
+      <Filter>Source\InvenProject</Filter>
+    </ClInclude>
+    <None Include="..\..\Source\InvenProject\InvenProject.Build.cs">
+      <Filter>Source\InvenProject</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\InvenProject\InvenProject.cpp">
+      <Filter>Source\InvenProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InvenProject\InvenProject.h">
+      <Filter>Source\InvenProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\InvenProject\InvenProjectCharacter.cpp">
+      <Filter>Source\InvenProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InvenProject\InvenProjectCharacter.h">
+      <Filter>Source\InvenProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\InvenProject\InvenProjectGameMode.cpp">
+      <Filter>Source\InvenProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InvenProject\InvenProjectGameMode.h">
+      <Filter>Source\InvenProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\InvenProject\ItemBase.cpp">
+      <Filter>Source\InvenProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InvenProject\ItemBase.h">
+      <Filter>Source\InvenProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\InvenProject\ItemObject.cpp">
+      <Filter>Source\InvenProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InvenProject\ItemObject.h">
+      <Filter>Source\InvenProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\InvenProject\UMG_EntryItem.cpp">
+      <Filter>Source\InvenProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InvenProject\UMG_EntryItem.h">
+      <Filter>Source\InvenProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\InvenProject\UMG_Inventory.cpp">
+      <Filter>Source\InvenProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InvenProject\UMG_Inventory.h">
+      <Filter>Source\InvenProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\InvenProject\UMG_LandItems.cpp">
+      <Filter>Source\InvenProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InvenProject\UMG_LandItems.h">
+      <Filter>Source\InvenProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\InvenProject\UMG_Layout.cpp">
+      <Filter>Source\InvenProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InvenProject\UMG_Layout.h">
+      <Filter>Source\InvenProject</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,3 @@
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Development\InvenProject\Definitions.InvenProject.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Source\InvenProject\ItemBase.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\ItemBase.generated.h

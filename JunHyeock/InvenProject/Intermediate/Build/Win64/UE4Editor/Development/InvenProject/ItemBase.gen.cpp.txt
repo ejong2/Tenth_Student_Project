@@ -1,0 +1,5 @@
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Development\InvenProject\Definitions.InvenProject.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Source\InvenProject/ItemBase.h
+C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\ItemBase.generated.h
