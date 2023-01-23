@@ -39,6 +39,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void RemoveItem(int32 index);
 
-	TArray<UItemObject*> ItemObjectArray;
+	TArray<class UItemObject*> ItemObjectArray;
 
 };

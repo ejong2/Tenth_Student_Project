@@ -5,29 +5,32 @@
 
 bool UUMG_LandItems::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation)
 {
+	//땅에버리기로직
 	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Green, TEXT("Left Drop"));
+
+	AInvenPlayerController* MyController = Cast<AInvenPlayerController>(GetWorld()->GetFirstPlayerController());
+	AInvenProjectCharacter* MyCharacter = Cast<AInvenProjectCharacter>(MyController->GetPawn());
 
 	UDragWidget* DragDropOperation = Cast<UDragWidget>(InOperation);
 	
 	if (DragDropOperation == nullptr)
 	return false;
-	
 
-	DragDropOperation->ItemClass;
-
+	//스폰
 
 
-	AItemBase* NewItem = GetWorld()->SpawnActor<AItemBase>(DragDropOperation->ItemClass, 
-		(GetWorld()->GetFirstPlayerController()->GetPawn())->GetActorLocation(), FRotator(0));
-
-	
-	if (DragDropOperation->ItemClass != nullptr)
+	if (MyController->bIsClickingInventory == true)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Green, UKismetSystemLibrary::GetDisplayName(DragDropOperation->ItemClass));
-		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Green, UKismetSystemLibrary::GetDisplayName(NewItem));
+		AItemBase* NewItem = GetWorld()->SpawnActor<AItemBase>(DragDropOperation->ItemClass,
+			(GetWorld()->GetFirstPlayerController()->GetPawn())->GetActorLocation(), FRotator(0));
+		NewItem->ItemCount = MyCharacter->InvenCompo->ItemObjectArray[MyController->MatchedIndex]->ItemObjectCount;
 
+		MyCharacter->InvenCompo->RemoveItem(MyController->MatchedIndex);
 	}
-
+	else if (MyController->bIsClickingInventory == false)
+	{
+		MyController->MyLayout->LandItems->LandItemListView->RegenerateAllEntries();
+	}
 
     return true;
 }

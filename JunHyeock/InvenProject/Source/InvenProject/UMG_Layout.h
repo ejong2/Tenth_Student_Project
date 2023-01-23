@@ -20,5 +20,5 @@ public:
 	UPROPERTY(meta = (BindWidget), BlueprintReadOnly, VisibleAnywhere)
 	class UUMG_Inventory* Inventory;
 	UPROPERTY(meta = (BindWidget), BlueprintReadOnly, VisibleAnywhere)
-	UUMG_LandItems* LandItems;
+	class UUMG_LandItems* LandItems;
 };

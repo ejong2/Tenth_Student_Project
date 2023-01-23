@@ -91,7 +91,7 @@ void AInvenProjectCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComp,
 	}
 	AItemBase* Item = Cast<AItemBase>(OtherActor);
 	TSubclassOf<AItemBase> ItemClass = Item->GetClass();
-	InvenCompo->AddItem(ItemClass, Item->ItemCount);
+	//InvenCompo->AddItem(ItemClass, Item->ItemCount);
 
 	//MyController->AddItemToLandItems(Item);
 
@@ -105,8 +105,22 @@ void AInvenProjectCharacter::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, A
 		return;
 
 
+	
+
+
 
 }
+
+void AInvenProjectCharacter::FindAndDestroyActorFromItemObj(int32 index)
+{
+	TArray<AActor*> Result;
+	GetOverlappingActors(Result, AItemBase::StaticClass());
+	AItemBase* DestroyingItem = Cast<AItemBase>(Result[index]);
+	Result[index]->Destroy();
+	
+}
+
+
 
 
 void AInvenProjectCharacter::OnResetVR()

@@ -84,12 +84,21 @@ void UUMG_EntryItem::NativeOnDragDetected(const FGeometry& InGeometry, const FPo
 
 	DragDropOperation->WidgetReference = this;
 
-	DragDropOperation->ItemClass = MyController->GetItemObjectofTileview(CurrentIndex)->ItemClass;
-	DragDropOperation->Count = MyController->GetItemObjectofTileview(CurrentIndex)->ItemObjectCount;
 	DragDropOperation->DragOffset = InGeometry.AbsoluteToLocal(InMouseEvent.GetScreenSpacePosition());
-
 	DragDropOperation->DefaultDragVisual = this;
 	DragDropOperation->Pivot = EDragPivot::MouseDown;
+
+	if (MyController->bIsClickingInventory == true)
+	{
+		DragDropOperation->ItemClass = MyController->GetItemObjectofTileview(CurrentIndex)->ItemClass;
+		DragDropOperation->Count = MyController->GetItemObjectofTileview(CurrentIndex)->ItemObjectCount;
+
+	}
+	else if(MyController->bIsClickingInventory == false)
+	{
+
+	}
+
 
 	OutOperation = DragDropOperation;
 
@@ -117,6 +126,7 @@ void UUMG_EntryItem::NativeOnDragCancelled(const FDragDropEvent& InDragDropEvent
 	AInvenPlayerController* MyController = Cast<AInvenPlayerController>(GetWorld()->GetFirstPlayerController());
 	UUMG_Layout* MyLayout = Cast<UUMG_Layout>(MyController->MyWidget);
 	MyLayout->Inventory->InvenItemListView->RegenerateAllEntries();
+	MyLayout->LandItems->LandItemListView->RegenerateAllEntries();
 }
 
 

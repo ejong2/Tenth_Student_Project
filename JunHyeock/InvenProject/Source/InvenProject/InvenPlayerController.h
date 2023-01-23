@@ -37,13 +37,15 @@ public:
 
 	int32 FindIndexFromClickedWidget(UUserWidget* ClickWidget);
 
-	void RefreshInventory(TArray<UItemObject*>& ItemObjectArray);
+	void RefreshInventory(TArray<class UItemObject*>& ItemObjectArray);
 
-	UItemObject* GetItemObjectofTileview(int32 index);
+	class UItemObject* GetItemObjectofTileview(int32 index);
 
 
 
-	void AddItemToLandItems(AItemBase* Item);
+	void AddItemToLandItems(class UItemObject* Item);
+
+	void RemoveItemFromLandItems(class UItemObject* Item);
 
 public:
 

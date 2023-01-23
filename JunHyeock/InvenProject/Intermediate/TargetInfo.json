@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "InvenProject",
-			"Path": "C:\\Users\\YGL\\Desktop\\HachiTaya\\Tenth_Student_Project\\JunHyeock\\InvenProject\\Source\\InvenProject.Target.cs",
+			"Path": "C:\\Users\\82102\\Desktop\\ivp\\Tenth_Student_Project\\JunHyeock\\InvenProject\\Source\\InvenProject.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "InvenProjectEditor",
-			"Path": "C:\\Users\\YGL\\Desktop\\HachiTaya\\Tenth_Student_Project\\JunHyeock\\InvenProject\\Source\\InvenProjectEditor.Target.cs",
+			"Path": "C:\\Users\\82102\\Desktop\\ivp\\Tenth_Student_Project\\JunHyeock\\InvenProject\\Source\\InvenProjectEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]

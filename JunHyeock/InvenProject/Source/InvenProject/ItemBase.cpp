@@ -23,6 +23,11 @@ AItemBase::AItemBase()
 		StaticMesh->SetGenerateOverlapEvents(false);
 
 	}
+
+	Sphere->OnComponentBeginOverlap.AddDynamic(this, &AItemBase::OnOverlapBegin);
+	Sphere->OnComponentEndOverlap.AddDynamic(this, &AItemBase::OnOverlapEnd);
+
+
 }
 
 AItemBase::~AItemBase()
@@ -46,5 +51,51 @@ void AItemBase::Tick(float DeltaTime)
 int32 AItemBase::GetItemID()
 {
 	return ItemID;
+}
+
+void AItemBase::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	AInvenProjectCharacter* MyCharacter = Cast<AInvenProjectCharacter>(OtherActor);
+	if (MyCharacter != nullptr)
+	{
+		AInvenPlayerController* MyController = Cast<AInvenPlayerController>(MyCharacter->GetController());
+
+		if (ItemObj == nullptr)
+		{
+			if (bIsCreatedObj == false)
+			{
+				ItemObj = NewObject<UItemObject>(this);
+				ItemObj->ItemClass = this->GetClass();
+				ItemObj->ItemObjectCount = ItemCount;
+			}
+
+		}
+		else if (ItemObj != nullptr)
+		{
+			ItemObj->ItemObjectCount = ItemCount;
+
+		}
+		MyController->AddItemToLandItems(ItemObj);
+	}
+
+
+
+}
+
+void AItemBase::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	
+	AInvenProjectCharacter* MyCharacter = Cast<AInvenProjectCharacter>(OtherActor);
+	if (MyCharacter != nullptr)
+	{
+		AInvenPlayerController* MyController = Cast<AInvenPlayerController>(MyCharacter->GetController());
+		if (ItemObj != nullptr)
+		{
+			MyController->RemoveItemFromLandItems(ItemObj);
+		}
+	}
+
+	
+
 }
 

@@ -8,6 +8,8 @@
 #include "DragWidget.h"
 #include "ItemBase.h"
 #include "Kismet/KismetSystemLibrary.h"
+#include "InvenPlayerController.h"
+#include "InvenProjectCharacter.h"
 #include "UMG_LandItems.generated.h"
 
 /**

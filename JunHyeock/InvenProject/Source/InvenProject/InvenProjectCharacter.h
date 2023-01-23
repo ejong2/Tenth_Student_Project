@@ -86,6 +86,8 @@ public:
 		void OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor,
 			class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
+	void FindAndDestroyActorFromItemObj(int32 index);
+
 
 };
 

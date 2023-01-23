@@ -5,6 +5,9 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Components/SphereComponent.h"
+#include "InvenPlayerController.h"
+#include "InvenProjectCharacter.h"
+#include "ItemObject.h"
 #include "ItemBase.generated.h"
 
 UCLASS()
@@ -46,6 +49,21 @@ public:
 	int32 ItemCount = 0;
 	UPROPERTY(BlueprintReadwrite, EditAnywhere)
 	int32 ItemID = 0;
+
+	UItemObject* ItemObj;
+
+	bool bIsCreatedObj = false;
+
+
+
+	UFUNCTION()
+		void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor,
+			class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep,
+			const FHitResult& SweepResult);
+
+	UFUNCTION()
+		void OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor,
+			class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 private:
 
 	//some data...

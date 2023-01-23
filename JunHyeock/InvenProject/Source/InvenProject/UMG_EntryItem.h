@@ -46,7 +46,7 @@ public:
 	UPROPERTY(meta = (BindWidget))
 	UImage* ItemIcon;
 
-	UItemObject* EntryObject;
+	class UItemObject* EntryObject;
 
 	UDragWidget* DragDropOperation;
 	

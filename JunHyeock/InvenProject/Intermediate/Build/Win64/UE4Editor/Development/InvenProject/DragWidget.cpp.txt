@@ -1,5 +1,5 @@
-C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Development\InvenProject\Definitions.InvenProject.h
-C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Source\InvenProject\DragWidget.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\UMG\Public\Blueprint/DragDropOperation.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\DragDropOperation.generated.h
-C:\Users\YGL\Desktop\HachiTaya\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\DragWidget.generated.h
+C:\Users\82102\Desktop\ivp\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Development\InvenProject\Definitions.InvenProject.h
+C:\Users\82102\Desktop\ivp\Tenth_Student_Project\JunHyeock\InvenProject\Source\InvenProject\DragWidget.h
+F:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\UMG\Public\Blueprint/DragDropOperation.h
+F:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\DragDropOperation.generated.h
+C:\Users\82102\Desktop\ivp\Tenth_Student_Project\JunHyeock\InvenProject\Intermediate\Build\Win64\UE4Editor\Inc\InvenProject\DragWidget.generated.h
