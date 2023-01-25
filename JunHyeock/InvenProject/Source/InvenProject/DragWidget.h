@@ -25,8 +25,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector2D DragOffset;
 
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<class AItemBase> ItemClass;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 Count;
 	
 

@@ -38,7 +38,7 @@ public:
 	int32 FindIndexFromClickedWidget(UUserWidget* ClickWidget);
 
 	void RefreshInventory(TArray<class UItemObject*>& ItemObjectArray);
-
+	UFUNCTION(BlueprintCallable)
 	class UItemObject* GetItemObjectofTileview(int32 index);
 
 
@@ -58,8 +58,10 @@ public:
 	class UUMG_Layout* MyLayout;
 	class UUMG_EntryItem* ClickItem;
 
+	UPROPERTY(BlueprintReadwrite, EditAnywhere)
 	int32 MatchedIndex;
 
+	UPROPERTY(BlueprintReadwrite, EditAnywhere)
 	bool bIsClickingInventory = false;
 
 };

@@ -8,14 +8,23 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UItemObject;
 #ifdef INVENPROJECT_InvenPlayerController_generated_h
 #error "InvenPlayerController.generated.h already included, missing '#pragma once' in InvenPlayerController.h"
 #endif
 #define INVENPROJECT_InvenPlayerController_generated_h
 
 #define InvenProject_Source_InvenProject_InvenPlayerController_h_20_SPARSE_DATA
-#define InvenProject_Source_InvenProject_InvenPlayerController_h_20_RPC_WRAPPERS
-#define InvenProject_Source_InvenProject_InvenPlayerController_h_20_RPC_WRAPPERS_NO_PURE_DECLS
+#define InvenProject_Source_InvenProject_InvenPlayerController_h_20_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execGetItemObjectofTileview);
+
+
+#define InvenProject_Source_InvenProject_InvenPlayerController_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execGetItemObjectofTileview);
+
+
 #define InvenProject_Source_InvenProject_InvenPlayerController_h_20_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAInvenPlayerController(); \

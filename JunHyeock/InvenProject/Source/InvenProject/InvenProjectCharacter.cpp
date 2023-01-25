@@ -103,12 +103,7 @@ void AInvenProjectCharacter::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, A
 	AItemBase* Item = Cast<AItemBase>(OtherActor);
 	if (Item == nullptr)
 		return;
-
-
 	
-
-
-
 }
 
 void AInvenProjectCharacter::FindAndDestroyActorFromItemObj(int32 index)

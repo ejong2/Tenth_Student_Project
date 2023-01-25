@@ -109,5 +109,8 @@ void AInvenPlayerController::AddItemToLandItems(UItemObject* Item)
 
 void AInvenPlayerController::RemoveItemFromLandItems(UItemObject* Item)
 {
-	MyLayout->LandItems->LandItemListView->RemoveItem(Item);
+	if (Item != nullptr)
+	{
+		MyLayout->LandItems->LandItemListView->RemoveItem(Item);
+	}
 }

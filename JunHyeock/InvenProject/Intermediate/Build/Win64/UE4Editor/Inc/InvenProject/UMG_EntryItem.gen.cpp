@@ -19,6 +19,7 @@ void EmptyLinkFunctionForGeneratedCodeUMG_EntryItem() {}
 	UPackage* Z_Construct_UPackage__Script_InvenProject();
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
+	INVENPROJECT_API UClass* Z_Construct_UClass_UDragWidget_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UUserObjectListEntry_NoRegister();
 // End Cross Module References
 	void UUMG_EntryItem::StaticRegisterNativesUUMG_EntryItem()
@@ -46,6 +47,10 @@ void EmptyLinkFunctionForGeneratedCodeUMG_EntryItem() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ItemIcon_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ItemIcon;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DragDropOperation_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_DragDropOperation;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UE4CodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
@@ -65,31 +70,42 @@ void EmptyLinkFunctionForGeneratedCodeUMG_EntryItem() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemName_MetaData[] = {
 		{ "BindWidget", "" },
+		{ "Category", "UMG_EntryItem" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "UMG_EntryItem.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemName = { "ItemName", nullptr, (EPropertyFlags)0x0010000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_EntryItem, ItemName), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemName_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemName = { "ItemName", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_EntryItem, ItemName), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemName_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemCount_MetaData[] = {
 		{ "BindWidget", "" },
+		{ "Category", "UMG_EntryItem" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "UMG_EntryItem.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemCount = { "ItemCount", nullptr, (EPropertyFlags)0x0010000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_EntryItem, ItemCount), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemCount_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemCount_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemCount = { "ItemCount", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_EntryItem, ItemCount), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemCount_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemCount_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemIcon_MetaData[] = {
 		{ "BindWidget", "" },
+		{ "Category", "UMG_EntryItem" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "UMG_EntryItem.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemIcon = { "ItemIcon", nullptr, (EPropertyFlags)0x0010000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_EntryItem, ItemIcon), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemIcon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemIcon_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemIcon = { "ItemIcon", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_EntryItem, ItemIcon), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemIcon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemIcon_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_DragDropOperation_MetaData[] = {
+		{ "Category", "UMG_EntryItem" },
+		{ "ModuleRelativePath", "UMG_EntryItem.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_DragDropOperation = { "DragDropOperation", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_EntryItem, DragDropOperation), Z_Construct_UClass_UDragWidget_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_DragDropOperation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_DragDropOperation_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UUMG_EntryItem_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemName,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemCount,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_ItemIcon,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UUMG_EntryItem_Statics::NewProp_DragDropOperation,
 	};
 		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_UUMG_EntryItem_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UUserObjectListEntry_NoRegister, (int32)VTABLE_OFFSET(UUMG_EntryItem, IUserObjectListEntry), false },
@@ -121,7 +137,7 @@ void EmptyLinkFunctionForGeneratedCodeUMG_EntryItem() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UUMG_EntryItem, 1454985887);
+	IMPLEMENT_CLASS(UUMG_EntryItem, 766936463);
 	template<> INVENPROJECT_API UClass* StaticClass<UUMG_EntryItem>()
 	{
 		return UUMG_EntryItem::StaticClass();

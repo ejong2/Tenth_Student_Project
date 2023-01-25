@@ -14,11 +14,21 @@ bool UUMG_Inventory::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEv
 	else if (MyController->bIsClickingInventory == false)
 	{
 		//인벤으로 추가
-		UItemObject* ClickedObj = Cast<UItemObject>(MyController->MyLayout->LandItems->LandItemListView->GetItemAt(MyController->MatchedIndex));
-		MyCharacter->InvenCompo->AddItem(ClickedObj->ItemClass, ClickedObj->ItemObjectCount);
-		
-		//액터삭제
-		MyCharacter->FindAndDestroyActorFromItemObj(MyController->MatchedIndex);
+		if (MyController->MatchedIndex > -1)
+		{
+			UItemObject* ClickedObj = Cast<UItemObject>(MyController->MyLayout->LandItems->LandItemListView->GetItemAt(MyController->MatchedIndex));
+			if (ClickedObj)
+			{
+				MyCharacter->InvenCompo->AddItem(ClickedObj->ItemClass, ClickedObj->ItemObjectCount);
+
+				//액터삭제
+				MyCharacter->FindAndDestroyActorFromItemObj(MyController->MatchedIndex);
+
+			}
+
+
+		}
+
 	}
 
 

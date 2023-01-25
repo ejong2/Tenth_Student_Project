@@ -13,6 +13,7 @@
 #include "DragWidget.h"
 #include "ItemObject.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
+#include "Kismet/GameplayStatics.h"
 #include "UMG_EntryItem.generated.h"
 
 /**
@@ -25,8 +26,12 @@ class INVENPROJECT_API UUMG_EntryItem : public UUserWidget, public IUserObjectLi
 	
 public:
 	
-	virtual void NativeOnListItemObjectSet(UObject* ListItemEntry) override;
+	virtual void NativeConstruct() override;
+	virtual void NativePreConstruct() override;
 
+
+	virtual void NativeOnListItemObjectSet(UObject* ListItemEntry) override;
+	
 
 	virtual FReply NativeOnMouseButtonDown(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent) override;
 
@@ -39,15 +44,16 @@ public:
 
 
 public:
-	UPROPERTY(meta = (BindWidget))
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (BindWidget))
 	UTextBlock* ItemName;
-	UPROPERTY(meta = (BindWidget))
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (BindWidget))
 	UTextBlock* ItemCount;
-	UPROPERTY(meta = (BindWidget))
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (BindWidget))
 	UImage* ItemIcon;
 
 	class UItemObject* EntryObject;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	UDragWidget* DragDropOperation;
 	
 };

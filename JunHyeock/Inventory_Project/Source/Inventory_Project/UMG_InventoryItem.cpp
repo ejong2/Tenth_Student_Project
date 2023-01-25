@@ -7,6 +7,8 @@ void UUMG_InventoryItem::NativeConstruct()
 {
 	Super::NativeConstruct();
 
+	if (ItemName == nullptr)
+		ItemName = Cast<UTextBlock>(GetWidgetFromName(TEXT("ItemName")));
 }
 
 FReply UUMG_InventoryItem::CustomDetectDrag(const FPointerEvent& InMouseEvent, UWidget* WidgetDetectingDrag, FKey DragKey)

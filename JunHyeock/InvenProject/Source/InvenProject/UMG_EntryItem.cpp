@@ -3,16 +3,37 @@
 
 #include "UMG_EntryItem.h"
 
+void UUMG_EntryItem::NativeConstruct()
+{
+	Super::NativeConstruct();
+
+}
+
+void UUMG_EntryItem::NativePreConstruct()
+{
+
+	//if (ItemName == nullptr)
+	//	ItemName = Cast<UTextBlock>(GetWidgetFromName(TEXT("ItemName")));
+	//if (ItemCount == nullptr)
+	//	ItemCount = Cast<UTextBlock>(GetWidgetFromName(TEXT("ItemCount")));
+	//if (ItemCount != nullptr && GEngine)
+	//{
+	//	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Red, TEXT("wpqkf"));
+	//}
+	Super::NativePreConstruct();
+}
+
+
 void UUMG_EntryItem::NativeOnListItemObjectSet(UObject* ListItemEntry)
 {
 	EntryObject = Cast<UItemObject>(ListItemEntry);
 	if (EntryObject == nullptr)
 		return;
-	
+
+
 	AItemBase* ItemBaseObject = Cast<AItemBase>(EntryObject->ItemClass->GetDefaultObject());
 
 	ItemCount->SetText(FText::FromString(FString::FromInt(EntryObject->ItemObjectCount)));
-
 	ItemName->SetText(FText::FromString(ItemBaseObject->ItemName));
 	ItemIcon->SetBrushFromTexture(ItemBaseObject->ItemIcon);
 }
@@ -80,13 +101,24 @@ void UUMG_EntryItem::NativeOnDragDetected(const FGeometry& InGeometry, const FPo
 
 	//DragWidget
 	DragDropOperation = NewObject<UDragWidget>(this);
-	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Green, UKismetSystemLibrary::GetDisplayName(DragDropOperation));
+	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Green, UKismetSystemLibrary::GetDisplayName(GetClass()));
 
 	DragDropOperation->WidgetReference = this;
 
+	UUMG_EntryItem* NewDragVisual = CreateWidget<UUMG_EntryItem>(this, GetClass());
+	
+	if (NewDragVisual != nullptr)
+	{
+		NewDragVisual->ItemCount->SetText(ItemCount->GetText());
+		NewDragVisual->ItemName->SetText(ItemName->GetText());
+		NewDragVisual->ItemIcon->SetBrush(ItemIcon->Brush);
+	}
+
+	DragDropOperation->DefaultDragVisual = NewDragVisual;
+
 	DragDropOperation->DragOffset = InGeometry.AbsoluteToLocal(InMouseEvent.GetScreenSpacePosition());
-	DragDropOperation->DefaultDragVisual = this;
 	DragDropOperation->Pivot = EDragPivot::MouseDown;
+
 
 	if (MyController->bIsClickingInventory == true)
 	{
