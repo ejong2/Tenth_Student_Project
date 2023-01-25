@@ -21,11 +21,19 @@ bool UUMG_LandItems::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEv
 
 	if (MyController->bIsClickingInventory == true)
 	{
-		AItemBase* NewItem = GetWorld()->SpawnActor<AItemBase>(DragDropOperation->ItemClass,
-			(GetWorld()->GetFirstPlayerController()->GetPawn())->GetActorLocation(), FRotator(0));
-		NewItem->ItemCount = MyCharacter->InvenCompo->ItemObjectArray[MyController->MatchedIndex]->ItemObjectCount;
+		//AItemBase* NewItem = GetWorld()->SpawnActor<AItemBase>(DragDropOperation->ItemClass,
+		//	(GetWorld()->GetFirstPlayerController()->GetPawn())->GetActorLocation(), FRotator(0));
+		//NewItem->ItemCount = MyCharacter->InvenCompo->ItemObjectArray[MyController->MatchedIndex]->ItemObjectCount;
+		FTransform SpawnTransform = FTransform((GetWorld()->GetFirstPlayerController()->GetPawn())->GetActorLocation());
+		AItemBase* NewItem = Cast<AItemBase>(UGameplayStatics::BeginDeferredActorSpawnFromClass(this, DragDropOperation->ItemClass, SpawnTransform));
+		if (NewItem != nullptr)
+		{
+			NewItem->ItemCount = MyCharacter->InvenCompo->ItemObjectArray[MyController->MatchedIndex]->ItemObjectCount;
+			UGameplayStatics::FinishSpawningActor(NewItem, SpawnTransform);
+			MyCharacter->InvenCompo->RemoveItem(MyController->MatchedIndex);
+		}
 
-		MyCharacter->InvenCompo->RemoveItem(MyController->MatchedIndex);
+
 	}
 	else if (MyController->bIsClickingInventory == false)
 	{

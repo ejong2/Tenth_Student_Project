@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\InvenProject.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{07F41609-C3BA-46B2-8B34-05EFBB5F2A63}</UniqueIdentifier>
+      <UniqueIdentifier>{3DCD9D8D-4929-4C83-B482-E0C19DFC5557}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\InvenProject.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{3A051BC7-ED61-4561-AD7C-FDD459565FD7}</UniqueIdentifier>
+      <UniqueIdentifier>{5559507B-725D-4CF8-AD27-0B6EB3CD3D1D}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,7 +30,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\InvenProject">
-      <UniqueIdentifier>{EDD6F564-C710-4E6F-A1A8-B7871AD97B53}</UniqueIdentifier>
+      <UniqueIdentifier>{D6934C7A-7074-4A2D-864E-87701D3787A0}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\InvenProject\DragWidget.cpp">
       <Filter>Source\InvenProject</Filter>
