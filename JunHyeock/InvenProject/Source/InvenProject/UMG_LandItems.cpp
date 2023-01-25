@@ -16,6 +16,8 @@ bool UUMG_LandItems::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEv
 	if (DragDropOperation == nullptr)
 	return false;
 
+	int32 RemoveCount = 1;
+
 	//스폰
 
 
@@ -24,13 +26,26 @@ bool UUMG_LandItems::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEv
 		//AItemBase* NewItem = GetWorld()->SpawnActor<AItemBase>(DragDropOperation->ItemClass,
 		//	(GetWorld()->GetFirstPlayerController()->GetPawn())->GetActorLocation(), FRotator(0));
 		//NewItem->ItemCount = MyCharacter->InvenCompo->ItemObjectArray[MyController->MatchedIndex]->ItemObjectCount;
+
+		if (RemoveCount <= 0)
+		{
+			MyController->MyLayout->LandItems->LandItemListView->RegenerateAllEntries();
+			return false;
+		}
+
 		FTransform SpawnTransform = FTransform((GetWorld()->GetFirstPlayerController()->GetPawn())->GetActorLocation());
 		AItemBase* NewItem = Cast<AItemBase>(UGameplayStatics::BeginDeferredActorSpawnFromClass(this, DragDropOperation->ItemClass, SpawnTransform));
 		if (NewItem != nullptr)
 		{
-			NewItem->ItemCount = MyCharacter->InvenCompo->ItemObjectArray[MyController->MatchedIndex]->ItemObjectCount;
+			NewItem->ItemCount = RemoveCount;
+			MyCharacter->InvenCompo->RemoveItemasCount(MyController->MatchedIndex, RemoveCount);
+
+
+			//NewItem->ItemCount = MyCharacter->InvenCompo->ItemObjectArray[MyController->MatchedIndex]->ItemObjectCount;
+			////이부분 대신 한개씩 버리기
+			//MyCharacter->InvenCompo->RemoveItem(MyController->MatchedIndex);
 			UGameplayStatics::FinishSpawningActor(NewItem, SpawnTransform);
-			MyCharacter->InvenCompo->RemoveItem(MyController->MatchedIndex);
+			
 		}
 
 

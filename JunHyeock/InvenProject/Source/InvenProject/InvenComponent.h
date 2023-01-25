@@ -26,6 +26,8 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void InitializeComponent() override;
 
+
+
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
@@ -38,6 +40,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void RemoveItem(int32 index);
+
+	void RemoveItemasCount(int32 index, int32 Count);
 
 	TArray<class UItemObject*> ItemObjectArray;
 

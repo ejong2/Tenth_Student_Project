@@ -9,11 +9,12 @@ bool UUMG_Inventory::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEv
 	AInvenProjectCharacter* MyCharacter = Cast<AInvenProjectCharacter>(MyController->GetPawn());
 	if (MyController->bIsClickingInventory == true)
 	{
+		//인벤에서 인벤으로
 		MyController->MyLayout->Inventory->InvenItemListView->RegenerateAllEntries();
 	}
 	else if (MyController->bIsClickingInventory == false)
 	{
-		//인벤으로 추가
+		//땅에서 인벤으로 추가
 		if (MyController->MatchedIndex > -1)
 		{
 			UItemObject* ClickedObj = Cast<UItemObject>(MyController->MyLayout->LandItems->LandItemListView->GetItemAt(MyController->MatchedIndex));

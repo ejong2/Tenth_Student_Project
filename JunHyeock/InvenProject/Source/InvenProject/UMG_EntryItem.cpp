@@ -26,6 +26,8 @@ void UUMG_EntryItem::NativePreConstruct()
 
 void UUMG_EntryItem::NativeOnListItemObjectSet(UObject* ListItemEntry)
 {
+	if (ListItemEntry == nullptr)
+		return;
 	EntryObject = Cast<UItemObject>(ListItemEntry);
 	if (EntryObject == nullptr)
 		return;

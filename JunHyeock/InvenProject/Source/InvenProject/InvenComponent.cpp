@@ -41,13 +41,14 @@ void UInvenComponent::AddItem(TSubclassOf<AItemBase> ItemClass, int32 AddCount)
 	if (ItemClass == nullptr)
 		return;
 
-	UItemObject* NewItemObject = NewObject<UItemObject>(this, UItemObject::StaticClass());
-	NewItemObject->ItemObjectCount += AddCount;
-	NewItemObject->ItemClass = ItemClass;
+
 
 	if (ItemObjectArray.Num() <= 0)
 	{	// 1. Not containing any item
 
+		UItemObject* NewItemObject = NewObject<UItemObject>(this, UItemObject::StaticClass());
+		NewItemObject->ItemObjectCount += AddCount;
+		NewItemObject->ItemClass = ItemClass;
 
 		ItemObjectArray.Add(NewItemObject);
 		
@@ -59,10 +60,11 @@ void UInvenComponent::AddItem(TSubclassOf<AItemBase> ItemClass, int32 AddCount)
 		return;
 	}
 
+	AItemBase* NewItemCDO = Cast<AItemBase>(ItemClass->GetDefaultObject());
+
 	for (auto ObjectItr : ItemObjectArray)
 	{	// 2. Found Same Item
 		AItemBase* ObjectItrCDO = Cast<AItemBase>(ObjectItr->ItemClass->GetDefaultObject());
-		AItemBase* NewItemCDO = Cast<AItemBase>(NewItemObject->ItemClass->GetDefaultObject());
 
 		if (ObjectItrCDO->GetItemID() == NewItemCDO->GetItemID())
 		{
@@ -73,24 +75,48 @@ void UInvenComponent::AddItem(TSubclassOf<AItemBase> ItemClass, int32 AddCount)
 			return;
 		}
 	}
+
 	// 3.Not found same item but certain item containing
+	UItemObject* NewItemObject = NewObject<UItemObject>(this, UItemObject::StaticClass());
+	NewItemObject->ItemObjectCount += AddCount;
+	NewItemObject->ItemClass = ItemClass;
+
 	ItemObjectArray.Add(NewItemObject);
 
 	AInvenPlayerController* InvenController = Cast<AInvenPlayerController>(GetWorld()->GetFirstPlayerController());
 	InvenController->RefreshInventory(ItemObjectArray);
 
-	//refresh ui
 }
 
 void UInvenComponent::RemoveItem(int32 index)
 {
 	ItemObjectArray.RemoveAt(index);
 	AInvenPlayerController* InvenController = Cast<AInvenPlayerController>(GetWorld()->GetFirstPlayerController());
-	UUMG_Layout* MyLayout = Cast<UUMG_Layout>(InvenController->MyWidget);
+	//UUMG_Layout* MyLayout = Cast<UUMG_Layout>(InvenController->MyWidget);
 	//MyLayout->Inventory->InvenItemListView->ClearListItems();
 	//MyLayout->Inventory->InvenItemListView->SetListItems(ItemObjectArray);
 	
 	InvenController->RefreshInventory(ItemObjectArray);
+	
+}
+
+void UInvenComponent::RemoveItemasCount(int32 index, int32 Count)
+{
+	// 1. 검사
+	// 2. 제거
+	if (ItemObjectArray[index]->ItemObjectCount > Count)
+	{
+		ItemObjectArray[index]->ItemObjectCount -= Count;
+		AInvenPlayerController* InvenController = Cast<AInvenPlayerController>(GetWorld()->GetFirstPlayerController());
+		InvenController->RefreshInventory(ItemObjectArray);
+	}
+	else //(ItemObjectArray[index]->ItemObjectCount <= Count)
+	{
+		ItemObjectArray.RemoveAt(index);
+		AInvenPlayerController* InvenController = Cast<AInvenPlayerController>(GetWorld()->GetFirstPlayerController());
+		InvenController->RefreshInventory(ItemObjectArray);
+
+	}
 	
 }
 

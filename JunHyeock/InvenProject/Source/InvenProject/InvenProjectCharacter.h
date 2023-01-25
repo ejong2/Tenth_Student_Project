@@ -76,6 +76,8 @@ public:
 
 	class UInvenComponent* InvenCompo;
 
+	TArray<AItemBase*> OverlapedItemArray;
+
 public:
 	UFUNCTION()
 	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, 

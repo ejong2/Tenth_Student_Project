@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\InvenProject.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{3DCD9D8D-4929-4C83-B482-E0C19DFC5557}</UniqueIdentifier>
+      <UniqueIdentifier>{9C08A426-C6CC-46EC-852B-203F0B5A8363}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\InvenProject.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{5559507B-725D-4CF8-AD27-0B6EB3CD3D1D}</UniqueIdentifier>
+      <UniqueIdentifier>{BB0C4FC0-2838-45DE-9E90-6508B34847FA}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,7 +30,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\InvenProject">
-      <UniqueIdentifier>{D6934C7A-7074-4A2D-864E-87701D3787A0}</UniqueIdentifier>
+      <UniqueIdentifier>{FF0F1960-BD17-4451-B960-CAD55278B536}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\InvenProject\DragWidget.cpp">
       <Filter>Source\InvenProject</Filter>
@@ -87,6 +87,12 @@
       <Filter>Source\InvenProject</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\InvenProject\UMG_EntryItem.h">
+      <Filter>Source\InvenProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\InvenProject\UMG_EquipmentSlot.cpp">
+      <Filter>Source\InvenProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InvenProject\UMG_EquipmentSlot.h">
       <Filter>Source\InvenProject</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\InvenProject\UMG_Inventory.cpp">
