@@ -51,6 +51,13 @@ AInvenProjectCharacter::AInvenProjectCharacter()
 
 	InvenCompo = CreateDefaultSubobject<UInvenComponent>(TEXT("InventoryComponent"));
 
+	HeadGear = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("HeadGear"));
+	HeadGear->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("head"));
+	HeadGear->SetRelativeLocation(FVector(0,0,70)); 
+	HeadGear->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	HeadGear->SetGenerateOverlapEvents(false);
+	HeadGear->SetCollisionProfileName(UCollisionProfile::NoCollision_ProfileName);
+
 }
 
 //////////////////////////////////////////////////////////////////////////

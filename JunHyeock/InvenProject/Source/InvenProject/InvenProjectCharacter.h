@@ -91,5 +91,9 @@ public:
 	void FindAndDestroyActorFromItemObj(int32 index);
 
 
+
+public:
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
+	UStaticMeshComponent* HeadGear;
 };
 

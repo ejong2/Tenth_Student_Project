@@ -21,7 +21,6 @@ AItemBase::AItemBase()
 		StaticMesh->SetStaticMesh(M_Mesh.Object);
 		StaticMesh->SetCollisionProfileName(TEXT("NoCollision"), false);
 		StaticMesh->SetGenerateOverlapEvents(false);
-
 	}
 
 	Sphere->OnComponentBeginOverlap.AddDynamic(this, &AItemBase::OnOverlapBegin);
