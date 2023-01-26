@@ -57,6 +57,7 @@ FReply UUMG_EntryItem::NativeOnMouseButtonDown(const FGeometry& InGeometry, cons
 		Reply = UWidgetBlueprintLibrary::DetectDragIfPressed(InMouseEvent, this, EKeys::LeftMouseButton);
 	}
 
+	MyController->bIsClickingEquip = false;
 	return Reply.NativeReply;
 
 
@@ -92,7 +93,6 @@ FReply UUMG_EntryItem::CustomDetectDrag(const FPointerEvent& InMouseEvent, UWidg
 
 void UUMG_EntryItem::NativeOnDragDetected(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent, UDragDropOperation*& OutOperation)
 {
-	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Blue, TEXT("Drag"));
 
 	//init
 	AInvenPlayerController* MyController = Cast<AInvenPlayerController>(GetWorld()->GetFirstPlayerController());
@@ -103,7 +103,6 @@ void UUMG_EntryItem::NativeOnDragDetected(const FGeometry& InGeometry, const FPo
 
 	//DragWidget
 	DragDropOperation = NewObject<UDragWidget>(this);
-	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Green, UKismetSystemLibrary::GetDisplayName(GetClass()));
 
 	DragDropOperation->WidgetReference = this;
 
@@ -130,6 +129,8 @@ void UUMG_EntryItem::NativeOnDragDetected(const FGeometry& InGeometry, const FPo
 	}
 	else if(MyController->bIsClickingInventory == false)
 	{
+		DragDropOperation->ItemClass = MyCharacter->OverlapedItemArray[MyController->MatchedIndex]->GetClass();
+		DragDropOperation->Count = MyCharacter->OverlapedItemArray[MyController->MatchedIndex]->ItemCount;
 
 	}
 

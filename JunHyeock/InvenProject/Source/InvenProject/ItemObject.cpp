@@ -3,3 +3,12 @@
 
 #include "ItemObject.h"
 
+UItemObject::UItemObject()
+{
+
+}
+
+UItemObject::~UItemObject()
+{
+
+}

@@ -90,6 +90,7 @@ public:
 
 	void FindAndDestroyActorFromItemObj(int32 index);
 
+	void FindAndDecreaseCountActorObject(int32 index, int32 Count);
 
 
 public:

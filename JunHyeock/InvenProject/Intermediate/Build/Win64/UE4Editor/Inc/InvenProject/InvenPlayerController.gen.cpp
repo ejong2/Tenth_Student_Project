@@ -13,14 +13,77 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeInvenPlayerController() {}
 // Cross Module References
+	INVENPROJECT_API UEnum* Z_Construct_UEnum_InvenProject_ClickWidgetType();
+	UPackage* Z_Construct_UPackage__Script_InvenProject();
 	INVENPROJECT_API UClass* Z_Construct_UClass_AInvenPlayerController_NoRegister();
 	INVENPROJECT_API UClass* Z_Construct_UClass_AInvenPlayerController();
 	ENGINE_API UClass* Z_Construct_UClass_APlayerController();
-	UPackage* Z_Construct_UPackage__Script_InvenProject();
 	INVENPROJECT_API UClass* Z_Construct_UClass_UItemObject_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 // End Cross Module References
+	static UEnum* ClickWidgetType_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_InvenProject_ClickWidgetType, Z_Construct_UPackage__Script_InvenProject(), TEXT("ClickWidgetType"));
+		}
+		return Singleton;
+	}
+	template<> INVENPROJECT_API UEnum* StaticEnum<ClickWidgetType>()
+	{
+		return ClickWidgetType_StaticEnum();
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_ClickWidgetType(ClickWidgetType_StaticEnum, TEXT("/Script/InvenProject"), TEXT("ClickWidgetType"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_InvenProject_ClickWidgetType_Hash() { return 3792803100U; }
+	UEnum* Z_Construct_UEnum_InvenProject_ClickWidgetType()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_InvenProject();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("ClickWidgetType"), 0, Get_Z_Construct_UEnum_InvenProject_ClickWidgetType_Hash(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "ClickWidgetType::NONE", (int64)ClickWidgetType::NONE },
+				{ "ClickWidgetType::Inventory", (int64)ClickWidgetType::Inventory },
+				{ "ClickWidgetType::LandItems", (int64)ClickWidgetType::LandItems },
+				{ "ClickWidgetType::Equipment", (int64)ClickWidgetType::Equipment },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "BlueprintType", "true" },
+				{ "Equipment.DisplayName", "Equipment" },
+				{ "Equipment.Name", "ClickWidgetType::Equipment" },
+				{ "Inventory.DisplayName", "Inventory" },
+				{ "Inventory.Name", "ClickWidgetType::Inventory" },
+				{ "LandItems.DisplayName", "LandItems" },
+				{ "LandItems.Name", "ClickWidgetType::LandItems" },
+				{ "ModuleRelativePath", "InvenPlayerController.h" },
+				{ "NONE.DisplayName", "NONE" },
+				{ "NONE.Name", "ClickWidgetType::NONE" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_InvenProject,
+				nullptr,
+				"ClickWidgetType",
+				"ClickWidgetType",
+				Enumerators,
+				UE_ARRAY_COUNT(Enumerators),
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				EEnumFlags::None,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				(uint8)UEnum::ECppForm::EnumClass,
+				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
+	}
 	DEFINE_FUNCTION(AInvenPlayerController::execGetItemObjectofTileview)
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_index);

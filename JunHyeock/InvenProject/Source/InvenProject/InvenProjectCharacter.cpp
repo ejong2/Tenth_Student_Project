@@ -149,6 +149,14 @@ void AInvenProjectCharacter::FindAndDestroyActorFromItemObj(int32 index)
 	
 }
 
+void AInvenProjectCharacter::FindAndDecreaseCountActorObject(int32 index, int32 Count)
+{
+	if (OverlapedItemArray.IsValidIndex(index))
+	{
+		OverlapedItemArray[index]->ItemCount -= Count;
+	}
+}
+
 
 
 

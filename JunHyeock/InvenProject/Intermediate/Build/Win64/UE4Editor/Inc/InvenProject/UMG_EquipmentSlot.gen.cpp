@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeUMG_EquipmentSlot() {}
 	INVENPROJECT_API UClass* Z_Construct_UClass_UUMG_EquipmentSlot();
 	UMG_API UClass* Z_Construct_UClass_UUserWidget();
 	UPackage* Z_Construct_UPackage__Script_InvenProject();
+	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
 // End Cross Module References
 	void UUMG_EquipmentSlot::StaticRegisterNativesUUMG_EquipmentSlot()
 	{
@@ -31,6 +32,15 @@ void EmptyLinkFunctionForGeneratedCodeUMG_EquipmentSlot() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Icon_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Icon;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TempIcon_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TempIcon;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -45,6 +55,26 @@ void EmptyLinkFunctionForGeneratedCodeUMG_EquipmentSlot() {}
 		{ "ModuleRelativePath", "UMG_EquipmentSlot.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_Icon_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UMG_EquipmentSlot.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_Icon = { "Icon", nullptr, (EPropertyFlags)0x0010000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_EquipmentSlot, Icon), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_Icon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_Icon_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_TempIcon_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UMG_EquipmentSlot.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_TempIcon = { "TempIcon", nullptr, (EPropertyFlags)0x0010000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_EquipmentSlot, TempIcon), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_TempIcon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_TempIcon_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UUMG_EquipmentSlot_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_Icon,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_TempIcon,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UUMG_EquipmentSlot_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UUMG_EquipmentSlot>::IsAbstract,
 	};
@@ -54,11 +84,11 @@ void EmptyLinkFunctionForGeneratedCodeUMG_EquipmentSlot() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_UUMG_EquipmentSlot_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_EquipmentSlot_Statics::PropPointers),
 		0,
 		0x00B010A0u,
 		METADATA_PARAMS(Z_Construct_UClass_UUMG_EquipmentSlot_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_EquipmentSlot_Statics::Class_MetaDataParams))
@@ -72,7 +102,7 @@ void EmptyLinkFunctionForGeneratedCodeUMG_EquipmentSlot() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UUMG_EquipmentSlot, 199826265);
+	IMPLEMENT_CLASS(UUMG_EquipmentSlot, 4225112937);
 	template<> INVENPROJECT_API UClass* StaticClass<UUMG_EquipmentSlot>()
 	{
 		return UUMG_EquipmentSlot::StaticClass();

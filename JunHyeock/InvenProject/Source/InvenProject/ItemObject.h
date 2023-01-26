@@ -14,6 +14,9 @@ UCLASS(Blueprintable)
 class INVENPROJECT_API UItemObject : public UObject
 {
 	GENERATED_BODY()
+		
+	UItemObject();
+	~UItemObject();
 
 public:
 

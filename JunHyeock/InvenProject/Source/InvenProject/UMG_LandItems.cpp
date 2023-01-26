@@ -5,8 +5,6 @@
 
 bool UUMG_LandItems::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation)
 {
-	//땅에버리기로직
-	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Green, TEXT("Left Drop"));
 
 	AInvenPlayerController* MyController = Cast<AInvenPlayerController>(GetWorld()->GetFirstPlayerController());
 	AInvenProjectCharacter* MyCharacter = Cast<AInvenProjectCharacter>(MyController->GetPawn());
@@ -15,6 +13,22 @@ bool UUMG_LandItems::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEv
 	
 	if (DragDropOperation == nullptr)
 	return false;
+
+
+	if (MyController->bIsClickingEquip == true)
+	{
+		FTransform SpawnTransform = FTransform((GetWorld()->GetFirstPlayerController()->GetPawn())->GetActorLocation());
+		AItemBase* NewItem = Cast<AItemBase>(UGameplayStatics::BeginDeferredActorSpawnFromClass(this, DragDropOperation->ItemClass, SpawnTransform));
+		if (NewItem != nullptr)
+		{
+			NewItem->ItemCount = 1;
+			UGameplayStatics::FinishSpawningActor(NewItem, SpawnTransform);
+			UUMG_EquipmentSlot* SelectedSlot = Cast<UUMG_EquipmentSlot>(DragDropOperation->WidgetReference);
+			SelectedSlot->ItemClass = nullptr;
+			SelectedSlot->SetMeshBySlotType(nullptr);
+			return true;
+		}
+	}
 
 	int32 RemoveCount = 1;
 

@@ -11,6 +11,16 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "InvenPlayerController.generated.h"
 
+UENUM(BlueprintType)
+enum class  ClickWidgetType : uint8
+{
+	NONE = 0 UMETA(DisplayName = "NONE"),
+	Inventory = 1 UMETA(DisplayName = "Inventory"),
+	LandItems = 2 UMETA(DisplayName = "LandItems"),
+	Equipment = 3 UMETA(DisplayName = "Equipment"),
+};
+
+
 /**
  * 
  */
@@ -64,4 +74,7 @@ public:
 	UPROPERTY(BlueprintReadwrite, EditAnywhere)
 	bool bIsClickingInventory = false;
 
+	bool bIsClickingEquip = false;
+
+	ClickWidgetType ClickType = ClickWidgetType::NONE;
 };
