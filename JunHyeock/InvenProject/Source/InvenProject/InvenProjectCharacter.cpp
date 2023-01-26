@@ -51,12 +51,33 @@ AInvenProjectCharacter::AInvenProjectCharacter()
 
 	InvenCompo = CreateDefaultSubobject<UInvenComponent>(TEXT("InventoryComponent"));
 
+	
 	HeadGear = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("HeadGear"));
 	HeadGear->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("head"));
-	HeadGear->SetRelativeLocation(FVector(0,0,70)); 
+	//HeadGear->SetRelativeLocation(FVector(0,0,70)); 
 	HeadGear->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	HeadGear->SetGenerateOverlapEvents(false);
 	HeadGear->SetCollisionProfileName(UCollisionProfile::NoCollision_ProfileName);
+
+	BodySuit = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BodySuit"));
+	BodySuit->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("spine_03"));
+	BodySuit->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	BodySuit->SetGenerateOverlapEvents(false);
+	BodySuit->SetCollisionProfileName(UCollisionProfile::NoCollision_ProfileName);
+
+	Shoose = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Shoose"));
+	Shoose->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("foot_r"));
+	Shoose->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	Shoose->SetGenerateOverlapEvents(false);
+	Shoose->SetCollisionProfileName(UCollisionProfile::NoCollision_ProfileName);
+
+	Weapon = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Weapon"));
+	Weapon->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("hand_r"));
+	Weapon->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	Weapon->SetGenerateOverlapEvents(false);
+	Weapon->SetCollisionProfileName(UCollisionProfile::NoCollision_ProfileName);
+
+
 
 }
 

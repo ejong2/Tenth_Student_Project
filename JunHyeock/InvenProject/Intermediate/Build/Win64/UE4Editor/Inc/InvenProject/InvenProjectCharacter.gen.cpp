@@ -229,6 +229,18 @@ void EmptyLinkFunctionForGeneratedCodeInvenProjectCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HeadGear_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HeadGear;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BodySuit_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_BodySuit;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Shoose_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Shoose;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Weapon_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Weapon;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -296,12 +308,39 @@ void EmptyLinkFunctionForGeneratedCodeInvenProjectCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_HeadGear = { "HeadGear", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AInvenProjectCharacter, HeadGear), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_HeadGear_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_HeadGear_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_BodySuit_MetaData[] = {
+		{ "Category", "InvenProjectCharacter" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "InvenProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_BodySuit = { "BodySuit", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AInvenProjectCharacter, BodySuit), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_BodySuit_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_BodySuit_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_Shoose_MetaData[] = {
+		{ "Category", "InvenProjectCharacter" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "InvenProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_Shoose = { "Shoose", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AInvenProjectCharacter, Shoose), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_Shoose_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_Shoose_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_Weapon_MetaData[] = {
+		{ "Category", "InvenProjectCharacter" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "InvenProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_Weapon = { "Weapon", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AInvenProjectCharacter, Weapon), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_Weapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_Weapon_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AInvenProjectCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_CameraBoom,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_FollowCamera,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_BaseTurnRate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_BaseLookUpRate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_HeadGear,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_BodySuit,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_Shoose,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_Weapon,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AInvenProjectCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AInvenProjectCharacter>::IsAbstract,
@@ -330,7 +369,7 @@ void EmptyLinkFunctionForGeneratedCodeInvenProjectCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AInvenProjectCharacter, 3038208858);
+	IMPLEMENT_CLASS(AInvenProjectCharacter, 618086449);
 	template<> INVENPROJECT_API UClass* StaticClass<AInvenProjectCharacter>()
 	{
 		return AInvenProjectCharacter::StaticClass();
