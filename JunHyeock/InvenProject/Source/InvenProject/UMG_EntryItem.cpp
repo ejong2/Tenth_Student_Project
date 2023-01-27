@@ -26,18 +26,18 @@ void UUMG_EntryItem::NativePreConstruct()
 
 void UUMG_EntryItem::NativeOnListItemObjectSet(UObject* ListItemEntry)
 {
-	if (ListItemEntry == nullptr)
-		return;
+	if (ListItemEntry != nullptr)
+	{
 	EntryObject = Cast<UItemObject>(ListItemEntry);
 	if (EntryObject == nullptr)
 		return;
-
-
 	AItemBase* ItemBaseObject = Cast<AItemBase>(EntryObject->ItemClass->GetDefaultObject());
 
 	ItemCount->SetText(FText::FromString(FString::FromInt(EntryObject->ItemObjectCount)));
 	ItemName->SetText(FText::FromString(ItemBaseObject->ItemName));
 	ItemIcon->SetBrushFromTexture(ItemBaseObject->ItemIcon);
+	}
+
 }
 
 FReply UUMG_EntryItem::NativeOnMouseButtonDown(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent)
