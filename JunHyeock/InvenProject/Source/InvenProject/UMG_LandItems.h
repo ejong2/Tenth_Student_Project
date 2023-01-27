@@ -28,6 +28,11 @@ public:
 
 	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
 
+	UFUNCTION(Server, Reliable)
+	void SpawnItemwithClassAndCount(TSubclassOf<AActor> Myclass, int32 count, FTransform MyTransform);
+
+	UFUNCTION(NetMulticast, Reliable)
+	void ResSpawnItemwithClassAndCount(TSubclassOf<AActor> Myclass, int32 count, FTransform MyTransform);
 
 private:
 

@@ -7,6 +7,7 @@
 #include "InvenComponent.h"
 #include "InvenPlayerController.h"
 #include "ItemObject.h"
+#include "MyEnum.h"
 #include "InvenProjectCharacter.generated.h"
 
 UCLASS(config=Game)
@@ -74,6 +75,7 @@ public:
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
 	class UInvenComponent* InvenCompo;
 
 	TArray<AItemBase*> OverlapedItemArray;
@@ -88,9 +90,31 @@ public:
 		void OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor,
 			class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
+	UFUNCTION(Server, Reliable)
 	void FindAndDestroyActorFromItemObj(int32 index);
 
+	UFUNCTION(NetMulticast, Reliable)
+	void ResFindAndDestroyActorFromItemObj(int32 index);
+
+	UFUNCTION(Server, Reliable)
 	void FindAndDecreaseCountActorObject(int32 index, int32 Count);
+
+	UFUNCTION(NetMulticast, Reliable)
+	void ResFindAndDecreaseCountActorObject(int32 index, int32 Count);
+
+	UFUNCTION(Server, Reliable)
+	void SetMeshBySlotType(MyEnum Myenum, UStaticMesh* MyMesh);
+
+	UFUNCTION(NetMulticast, Reliable)
+	void ResSetMeshBySlotType(MyEnum Myenum, UStaticMesh* MyMesh);
+
+	UStaticMesh* GetMeshBySlotType(MyEnum Myenum);
+
+	UFUNCTION(Server, Reliable)
+	void SpawnItemFromClassAndCount(TSubclassOf<AActor> MyActorClass, int32 count);
+
+	UFUNCTION(NetMulticast, Reliable)
+	void ResSpawnItemFromClassAndCount(TSubclassOf<AActor> MyActorClass, int32 count);
 
 
 public:

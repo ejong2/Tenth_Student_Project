@@ -54,10 +54,23 @@ int32 AItemBase::GetItemID()
 
 void AItemBase::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	AInvenProjectCharacter* MyCharacter = Cast<AInvenProjectCharacter>(OtherActor);
-	if (MyCharacter != nullptr)
+	AddtoLandItemsSelf(OtherActor);
+}
+
+void AItemBase::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	RemovetoLandItemsSelf(OtherActor);
+}
+
+void AItemBase::AddtoLandItemsSelf_Implementation(AActor* OtherActor)
+{
+	AInvenProjectCharacter* MyOverlapedCharacter = Cast<AInvenProjectCharacter>(OtherActor);
+	if (MyOverlapedCharacter != nullptr)
 	{
-		AInvenPlayerController* MyController = Cast<AInvenPlayerController>(MyCharacter->GetController());
+		AInvenPlayerController* MyOverlapedController = Cast<AInvenPlayerController>(MyOverlapedCharacter->GetController());
+		if (MyOverlapedController == nullptr)
+			return;
+
 
 		if (ItemObj == nullptr)
 		{
@@ -74,27 +87,23 @@ void AItemBase::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* Othe
 			ItemObj->ItemObjectCount = ItemCount;
 
 		}
-		MyController->AddItemToLandItems(ItemObj);
+		MyOverlapedController->AddItemToLandItems(ItemObj);
 	}
-
-
-
 }
 
-void AItemBase::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+void AItemBase::RemovetoLandItemsSelf_Implementation(AActor* OtherActor)
 {
-	
-	AInvenProjectCharacter* MyCharacter = Cast<AInvenProjectCharacter>(OtherActor);
-	if (MyCharacter != nullptr)
+	AInvenProjectCharacter* MyOverlapedCharacter = Cast<AInvenProjectCharacter>(OtherActor);
+	if (MyOverlapedCharacter == nullptr)
+		return;
+
+	AInvenPlayerController* MyOverlapedController = Cast<AInvenPlayerController>(MyOverlapedCharacter->GetController());
+	if (MyOverlapedController == nullptr)
+		return;
+
+	if (ItemObj != nullptr)
 	{
-		AInvenPlayerController* MyController = Cast<AInvenPlayerController>(MyCharacter->GetController());
-		if (ItemObj != nullptr)
-		{
-			MyController->RemoveItemFromLandItems(ItemObj);
-		}
+		MyOverlapedController->RemoveItemFromLandItems(ItemObj);
 	}
-
-	
-
 }
 

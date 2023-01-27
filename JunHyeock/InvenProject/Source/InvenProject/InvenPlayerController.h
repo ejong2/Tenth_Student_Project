@@ -52,9 +52,10 @@ public:
 	class UItemObject* GetItemObjectofTileview(int32 index);
 
 
-
+	UFUNCTION(Client, Reliable)
 	void AddItemToLandItems(class UItemObject* Item);
 
+	UFUNCTION(Client, Reliable)
 	void RemoveItemFromLandItems(class UItemObject* Item);
 
 public:

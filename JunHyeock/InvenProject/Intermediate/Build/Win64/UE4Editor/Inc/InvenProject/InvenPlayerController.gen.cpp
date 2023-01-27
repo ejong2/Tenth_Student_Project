@@ -84,6 +84,22 @@ void EmptyLinkFunctionForGeneratedCodeInvenPlayerController() {}
 		}
 		return ReturnEnum;
 	}
+	DEFINE_FUNCTION(AInvenPlayerController::execRemoveItemFromLandItems)
+	{
+		P_GET_OBJECT(UItemObject,Z_Param_Item);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->RemoveItemFromLandItems_Implementation(Z_Param_Item);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AInvenPlayerController::execAddItemToLandItems)
+	{
+		P_GET_OBJECT(UItemObject,Z_Param_Item);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AddItemToLandItems_Implementation(Z_Param_Item);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AInvenPlayerController::execGetItemObjectofTileview)
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_index);
@@ -92,13 +108,57 @@ void EmptyLinkFunctionForGeneratedCodeInvenPlayerController() {}
 		*(UItemObject**)Z_Param__Result=P_THIS->GetItemObjectofTileview(Z_Param_index);
 		P_NATIVE_END;
 	}
+	static FName NAME_AInvenPlayerController_AddItemToLandItems = FName(TEXT("AddItemToLandItems"));
+	void AInvenPlayerController::AddItemToLandItems(UItemObject* Item)
+	{
+		InvenPlayerController_eventAddItemToLandItems_Parms Parms;
+		Parms.Item=Item;
+		ProcessEvent(FindFunctionChecked(NAME_AInvenPlayerController_AddItemToLandItems),&Parms);
+	}
+	static FName NAME_AInvenPlayerController_RemoveItemFromLandItems = FName(TEXT("RemoveItemFromLandItems"));
+	void AInvenPlayerController::RemoveItemFromLandItems(UItemObject* Item)
+	{
+		InvenPlayerController_eventRemoveItemFromLandItems_Parms Parms;
+		Parms.Item=Item;
+		ProcessEvent(FindFunctionChecked(NAME_AInvenPlayerController_RemoveItemFromLandItems),&Parms);
+	}
 	void AInvenPlayerController::StaticRegisterNativesAInvenPlayerController()
 	{
 		UClass* Class = AInvenPlayerController::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "AddItemToLandItems", &AInvenPlayerController::execAddItemToLandItems },
 			{ "GetItemObjectofTileview", &AInvenPlayerController::execGetItemObjectofTileview },
+			{ "RemoveItemFromLandItems", &AInvenPlayerController::execRemoveItemFromLandItems },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AInvenPlayerController_AddItemToLandItems_Statics
+	{
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Item;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AInvenPlayerController_AddItemToLandItems_Statics::NewProp_Item = { "Item", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InvenPlayerController_eventAddItemToLandItems_Parms, Item), Z_Construct_UClass_UItemObject_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AInvenPlayerController_AddItemToLandItems_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenPlayerController_AddItemToLandItems_Statics::NewProp_Item,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AInvenPlayerController_AddItemToLandItems_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "InvenPlayerController.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInvenPlayerController_AddItemToLandItems_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInvenPlayerController, nullptr, "AddItemToLandItems", nullptr, nullptr, sizeof(InvenPlayerController_eventAddItemToLandItems_Parms), Z_Construct_UFunction_AInvenPlayerController_AddItemToLandItems_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenPlayerController_AddItemToLandItems_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01020CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInvenPlayerController_AddItemToLandItems_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenPlayerController_AddItemToLandItems_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AInvenPlayerController_AddItemToLandItems()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AInvenPlayerController_AddItemToLandItems_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_AInvenPlayerController_GetItemObjectofTileview_Statics
 	{
@@ -133,6 +193,34 @@ void EmptyLinkFunctionForGeneratedCodeInvenPlayerController() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AInvenPlayerController_GetItemObjectofTileview_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AInvenPlayerController_RemoveItemFromLandItems_Statics
+	{
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Item;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AInvenPlayerController_RemoveItemFromLandItems_Statics::NewProp_Item = { "Item", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InvenPlayerController_eventRemoveItemFromLandItems_Parms, Item), Z_Construct_UClass_UItemObject_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AInvenPlayerController_RemoveItemFromLandItems_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenPlayerController_RemoveItemFromLandItems_Statics::NewProp_Item,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AInvenPlayerController_RemoveItemFromLandItems_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "InvenPlayerController.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInvenPlayerController_RemoveItemFromLandItems_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInvenPlayerController, nullptr, "RemoveItemFromLandItems", nullptr, nullptr, sizeof(InvenPlayerController_eventRemoveItemFromLandItems_Parms), Z_Construct_UFunction_AInvenPlayerController_RemoveItemFromLandItems_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenPlayerController_RemoveItemFromLandItems_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01020CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInvenPlayerController_RemoveItemFromLandItems_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenPlayerController_RemoveItemFromLandItems_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AInvenPlayerController_RemoveItemFromLandItems()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AInvenPlayerController_RemoveItemFromLandItems_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -173,7 +261,9 @@ void EmptyLinkFunctionForGeneratedCodeInvenPlayerController() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_InvenProject,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AInvenPlayerController_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AInvenPlayerController_AddItemToLandItems, "AddItemToLandItems" }, // 3334020355
 		{ &Z_Construct_UFunction_AInvenPlayerController_GetItemObjectofTileview, "GetItemObjectofTileview" }, // 211996888
+		{ &Z_Construct_UFunction_AInvenPlayerController_RemoveItemFromLandItems, "RemoveItemFromLandItems" }, // 4003801495
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInvenPlayerController_Statics::Class_MetaDataParams[] = {
@@ -249,7 +339,7 @@ void EmptyLinkFunctionForGeneratedCodeInvenPlayerController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AInvenPlayerController, 325675760);
+	IMPLEMENT_CLASS(AInvenPlayerController, 1956168247);
 	template<> INVENPROJECT_API UClass* StaticClass<AInvenPlayerController>()
 	{
 		return AInvenPlayerController::StaticClass();

@@ -101,15 +101,16 @@ UItemObject* AInvenPlayerController::GetItemObjectofTileview(int32 index)
 	return ReturnItemObject;
 }
  
-void AInvenPlayerController::AddItemToLandItems(UItemObject* Item)
+void AInvenPlayerController::AddItemToLandItems_Implementation(UItemObject* Item)
 {
+	if (MyLayout && Item)
 	MyLayout->LandItems->LandItemListView->AddItem(Item);
 }
 
 
-void AInvenPlayerController::RemoveItemFromLandItems(UItemObject* Item)
+void AInvenPlayerController::RemoveItemFromLandItems_Implementation(UItemObject* Item)
 {
-	if (Item != nullptr)
+	if (MyLayout && Item)
 	{
 		MyLayout->LandItems->LandItemListView->RemoveItem(Item);
 	}

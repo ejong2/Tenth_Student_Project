@@ -20,10 +20,84 @@ void EmptyLinkFunctionForGeneratedCodeInvenProjectCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
+	INVENPROJECT_API UEnum* Z_Construct_UEnum_InvenProject_MyEnum();
+	ENGINE_API UClass* Z_Construct_UClass_UStaticMesh_NoRegister();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
+	INVENPROJECT_API UClass* Z_Construct_UClass_UInvenComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AInvenProjectCharacter::execResSpawnItemFromClassAndCount)
+	{
+		P_GET_OBJECT(UClass,Z_Param_MyActorClass);
+		P_GET_PROPERTY(FIntProperty,Z_Param_count);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ResSpawnItemFromClassAndCount_Implementation(Z_Param_MyActorClass,Z_Param_count);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AInvenProjectCharacter::execSpawnItemFromClassAndCount)
+	{
+		P_GET_OBJECT(UClass,Z_Param_MyActorClass);
+		P_GET_PROPERTY(FIntProperty,Z_Param_count);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SpawnItemFromClassAndCount_Implementation(Z_Param_MyActorClass,Z_Param_count);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AInvenProjectCharacter::execResSetMeshBySlotType)
+	{
+		P_GET_ENUM(MyEnum,Z_Param_Myenum);
+		P_GET_OBJECT(UStaticMesh,Z_Param_MyMesh);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ResSetMeshBySlotType_Implementation(MyEnum(Z_Param_Myenum),Z_Param_MyMesh);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AInvenProjectCharacter::execSetMeshBySlotType)
+	{
+		P_GET_ENUM(MyEnum,Z_Param_Myenum);
+		P_GET_OBJECT(UStaticMesh,Z_Param_MyMesh);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetMeshBySlotType_Implementation(MyEnum(Z_Param_Myenum),Z_Param_MyMesh);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AInvenProjectCharacter::execResFindAndDecreaseCountActorObject)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_index);
+		P_GET_PROPERTY(FIntProperty,Z_Param_Count);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ResFindAndDecreaseCountActorObject_Implementation(Z_Param_index,Z_Param_Count);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AInvenProjectCharacter::execFindAndDecreaseCountActorObject)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_index);
+		P_GET_PROPERTY(FIntProperty,Z_Param_Count);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->FindAndDecreaseCountActorObject_Implementation(Z_Param_index,Z_Param_Count);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AInvenProjectCharacter::execResFindAndDestroyActorFromItemObj)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_index);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ResFindAndDestroyActorFromItemObj_Implementation(Z_Param_index);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AInvenProjectCharacter::execFindAndDestroyActorFromItemObj)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_index);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->FindAndDestroyActorFromItemObj_Implementation(Z_Param_index);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AInvenProjectCharacter::execOnOverlapEnd)
 	{
 		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OverlappedComp);
@@ -48,14 +122,143 @@ void EmptyLinkFunctionForGeneratedCodeInvenProjectCharacter() {}
 		P_THIS->OnOverlapBegin(Z_Param_OverlappedComp,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_OtherBodyIndex,Z_Param_bFromSweep,Z_Param_Out_SweepResult);
 		P_NATIVE_END;
 	}
+	static FName NAME_AInvenProjectCharacter_FindAndDecreaseCountActorObject = FName(TEXT("FindAndDecreaseCountActorObject"));
+	void AInvenProjectCharacter::FindAndDecreaseCountActorObject(int32 index, int32 Count)
+	{
+		InvenProjectCharacter_eventFindAndDecreaseCountActorObject_Parms Parms;
+		Parms.index=index;
+		Parms.Count=Count;
+		ProcessEvent(FindFunctionChecked(NAME_AInvenProjectCharacter_FindAndDecreaseCountActorObject),&Parms);
+	}
+	static FName NAME_AInvenProjectCharacter_FindAndDestroyActorFromItemObj = FName(TEXT("FindAndDestroyActorFromItemObj"));
+	void AInvenProjectCharacter::FindAndDestroyActorFromItemObj(int32 index)
+	{
+		InvenProjectCharacter_eventFindAndDestroyActorFromItemObj_Parms Parms;
+		Parms.index=index;
+		ProcessEvent(FindFunctionChecked(NAME_AInvenProjectCharacter_FindAndDestroyActorFromItemObj),&Parms);
+	}
+	static FName NAME_AInvenProjectCharacter_ResFindAndDecreaseCountActorObject = FName(TEXT("ResFindAndDecreaseCountActorObject"));
+	void AInvenProjectCharacter::ResFindAndDecreaseCountActorObject(int32 index, int32 Count)
+	{
+		InvenProjectCharacter_eventResFindAndDecreaseCountActorObject_Parms Parms;
+		Parms.index=index;
+		Parms.Count=Count;
+		ProcessEvent(FindFunctionChecked(NAME_AInvenProjectCharacter_ResFindAndDecreaseCountActorObject),&Parms);
+	}
+	static FName NAME_AInvenProjectCharacter_ResFindAndDestroyActorFromItemObj = FName(TEXT("ResFindAndDestroyActorFromItemObj"));
+	void AInvenProjectCharacter::ResFindAndDestroyActorFromItemObj(int32 index)
+	{
+		InvenProjectCharacter_eventResFindAndDestroyActorFromItemObj_Parms Parms;
+		Parms.index=index;
+		ProcessEvent(FindFunctionChecked(NAME_AInvenProjectCharacter_ResFindAndDestroyActorFromItemObj),&Parms);
+	}
+	static FName NAME_AInvenProjectCharacter_ResSetMeshBySlotType = FName(TEXT("ResSetMeshBySlotType"));
+	void AInvenProjectCharacter::ResSetMeshBySlotType(MyEnum Myenum, UStaticMesh* MyMesh)
+	{
+		InvenProjectCharacter_eventResSetMeshBySlotType_Parms Parms;
+		Parms.Myenum=Myenum;
+		Parms.MyMesh=MyMesh;
+		ProcessEvent(FindFunctionChecked(NAME_AInvenProjectCharacter_ResSetMeshBySlotType),&Parms);
+	}
+	static FName NAME_AInvenProjectCharacter_ResSpawnItemFromClassAndCount = FName(TEXT("ResSpawnItemFromClassAndCount"));
+	void AInvenProjectCharacter::ResSpawnItemFromClassAndCount(TSubclassOf<AActor>  MyActorClass, int32 count)
+	{
+		InvenProjectCharacter_eventResSpawnItemFromClassAndCount_Parms Parms;
+		Parms.MyActorClass=MyActorClass;
+		Parms.count=count;
+		ProcessEvent(FindFunctionChecked(NAME_AInvenProjectCharacter_ResSpawnItemFromClassAndCount),&Parms);
+	}
+	static FName NAME_AInvenProjectCharacter_SetMeshBySlotType = FName(TEXT("SetMeshBySlotType"));
+	void AInvenProjectCharacter::SetMeshBySlotType(MyEnum Myenum, UStaticMesh* MyMesh)
+	{
+		InvenProjectCharacter_eventSetMeshBySlotType_Parms Parms;
+		Parms.Myenum=Myenum;
+		Parms.MyMesh=MyMesh;
+		ProcessEvent(FindFunctionChecked(NAME_AInvenProjectCharacter_SetMeshBySlotType),&Parms);
+	}
+	static FName NAME_AInvenProjectCharacter_SpawnItemFromClassAndCount = FName(TEXT("SpawnItemFromClassAndCount"));
+	void AInvenProjectCharacter::SpawnItemFromClassAndCount(TSubclassOf<AActor>  MyActorClass, int32 count)
+	{
+		InvenProjectCharacter_eventSpawnItemFromClassAndCount_Parms Parms;
+		Parms.MyActorClass=MyActorClass;
+		Parms.count=count;
+		ProcessEvent(FindFunctionChecked(NAME_AInvenProjectCharacter_SpawnItemFromClassAndCount),&Parms);
+	}
 	void AInvenProjectCharacter::StaticRegisterNativesAInvenProjectCharacter()
 	{
 		UClass* Class = AInvenProjectCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "FindAndDecreaseCountActorObject", &AInvenProjectCharacter::execFindAndDecreaseCountActorObject },
+			{ "FindAndDestroyActorFromItemObj", &AInvenProjectCharacter::execFindAndDestroyActorFromItemObj },
 			{ "OnOverlapBegin", &AInvenProjectCharacter::execOnOverlapBegin },
 			{ "OnOverlapEnd", &AInvenProjectCharacter::execOnOverlapEnd },
+			{ "ResFindAndDecreaseCountActorObject", &AInvenProjectCharacter::execResFindAndDecreaseCountActorObject },
+			{ "ResFindAndDestroyActorFromItemObj", &AInvenProjectCharacter::execResFindAndDestroyActorFromItemObj },
+			{ "ResSetMeshBySlotType", &AInvenProjectCharacter::execResSetMeshBySlotType },
+			{ "ResSpawnItemFromClassAndCount", &AInvenProjectCharacter::execResSpawnItemFromClassAndCount },
+			{ "SetMeshBySlotType", &AInvenProjectCharacter::execSetMeshBySlotType },
+			{ "SpawnItemFromClassAndCount", &AInvenProjectCharacter::execSpawnItemFromClassAndCount },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AInvenProjectCharacter_FindAndDecreaseCountActorObject_Statics
+	{
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_index;
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_Count;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AInvenProjectCharacter_FindAndDecreaseCountActorObject_Statics::NewProp_index = { "index", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InvenProjectCharacter_eventFindAndDecreaseCountActorObject_Parms, index), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AInvenProjectCharacter_FindAndDecreaseCountActorObject_Statics::NewProp_Count = { "Count", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InvenProjectCharacter_eventFindAndDecreaseCountActorObject_Parms, Count), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AInvenProjectCharacter_FindAndDecreaseCountActorObject_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenProjectCharacter_FindAndDecreaseCountActorObject_Statics::NewProp_index,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenProjectCharacter_FindAndDecreaseCountActorObject_Statics::NewProp_Count,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AInvenProjectCharacter_FindAndDecreaseCountActorObject_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "InvenProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInvenProjectCharacter_FindAndDecreaseCountActorObject_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInvenProjectCharacter, nullptr, "FindAndDecreaseCountActorObject", nullptr, nullptr, sizeof(InvenProjectCharacter_eventFindAndDecreaseCountActorObject_Parms), Z_Construct_UFunction_AInvenProjectCharacter_FindAndDecreaseCountActorObject_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenProjectCharacter_FindAndDecreaseCountActorObject_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInvenProjectCharacter_FindAndDecreaseCountActorObject_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenProjectCharacter_FindAndDecreaseCountActorObject_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AInvenProjectCharacter_FindAndDecreaseCountActorObject()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AInvenProjectCharacter_FindAndDecreaseCountActorObject_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AInvenProjectCharacter_FindAndDestroyActorFromItemObj_Statics
+	{
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_index;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AInvenProjectCharacter_FindAndDestroyActorFromItemObj_Statics::NewProp_index = { "index", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InvenProjectCharacter_eventFindAndDestroyActorFromItemObj_Parms, index), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AInvenProjectCharacter_FindAndDestroyActorFromItemObj_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenProjectCharacter_FindAndDestroyActorFromItemObj_Statics::NewProp_index,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AInvenProjectCharacter_FindAndDestroyActorFromItemObj_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "InvenProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInvenProjectCharacter_FindAndDestroyActorFromItemObj_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInvenProjectCharacter, nullptr, "FindAndDestroyActorFromItemObj", nullptr, nullptr, sizeof(InvenProjectCharacter_eventFindAndDestroyActorFromItemObj_Parms), Z_Construct_UFunction_AInvenProjectCharacter_FindAndDestroyActorFromItemObj_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenProjectCharacter_FindAndDestroyActorFromItemObj_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInvenProjectCharacter_FindAndDestroyActorFromItemObj_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenProjectCharacter_FindAndDestroyActorFromItemObj_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AInvenProjectCharacter_FindAndDestroyActorFromItemObj()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AInvenProjectCharacter_FindAndDestroyActorFromItemObj_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_AInvenProjectCharacter_OnOverlapBegin_Statics
 	{
@@ -198,6 +401,195 @@ void EmptyLinkFunctionForGeneratedCodeInvenProjectCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDecreaseCountActorObject_Statics
+	{
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_index;
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_Count;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDecreaseCountActorObject_Statics::NewProp_index = { "index", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InvenProjectCharacter_eventResFindAndDecreaseCountActorObject_Parms, index), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDecreaseCountActorObject_Statics::NewProp_Count = { "Count", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InvenProjectCharacter_eventResFindAndDecreaseCountActorObject_Parms, Count), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDecreaseCountActorObject_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDecreaseCountActorObject_Statics::NewProp_index,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDecreaseCountActorObject_Statics::NewProp_Count,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDecreaseCountActorObject_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "InvenProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDecreaseCountActorObject_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInvenProjectCharacter, nullptr, "ResFindAndDecreaseCountActorObject", nullptr, nullptr, sizeof(InvenProjectCharacter_eventResFindAndDecreaseCountActorObject_Parms), Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDecreaseCountActorObject_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDecreaseCountActorObject_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00024CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDecreaseCountActorObject_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDecreaseCountActorObject_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDecreaseCountActorObject()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDecreaseCountActorObject_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDestroyActorFromItemObj_Statics
+	{
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_index;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDestroyActorFromItemObj_Statics::NewProp_index = { "index", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InvenProjectCharacter_eventResFindAndDestroyActorFromItemObj_Parms, index), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDestroyActorFromItemObj_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDestroyActorFromItemObj_Statics::NewProp_index,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDestroyActorFromItemObj_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "InvenProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDestroyActorFromItemObj_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInvenProjectCharacter, nullptr, "ResFindAndDestroyActorFromItemObj", nullptr, nullptr, sizeof(InvenProjectCharacter_eventResFindAndDestroyActorFromItemObj_Parms), Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDestroyActorFromItemObj_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDestroyActorFromItemObj_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00024CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDestroyActorFromItemObj_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDestroyActorFromItemObj_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDestroyActorFromItemObj()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDestroyActorFromItemObj_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AInvenProjectCharacter_ResSetMeshBySlotType_Statics
+	{
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_Myenum_Underlying;
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_Myenum;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_MyMesh;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UFunction_AInvenProjectCharacter_ResSetMeshBySlotType_Statics::NewProp_Myenum_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_AInvenProjectCharacter_ResSetMeshBySlotType_Statics::NewProp_Myenum = { "Myenum", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InvenProjectCharacter_eventResSetMeshBySlotType_Parms, Myenum), Z_Construct_UEnum_InvenProject_MyEnum, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AInvenProjectCharacter_ResSetMeshBySlotType_Statics::NewProp_MyMesh = { "MyMesh", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InvenProjectCharacter_eventResSetMeshBySlotType_Parms, MyMesh), Z_Construct_UClass_UStaticMesh_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AInvenProjectCharacter_ResSetMeshBySlotType_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenProjectCharacter_ResSetMeshBySlotType_Statics::NewProp_Myenum_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenProjectCharacter_ResSetMeshBySlotType_Statics::NewProp_Myenum,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenProjectCharacter_ResSetMeshBySlotType_Statics::NewProp_MyMesh,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AInvenProjectCharacter_ResSetMeshBySlotType_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "InvenProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInvenProjectCharacter_ResSetMeshBySlotType_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInvenProjectCharacter, nullptr, "ResSetMeshBySlotType", nullptr, nullptr, sizeof(InvenProjectCharacter_eventResSetMeshBySlotType_Parms), Z_Construct_UFunction_AInvenProjectCharacter_ResSetMeshBySlotType_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenProjectCharacter_ResSetMeshBySlotType_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00024CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInvenProjectCharacter_ResSetMeshBySlotType_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenProjectCharacter_ResSetMeshBySlotType_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AInvenProjectCharacter_ResSetMeshBySlotType()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AInvenProjectCharacter_ResSetMeshBySlotType_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AInvenProjectCharacter_ResSpawnItemFromClassAndCount_Statics
+	{
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_MyActorClass;
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_count;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UFunction_AInvenProjectCharacter_ResSpawnItemFromClassAndCount_Statics::NewProp_MyActorClass = { "MyActorClass", nullptr, (EPropertyFlags)0x0014000000000080, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InvenProjectCharacter_eventResSpawnItemFromClassAndCount_Parms, MyActorClass), Z_Construct_UClass_AActor_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AInvenProjectCharacter_ResSpawnItemFromClassAndCount_Statics::NewProp_count = { "count", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InvenProjectCharacter_eventResSpawnItemFromClassAndCount_Parms, count), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AInvenProjectCharacter_ResSpawnItemFromClassAndCount_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenProjectCharacter_ResSpawnItemFromClassAndCount_Statics::NewProp_MyActorClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenProjectCharacter_ResSpawnItemFromClassAndCount_Statics::NewProp_count,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AInvenProjectCharacter_ResSpawnItemFromClassAndCount_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "InvenProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInvenProjectCharacter_ResSpawnItemFromClassAndCount_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInvenProjectCharacter, nullptr, "ResSpawnItemFromClassAndCount", nullptr, nullptr, sizeof(InvenProjectCharacter_eventResSpawnItemFromClassAndCount_Parms), Z_Construct_UFunction_AInvenProjectCharacter_ResSpawnItemFromClassAndCount_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenProjectCharacter_ResSpawnItemFromClassAndCount_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00024CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInvenProjectCharacter_ResSpawnItemFromClassAndCount_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenProjectCharacter_ResSpawnItemFromClassAndCount_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AInvenProjectCharacter_ResSpawnItemFromClassAndCount()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AInvenProjectCharacter_ResSpawnItemFromClassAndCount_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AInvenProjectCharacter_SetMeshBySlotType_Statics
+	{
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_Myenum_Underlying;
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_Myenum;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_MyMesh;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UFunction_AInvenProjectCharacter_SetMeshBySlotType_Statics::NewProp_Myenum_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_AInvenProjectCharacter_SetMeshBySlotType_Statics::NewProp_Myenum = { "Myenum", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InvenProjectCharacter_eventSetMeshBySlotType_Parms, Myenum), Z_Construct_UEnum_InvenProject_MyEnum, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AInvenProjectCharacter_SetMeshBySlotType_Statics::NewProp_MyMesh = { "MyMesh", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InvenProjectCharacter_eventSetMeshBySlotType_Parms, MyMesh), Z_Construct_UClass_UStaticMesh_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AInvenProjectCharacter_SetMeshBySlotType_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenProjectCharacter_SetMeshBySlotType_Statics::NewProp_Myenum_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenProjectCharacter_SetMeshBySlotType_Statics::NewProp_Myenum,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenProjectCharacter_SetMeshBySlotType_Statics::NewProp_MyMesh,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AInvenProjectCharacter_SetMeshBySlotType_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "InvenProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInvenProjectCharacter_SetMeshBySlotType_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInvenProjectCharacter, nullptr, "SetMeshBySlotType", nullptr, nullptr, sizeof(InvenProjectCharacter_eventSetMeshBySlotType_Parms), Z_Construct_UFunction_AInvenProjectCharacter_SetMeshBySlotType_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenProjectCharacter_SetMeshBySlotType_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInvenProjectCharacter_SetMeshBySlotType_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenProjectCharacter_SetMeshBySlotType_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AInvenProjectCharacter_SetMeshBySlotType()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AInvenProjectCharacter_SetMeshBySlotType_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AInvenProjectCharacter_SpawnItemFromClassAndCount_Statics
+	{
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_MyActorClass;
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_count;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UFunction_AInvenProjectCharacter_SpawnItemFromClassAndCount_Statics::NewProp_MyActorClass = { "MyActorClass", nullptr, (EPropertyFlags)0x0014000000000080, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InvenProjectCharacter_eventSpawnItemFromClassAndCount_Parms, MyActorClass), Z_Construct_UClass_AActor_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AInvenProjectCharacter_SpawnItemFromClassAndCount_Statics::NewProp_count = { "count", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InvenProjectCharacter_eventSpawnItemFromClassAndCount_Parms, count), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AInvenProjectCharacter_SpawnItemFromClassAndCount_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenProjectCharacter_SpawnItemFromClassAndCount_Statics::NewProp_MyActorClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInvenProjectCharacter_SpawnItemFromClassAndCount_Statics::NewProp_count,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AInvenProjectCharacter_SpawnItemFromClassAndCount_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "InvenProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AInvenProjectCharacter_SpawnItemFromClassAndCount_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInvenProjectCharacter, nullptr, "SpawnItemFromClassAndCount", nullptr, nullptr, sizeof(InvenProjectCharacter_eventSpawnItemFromClassAndCount_Parms), Z_Construct_UFunction_AInvenProjectCharacter_SpawnItemFromClassAndCount_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenProjectCharacter_SpawnItemFromClassAndCount_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInvenProjectCharacter_SpawnItemFromClassAndCount_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInvenProjectCharacter_SpawnItemFromClassAndCount_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AInvenProjectCharacter_SpawnItemFromClassAndCount()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AInvenProjectCharacter_SpawnItemFromClassAndCount_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_AInvenProjectCharacter_NoRegister()
 	{
 		return AInvenProjectCharacter::StaticClass();
@@ -226,6 +618,10 @@ void EmptyLinkFunctionForGeneratedCodeInvenProjectCharacter() {}
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_BaseLookUpRate;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_InvenCompo_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_InvenCompo;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HeadGear_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HeadGear;
@@ -250,8 +646,16 @@ void EmptyLinkFunctionForGeneratedCodeInvenProjectCharacter() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_InvenProject,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AInvenProjectCharacter_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AInvenProjectCharacter_FindAndDecreaseCountActorObject, "FindAndDecreaseCountActorObject" }, // 1136675205
+		{ &Z_Construct_UFunction_AInvenProjectCharacter_FindAndDestroyActorFromItemObj, "FindAndDestroyActorFromItemObj" }, // 1791618344
 		{ &Z_Construct_UFunction_AInvenProjectCharacter_OnOverlapBegin, "OnOverlapBegin" }, // 4164838913
 		{ &Z_Construct_UFunction_AInvenProjectCharacter_OnOverlapEnd, "OnOverlapEnd" }, // 714756510
+		{ &Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDecreaseCountActorObject, "ResFindAndDecreaseCountActorObject" }, // 4058496730
+		{ &Z_Construct_UFunction_AInvenProjectCharacter_ResFindAndDestroyActorFromItemObj, "ResFindAndDestroyActorFromItemObj" }, // 213571319
+		{ &Z_Construct_UFunction_AInvenProjectCharacter_ResSetMeshBySlotType, "ResSetMeshBySlotType" }, // 3619302403
+		{ &Z_Construct_UFunction_AInvenProjectCharacter_ResSpawnItemFromClassAndCount, "ResSpawnItemFromClassAndCount" }, // 3628124987
+		{ &Z_Construct_UFunction_AInvenProjectCharacter_SetMeshBySlotType, "SetMeshBySlotType" }, // 959177542
+		{ &Z_Construct_UFunction_AInvenProjectCharacter_SpawnItemFromClassAndCount, "SpawnItemFromClassAndCount" }, // 1202174924
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInvenProjectCharacter_Statics::Class_MetaDataParams[] = {
@@ -301,6 +705,14 @@ void EmptyLinkFunctionForGeneratedCodeInvenProjectCharacter() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_BaseLookUpRate = { "BaseLookUpRate", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AInvenProjectCharacter, BaseLookUpRate), METADATA_PARAMS(Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_BaseLookUpRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_BaseLookUpRate_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_InvenCompo_MetaData[] = {
+		{ "Category", "InvenProjectCharacter" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "InvenProjectCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_InvenCompo = { "InvenCompo", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AInvenProjectCharacter, InvenCompo), Z_Construct_UClass_UInvenComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_InvenCompo_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_InvenCompo_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_HeadGear_MetaData[] = {
 		{ "Category", "InvenProjectCharacter" },
 		{ "EditInline", "true" },
@@ -337,6 +749,7 @@ void EmptyLinkFunctionForGeneratedCodeInvenProjectCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_FollowCamera,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_BaseTurnRate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_BaseLookUpRate,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_InvenCompo,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_HeadGear,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_BodySuit,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInvenProjectCharacter_Statics::NewProp_Shoose,
@@ -369,7 +782,7 @@ void EmptyLinkFunctionForGeneratedCodeInvenProjectCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AInvenProjectCharacter, 618086449);
+	IMPLEMENT_CLASS(AInvenProjectCharacter, 952247805);
 	template<> INVENPROJECT_API UClass* StaticClass<AInvenProjectCharacter>()
 	{
 		return AInvenProjectCharacter::StaticClass();

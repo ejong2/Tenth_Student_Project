@@ -19,6 +19,7 @@ void EmptyLinkFunctionForGeneratedCodeInvenComponent() {}
 	UPackage* Z_Construct_UPackage__Script_InvenProject();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	INVENPROJECT_API UClass* Z_Construct_UClass_AItemBase_NoRegister();
+	INVENPROJECT_API UClass* Z_Construct_UClass_UItemObject_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(UInvenComponent::execRemoveItem)
 	{
@@ -125,6 +126,12 @@ void EmptyLinkFunctionForGeneratedCodeInvenComponent() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ItemObjectArray_Inner;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ItemObjectArray_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_ItemObjectArray;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -144,6 +151,18 @@ void EmptyLinkFunctionForGeneratedCodeInvenComponent() {}
 		{ "ModuleRelativePath", "InvenComponent.h" },
 	};
 #endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInvenComponent_Statics::NewProp_ItemObjectArray_Inner = { "ItemObjectArray", nullptr, (EPropertyFlags)0x0000000000020000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_UItemObject_NoRegister, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UInvenComponent_Statics::NewProp_ItemObjectArray_MetaData[] = {
+		{ "Category", "InvenComponent" },
+		{ "ModuleRelativePath", "InvenComponent.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UInvenComponent_Statics::NewProp_ItemObjectArray = { "ItemObjectArray", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UInvenComponent, ItemObjectArray), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UInvenComponent_Statics::NewProp_ItemObjectArray_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UInvenComponent_Statics::NewProp_ItemObjectArray_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UInvenComponent_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInvenComponent_Statics::NewProp_ItemObjectArray_Inner,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInvenComponent_Statics::NewProp_ItemObjectArray,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UInvenComponent_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UInvenComponent>::IsAbstract,
 	};
@@ -153,11 +172,11 @@ void EmptyLinkFunctionForGeneratedCodeInvenComponent() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		FuncInfo,
-		nullptr,
+		Z_Construct_UClass_UInvenComponent_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_UInvenComponent_Statics::PropPointers),
 		0,
 		0x00B000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_UInvenComponent_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UInvenComponent_Statics::Class_MetaDataParams))
@@ -171,7 +190,7 @@ void EmptyLinkFunctionForGeneratedCodeInvenComponent() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UInvenComponent, 2643709020);
+	IMPLEMENT_CLASS(UInvenComponent, 2039630986);
 	template<> INVENPROJECT_API UClass* StaticClass<UInvenComponent>()
 	{
 		return UInvenComponent::StaticClass();

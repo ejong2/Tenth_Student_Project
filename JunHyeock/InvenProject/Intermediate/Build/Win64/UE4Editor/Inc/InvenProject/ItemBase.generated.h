@@ -8,8 +8,8 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class UPrimitiveComponent;
 class AActor;
+class UPrimitiveComponent;
 struct FHitResult;
 #ifdef INVENPROJECT_ItemBase_generated_h
 #error "ItemBase.generated.h already included, missing '#pragma once' in ItemBase.h"
@@ -18,17 +18,37 @@ struct FHitResult;
 
 #define InvenProject_Source_InvenProject_ItemBase_h_16_SPARSE_DATA
 #define InvenProject_Source_InvenProject_ItemBase_h_16_RPC_WRAPPERS \
+	virtual void RemovetoLandItemsSelf_Implementation(AActor* OtherActor); \
+	virtual void AddtoLandItemsSelf_Implementation(AActor* OtherActor); \
  \
+	DECLARE_FUNCTION(execRemovetoLandItemsSelf); \
+	DECLARE_FUNCTION(execAddtoLandItemsSelf); \
 	DECLARE_FUNCTION(execOnOverlapEnd); \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
 #define InvenProject_Source_InvenProject_ItemBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void RemovetoLandItemsSelf_Implementation(AActor* OtherActor); \
+	virtual void AddtoLandItemsSelf_Implementation(AActor* OtherActor); \
  \
+	DECLARE_FUNCTION(execRemovetoLandItemsSelf); \
+	DECLARE_FUNCTION(execAddtoLandItemsSelf); \
 	DECLARE_FUNCTION(execOnOverlapEnd); \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
+#define InvenProject_Source_InvenProject_ItemBase_h_16_EVENT_PARMS \
+	struct ItemBase_eventAddtoLandItemsSelf_Parms \
+	{ \
+		AActor* OtherActor; \
+	}; \
+	struct ItemBase_eventRemovetoLandItemsSelf_Parms \
+	{ \
+		AActor* OtherActor; \
+	};
+
+
+#define InvenProject_Source_InvenProject_ItemBase_h_16_CALLBACK_WRAPPERS
 #define InvenProject_Source_InvenProject_ItemBase_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAItemBase(); \
@@ -72,13 +92,17 @@ public: \
 
 
 #define InvenProject_Source_InvenProject_ItemBase_h_16_PRIVATE_PROPERTY_OFFSET
-#define InvenProject_Source_InvenProject_ItemBase_h_13_PROLOG
+#define InvenProject_Source_InvenProject_ItemBase_h_13_PROLOG \
+	InvenProject_Source_InvenProject_ItemBase_h_16_EVENT_PARMS
+
+
 #define InvenProject_Source_InvenProject_ItemBase_h_16_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	InvenProject_Source_InvenProject_ItemBase_h_16_PRIVATE_PROPERTY_OFFSET \
 	InvenProject_Source_InvenProject_ItemBase_h_16_SPARSE_DATA \
 	InvenProject_Source_InvenProject_ItemBase_h_16_RPC_WRAPPERS \
+	InvenProject_Source_InvenProject_ItemBase_h_16_CALLBACK_WRAPPERS \
 	InvenProject_Source_InvenProject_ItemBase_h_16_INCLASS \
 	InvenProject_Source_InvenProject_ItemBase_h_16_STANDARD_CONSTRUCTORS \
 public: \
@@ -91,6 +115,7 @@ public: \
 	InvenProject_Source_InvenProject_ItemBase_h_16_PRIVATE_PROPERTY_OFFSET \
 	InvenProject_Source_InvenProject_ItemBase_h_16_SPARSE_DATA \
 	InvenProject_Source_InvenProject_ItemBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	InvenProject_Source_InvenProject_ItemBase_h_16_CALLBACK_WRAPPERS \
 	InvenProject_Source_InvenProject_ItemBase_h_16_INCLASS_NO_PURE_DECLS \
 	InvenProject_Source_InvenProject_ItemBase_h_16_ENHANCED_CONSTRUCTORS \
 private: \

@@ -37,9 +37,9 @@ void EmptyLinkFunctionForGeneratedCodeUMG_EquipmentSlot() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Icon;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TempIcon_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DefaultIcon_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TempIcon;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_DefaultIcon;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -64,16 +64,16 @@ void EmptyLinkFunctionForGeneratedCodeUMG_EquipmentSlot() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_Icon = { "Icon", nullptr, (EPropertyFlags)0x0010000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_EquipmentSlot, Icon), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_Icon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_Icon_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_TempIcon_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_DefaultIcon_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "UMG_EquipmentSlot.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_TempIcon = { "TempIcon", nullptr, (EPropertyFlags)0x0010000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_EquipmentSlot, TempIcon), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_TempIcon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_TempIcon_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_DefaultIcon = { "DefaultIcon", nullptr, (EPropertyFlags)0x0010000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UUMG_EquipmentSlot, DefaultIcon), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_DefaultIcon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_DefaultIcon_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UUMG_EquipmentSlot_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_Icon,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_TempIcon,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UUMG_EquipmentSlot_Statics::NewProp_DefaultIcon,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UUMG_EquipmentSlot_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UUMG_EquipmentSlot>::IsAbstract,
@@ -102,7 +102,7 @@ void EmptyLinkFunctionForGeneratedCodeUMG_EquipmentSlot() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UUMG_EquipmentSlot, 4225112937);
+	IMPLEMENT_CLASS(UUMG_EquipmentSlot, 3447888510);
 	template<> INVENPROJECT_API UClass* StaticClass<UUMG_EquipmentSlot>()
 	{
 		return UUMG_EquipmentSlot::StaticClass();

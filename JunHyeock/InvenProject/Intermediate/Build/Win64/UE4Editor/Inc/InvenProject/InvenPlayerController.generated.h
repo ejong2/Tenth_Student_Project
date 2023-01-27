@@ -16,15 +16,35 @@ class UItemObject;
 
 #define InvenProject_Source_InvenProject_InvenPlayerController_h_30_SPARSE_DATA
 #define InvenProject_Source_InvenProject_InvenPlayerController_h_30_RPC_WRAPPERS \
+	virtual void RemoveItemFromLandItems_Implementation(UItemObject* Item); \
+	virtual void AddItemToLandItems_Implementation(UItemObject* Item); \
  \
+	DECLARE_FUNCTION(execRemoveItemFromLandItems); \
+	DECLARE_FUNCTION(execAddItemToLandItems); \
 	DECLARE_FUNCTION(execGetItemObjectofTileview);
 
 
 #define InvenProject_Source_InvenProject_InvenPlayerController_h_30_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void RemoveItemFromLandItems_Implementation(UItemObject* Item); \
+	virtual void AddItemToLandItems_Implementation(UItemObject* Item); \
  \
+	DECLARE_FUNCTION(execRemoveItemFromLandItems); \
+	DECLARE_FUNCTION(execAddItemToLandItems); \
 	DECLARE_FUNCTION(execGetItemObjectofTileview);
 
 
+#define InvenProject_Source_InvenProject_InvenPlayerController_h_30_EVENT_PARMS \
+	struct InvenPlayerController_eventAddItemToLandItems_Parms \
+	{ \
+		UItemObject* Item; \
+	}; \
+	struct InvenPlayerController_eventRemoveItemFromLandItems_Parms \
+	{ \
+		UItemObject* Item; \
+	};
+
+
+#define InvenProject_Source_InvenProject_InvenPlayerController_h_30_CALLBACK_WRAPPERS
 #define InvenProject_Source_InvenProject_InvenPlayerController_h_30_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAInvenPlayerController(); \
@@ -68,13 +88,17 @@ public: \
 
 
 #define InvenProject_Source_InvenProject_InvenPlayerController_h_30_PRIVATE_PROPERTY_OFFSET
-#define InvenProject_Source_InvenProject_InvenPlayerController_h_27_PROLOG
+#define InvenProject_Source_InvenProject_InvenPlayerController_h_27_PROLOG \
+	InvenProject_Source_InvenProject_InvenPlayerController_h_30_EVENT_PARMS
+
+
 #define InvenProject_Source_InvenProject_InvenPlayerController_h_30_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	InvenProject_Source_InvenProject_InvenPlayerController_h_30_PRIVATE_PROPERTY_OFFSET \
 	InvenProject_Source_InvenProject_InvenPlayerController_h_30_SPARSE_DATA \
 	InvenProject_Source_InvenProject_InvenPlayerController_h_30_RPC_WRAPPERS \
+	InvenProject_Source_InvenProject_InvenPlayerController_h_30_CALLBACK_WRAPPERS \
 	InvenProject_Source_InvenProject_InvenPlayerController_h_30_INCLASS \
 	InvenProject_Source_InvenProject_InvenPlayerController_h_30_STANDARD_CONSTRUCTORS \
 public: \
@@ -87,6 +111,7 @@ public: \
 	InvenProject_Source_InvenProject_InvenPlayerController_h_30_PRIVATE_PROPERTY_OFFSET \
 	InvenProject_Source_InvenProject_InvenPlayerController_h_30_SPARSE_DATA \
 	InvenProject_Source_InvenProject_InvenPlayerController_h_30_RPC_WRAPPERS_NO_PURE_DECLS \
+	InvenProject_Source_InvenProject_InvenPlayerController_h_30_CALLBACK_WRAPPERS \
 	InvenProject_Source_InvenProject_InvenPlayerController_h_30_INCLASS_NO_PURE_DECLS \
 	InvenProject_Source_InvenProject_InvenPlayerController_h_30_ENHANCED_CONSTRUCTORS \
 private: \

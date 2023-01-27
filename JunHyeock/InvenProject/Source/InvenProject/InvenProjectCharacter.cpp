@@ -58,24 +58,31 @@ AInvenProjectCharacter::AInvenProjectCharacter()
 	HeadGear->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	HeadGear->SetGenerateOverlapEvents(false);
 	HeadGear->SetCollisionProfileName(UCollisionProfile::NoCollision_ProfileName);
+	HeadGear->SetIsReplicated(true);
 
 	BodySuit = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BodySuit"));
 	BodySuit->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("spine_03"));
 	BodySuit->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	BodySuit->SetGenerateOverlapEvents(false);
 	BodySuit->SetCollisionProfileName(UCollisionProfile::NoCollision_ProfileName);
+	BodySuit->SetIsReplicated(true);
+
 
 	Shoose = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Shoose"));
 	Shoose->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("foot_r"));
 	Shoose->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	Shoose->SetGenerateOverlapEvents(false);
 	Shoose->SetCollisionProfileName(UCollisionProfile::NoCollision_ProfileName);
+	Shoose->SetIsReplicated(true);
+
 
 	Weapon = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Weapon"));
 	Weapon->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("hand_r"));
 	Weapon->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	Weapon->SetGenerateOverlapEvents(false);
 	Weapon->SetCollisionProfileName(UCollisionProfile::NoCollision_ProfileName);
+	Weapon->SetIsReplicated(true);
+
 
 
 
@@ -138,18 +145,76 @@ void AInvenProjectCharacter::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, A
 	OverlapedItemArray.Remove(Item);
 }
 
-void AInvenProjectCharacter::FindAndDestroyActorFromItemObj(int32 index)
+void AInvenProjectCharacter::SetMeshBySlotType_Implementation(MyEnum Myenum, UStaticMesh* MyMesh)
+{
+	ResSetMeshBySlotType(Myenum, MyMesh);
+}
+
+void AInvenProjectCharacter::ResSetMeshBySlotType_Implementation(MyEnum Myenum, UStaticMesh* MyMesh)
+{
+	//Must Check Item GearType Enum
+	switch (Myenum)
+	{
+	case MyEnum::NONE:
+		break;
+	case MyEnum::Head:
+	{
+		if (true)
+			HeadGear->SetStaticMesh(MyMesh);
+		break;
+	}
+
+	case MyEnum::Body:
+	{
+		if (true)
+			BodySuit->SetStaticMesh(MyMesh);
+		break;
+	}
+
+	case MyEnum::Foot:
+	{
+		if (true)
+			Shoose->SetStaticMesh(MyMesh);
+		break;
+	}
+
+	case MyEnum::Weapon:
+	{
+		if (true)
+			Weapon->SetStaticMesh(MyMesh);
+		break;
+	}
+
+	default:
+		break;
+	}
+}
+
+
+
+void AInvenProjectCharacter::FindAndDestroyActorFromItemObj_Implementation(int32 index)
 {
 	//TArray<AActor*> Result;
 	//GetOverlappingActors(Result, AItemBase::StaticClass());
 	//AItemBase* DestroyingItem = Cast<AItemBase>(Result[index]);
 	//Result[index]->Destroy();
-	if(OverlapedItemArray.IsValidIndex(index))
-	OverlapedItemArray[index]->Destroy();
+	ResFindAndDestroyActorFromItemObj(index);
 	
 }
 
-void AInvenProjectCharacter::FindAndDecreaseCountActorObject(int32 index, int32 Count)
+void AInvenProjectCharacter::ResFindAndDestroyActorFromItemObj_Implementation(int32 index)
+{
+	if (OverlapedItemArray.IsValidIndex(index))
+		OverlapedItemArray[index]->Destroy();
+}
+
+void AInvenProjectCharacter::FindAndDecreaseCountActorObject_Implementation(int32 index, int32 Count)
+{
+	ResFindAndDecreaseCountActorObject(index, Count);
+}
+
+
+void AInvenProjectCharacter::ResFindAndDecreaseCountActorObject_Implementation(int32 index, int32 Count)
 {
 	if (OverlapedItemArray.IsValidIndex(index))
 	{
@@ -220,4 +285,41 @@ void AInvenProjectCharacter::MoveRight(float Value)
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
 	}
+}
+
+void AInvenProjectCharacter::SpawnItemFromClassAndCount_Implementation(TSubclassOf<AActor> MyActorClass, int32 count)
+{
+	ResSpawnItemFromClassAndCount(MyActorClass, count);
+}
+
+void AInvenProjectCharacter::ResSpawnItemFromClassAndCount_Implementation(TSubclassOf<AActor> MyActorClass, int32 count)
+{
+	FTransform MyTransform = GetTransform();
+	AItemBase* NewItem = Cast<AItemBase>(UGameplayStatics::BeginDeferredActorSpawnFromClass(this, MyActorClass, MyTransform));
+	if (NewItem != nullptr)
+	{
+		NewItem->ItemCount = count;
+		UGameplayStatics::FinishSpawningActor(NewItem, MyTransform);
+	}
+}
+
+UStaticMesh* AInvenProjectCharacter::GetMeshBySlotType(MyEnum Myenum)
+{
+	switch (Myenum)
+	{
+	case MyEnum::NONE:
+		break;
+	case MyEnum::Head:
+		return HeadGear->GetStaticMesh();
+	case MyEnum::Body:
+		return BodySuit->GetStaticMesh();
+	case MyEnum::Foot:
+		return Shoose->GetStaticMesh();
+	case MyEnum::Weapon:
+		return Weapon->GetStaticMesh();
+	default:
+		break;
+	}
+
+	return nullptr;
 }

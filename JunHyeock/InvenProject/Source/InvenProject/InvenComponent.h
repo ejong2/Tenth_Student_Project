@@ -43,6 +43,7 @@ public:
 
 	void RemoveItemasCount(int32 index, int32 Count);
 
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
 	TArray<class UItemObject*> ItemObjectArray;
 
 };

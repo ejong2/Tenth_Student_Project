@@ -8,14 +8,46 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
+struct FTransform;
 #ifdef INVENPROJECT_UMG_LandItems_generated_h
 #error "UMG_LandItems.generated.h already included, missing '#pragma once' in UMG_LandItems.h"
 #endif
 #define INVENPROJECT_UMG_LandItems_generated_h
 
 #define InvenProject_Source_InvenProject_UMG_LandItems_h_22_SPARSE_DATA
-#define InvenProject_Source_InvenProject_UMG_LandItems_h_22_RPC_WRAPPERS
-#define InvenProject_Source_InvenProject_UMG_LandItems_h_22_RPC_WRAPPERS_NO_PURE_DECLS
+#define InvenProject_Source_InvenProject_UMG_LandItems_h_22_RPC_WRAPPERS \
+	virtual void ResSpawnItemwithClassAndCount_Implementation(TSubclassOf<AActor>  Myclass, int32 count, FTransform MyTransform); \
+	virtual void SpawnItemwithClassAndCount_Implementation(TSubclassOf<AActor>  Myclass, int32 count, FTransform MyTransform); \
+ \
+	DECLARE_FUNCTION(execResSpawnItemwithClassAndCount); \
+	DECLARE_FUNCTION(execSpawnItemwithClassAndCount);
+
+
+#define InvenProject_Source_InvenProject_UMG_LandItems_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void ResSpawnItemwithClassAndCount_Implementation(TSubclassOf<AActor>  Myclass, int32 count, FTransform MyTransform); \
+	virtual void SpawnItemwithClassAndCount_Implementation(TSubclassOf<AActor>  Myclass, int32 count, FTransform MyTransform); \
+ \
+	DECLARE_FUNCTION(execResSpawnItemwithClassAndCount); \
+	DECLARE_FUNCTION(execSpawnItemwithClassAndCount);
+
+
+#define InvenProject_Source_InvenProject_UMG_LandItems_h_22_EVENT_PARMS \
+	struct UMG_LandItems_eventResSpawnItemwithClassAndCount_Parms \
+	{ \
+		TSubclassOf<AActor>  Myclass; \
+		int32 count; \
+		FTransform MyTransform; \
+	}; \
+	struct UMG_LandItems_eventSpawnItemwithClassAndCount_Parms \
+	{ \
+		TSubclassOf<AActor>  Myclass; \
+		int32 count; \
+		FTransform MyTransform; \
+	};
+
+
+#define InvenProject_Source_InvenProject_UMG_LandItems_h_22_CALLBACK_WRAPPERS
 #define InvenProject_Source_InvenProject_UMG_LandItems_h_22_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUUMG_LandItems(); \
@@ -61,13 +93,17 @@ public: \
 
 
 #define InvenProject_Source_InvenProject_UMG_LandItems_h_22_PRIVATE_PROPERTY_OFFSET
-#define InvenProject_Source_InvenProject_UMG_LandItems_h_19_PROLOG
+#define InvenProject_Source_InvenProject_UMG_LandItems_h_19_PROLOG \
+	InvenProject_Source_InvenProject_UMG_LandItems_h_22_EVENT_PARMS
+
+
 #define InvenProject_Source_InvenProject_UMG_LandItems_h_22_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	InvenProject_Source_InvenProject_UMG_LandItems_h_22_PRIVATE_PROPERTY_OFFSET \
 	InvenProject_Source_InvenProject_UMG_LandItems_h_22_SPARSE_DATA \
 	InvenProject_Source_InvenProject_UMG_LandItems_h_22_RPC_WRAPPERS \
+	InvenProject_Source_InvenProject_UMG_LandItems_h_22_CALLBACK_WRAPPERS \
 	InvenProject_Source_InvenProject_UMG_LandItems_h_22_INCLASS \
 	InvenProject_Source_InvenProject_UMG_LandItems_h_22_STANDARD_CONSTRUCTORS \
 public: \
@@ -80,6 +116,7 @@ public: \
 	InvenProject_Source_InvenProject_UMG_LandItems_h_22_PRIVATE_PROPERTY_OFFSET \
 	InvenProject_Source_InvenProject_UMG_LandItems_h_22_SPARSE_DATA \
 	InvenProject_Source_InvenProject_UMG_LandItems_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+	InvenProject_Source_InvenProject_UMG_LandItems_h_22_CALLBACK_WRAPPERS \
 	InvenProject_Source_InvenProject_UMG_LandItems_h_22_INCLASS_NO_PURE_DECLS \
 	InvenProject_Source_InvenProject_UMG_LandItems_h_22_ENHANCED_CONSTRUCTORS \
 private: \

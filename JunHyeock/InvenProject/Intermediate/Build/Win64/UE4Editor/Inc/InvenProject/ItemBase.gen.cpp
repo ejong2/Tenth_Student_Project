@@ -17,13 +17,29 @@ void EmptyLinkFunctionForGeneratedCodeItemBase() {}
 	INVENPROJECT_API UClass* Z_Construct_UClass_AItemBase();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_InvenProject();
-	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AItemBase::execRemovetoLandItemsSelf)
+	{
+		P_GET_OBJECT(AActor,Z_Param_OtherActor);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->RemovetoLandItemsSelf_Implementation(Z_Param_OtherActor);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AItemBase::execAddtoLandItemsSelf)
+	{
+		P_GET_OBJECT(AActor,Z_Param_OtherActor);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AddtoLandItemsSelf_Implementation(Z_Param_OtherActor);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AItemBase::execOnOverlapEnd)
 	{
 		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OverlappedComp);
@@ -48,14 +64,58 @@ void EmptyLinkFunctionForGeneratedCodeItemBase() {}
 		P_THIS->OnOverlapBegin(Z_Param_OverlappedComp,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_OtherBodyIndex,Z_Param_bFromSweep,Z_Param_Out_SweepResult);
 		P_NATIVE_END;
 	}
+	static FName NAME_AItemBase_AddtoLandItemsSelf = FName(TEXT("AddtoLandItemsSelf"));
+	void AItemBase::AddtoLandItemsSelf(AActor* OtherActor)
+	{
+		ItemBase_eventAddtoLandItemsSelf_Parms Parms;
+		Parms.OtherActor=OtherActor;
+		ProcessEvent(FindFunctionChecked(NAME_AItemBase_AddtoLandItemsSelf),&Parms);
+	}
+	static FName NAME_AItemBase_RemovetoLandItemsSelf = FName(TEXT("RemovetoLandItemsSelf"));
+	void AItemBase::RemovetoLandItemsSelf(AActor* OtherActor)
+	{
+		ItemBase_eventRemovetoLandItemsSelf_Parms Parms;
+		Parms.OtherActor=OtherActor;
+		ProcessEvent(FindFunctionChecked(NAME_AItemBase_RemovetoLandItemsSelf),&Parms);
+	}
 	void AItemBase::StaticRegisterNativesAItemBase()
 	{
 		UClass* Class = AItemBase::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "AddtoLandItemsSelf", &AItemBase::execAddtoLandItemsSelf },
 			{ "OnOverlapBegin", &AItemBase::execOnOverlapBegin },
 			{ "OnOverlapEnd", &AItemBase::execOnOverlapEnd },
+			{ "RemovetoLandItemsSelf", &AItemBase::execRemovetoLandItemsSelf },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AItemBase_AddtoLandItemsSelf_Statics
+	{
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_OtherActor;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AItemBase_AddtoLandItemsSelf_Statics::NewProp_OtherActor = { "OtherActor", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ItemBase_eventAddtoLandItemsSelf_Parms, OtherActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AItemBase_AddtoLandItemsSelf_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AItemBase_AddtoLandItemsSelf_Statics::NewProp_OtherActor,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AItemBase_AddtoLandItemsSelf_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ItemBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AItemBase_AddtoLandItemsSelf_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AItemBase, nullptr, "AddtoLandItemsSelf", nullptr, nullptr, sizeof(ItemBase_eventAddtoLandItemsSelf_Parms), Z_Construct_UFunction_AItemBase_AddtoLandItemsSelf_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AItemBase_AddtoLandItemsSelf_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01020CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AItemBase_AddtoLandItemsSelf_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AItemBase_AddtoLandItemsSelf_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AItemBase_AddtoLandItemsSelf()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AItemBase_AddtoLandItemsSelf_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_AItemBase_OnOverlapBegin_Statics
 	{
@@ -198,6 +258,34 @@ void EmptyLinkFunctionForGeneratedCodeItemBase() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AItemBase_RemovetoLandItemsSelf_Statics
+	{
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_OtherActor;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AItemBase_RemovetoLandItemsSelf_Statics::NewProp_OtherActor = { "OtherActor", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ItemBase_eventRemovetoLandItemsSelf_Parms, OtherActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AItemBase_RemovetoLandItemsSelf_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AItemBase_RemovetoLandItemsSelf_Statics::NewProp_OtherActor,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AItemBase_RemovetoLandItemsSelf_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ItemBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AItemBase_RemovetoLandItemsSelf_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AItemBase, nullptr, "RemovetoLandItemsSelf", nullptr, nullptr, sizeof(ItemBase_eventRemovetoLandItemsSelf_Parms), Z_Construct_UFunction_AItemBase_RemovetoLandItemsSelf_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AItemBase_RemovetoLandItemsSelf_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01020CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AItemBase_RemovetoLandItemsSelf_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AItemBase_RemovetoLandItemsSelf_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AItemBase_RemovetoLandItemsSelf()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AItemBase_RemovetoLandItemsSelf_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_AItemBase_NoRegister()
 	{
 		return AItemBase::StaticClass();
@@ -242,8 +330,10 @@ void EmptyLinkFunctionForGeneratedCodeItemBase() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_InvenProject,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AItemBase_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AItemBase_AddtoLandItemsSelf, "AddtoLandItemsSelf" }, // 1956913966
 		{ &Z_Construct_UFunction_AItemBase_OnOverlapBegin, "OnOverlapBegin" }, // 1754543496
 		{ &Z_Construct_UFunction_AItemBase_OnOverlapEnd, "OnOverlapEnd" }, // 1527710670
+		{ &Z_Construct_UFunction_AItemBase_RemovetoLandItemsSelf, "RemovetoLandItemsSelf" }, // 909584398
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItemBase_Statics::Class_MetaDataParams[] = {
@@ -330,7 +420,7 @@ void EmptyLinkFunctionForGeneratedCodeItemBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AItemBase, 212569095);
+	IMPLEMENT_CLASS(AItemBase, 655859263);
 	template<> INVENPROJECT_API UClass* StaticClass<AItemBase>()
 	{
 		return AItemBase::StaticClass();

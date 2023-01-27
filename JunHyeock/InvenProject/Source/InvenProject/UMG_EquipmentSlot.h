@@ -30,17 +30,16 @@ public:
 
 	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
 	
-
 	void SetMeshBySlotType(UStaticMesh* Mesh);
 
 	MyEnum SlotType = MyEnum::NONE;
 
 	
-	TSubclassOf<AItemBase> ItemClass;
+	TSubclassOf<AItemBase> ItemClass = nullptr;
 
 	UPROPERTY(meta = (BindWidget))
 	UImage* Icon;
 
 	UPROPERTY(meta = (BindWidget))
-	UImage* TempIcon;
+	UImage* DefaultIcon;
 };
