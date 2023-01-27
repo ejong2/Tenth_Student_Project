@@ -85,6 +85,10 @@ bool UUMG_EquipmentSlot::NativeOnDrop(const FGeometry& InGeometry, const FDragDr
             MyController->MyLayout->LandItems->LandItemListView->RegenerateAllEntries();
             MyController->MatchedIndex = -1;
         }
+        else
+        {
+            return false;
+        }
     }
     else if (MyController->bIsClickingEquip == true && MyController->bIsClickingInventory == false)
     {//장비창에서

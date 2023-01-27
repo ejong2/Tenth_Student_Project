@@ -77,7 +77,7 @@ AInvenProjectCharacter::AInvenProjectCharacter()
 
 
 	Weapon = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Weapon"));
-	Weapon->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("hand_r"));
+	Weapon->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("handgrip"));
 	Weapon->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	Weapon->SetGenerateOverlapEvents(false);
 	Weapon->SetCollisionProfileName(UCollisionProfile::NoCollision_ProfileName);
@@ -205,7 +205,9 @@ void AInvenProjectCharacter::FindAndDestroyActorFromItemObj_Implementation(int32
 void AInvenProjectCharacter::ResFindAndDestroyActorFromItemObj_Implementation(int32 index)
 {
 	if (OverlapedItemArray.IsValidIndex(index))
+	{
 		OverlapedItemArray[index]->Destroy();
+	}
 }
 
 void AInvenProjectCharacter::FindAndDecreaseCountActorObject_Implementation(int32 index, int32 Count)
